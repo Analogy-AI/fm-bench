@@ -1,0 +1,7209 @@
+{
+ "note": "Public reference world (deterministic from the seed). NOT the official scored world; official evaluation uses withheld salted seeds. true_* are the hidden ground truth; scout_band is what a manager sees in play.",
+ "seed": 1,
+ "player_club_stratum": "mid",
+ "n_clubs": 16,
+ "n_players": 400,
+ "players": [
+  {
+   "pid": "P00001",
+   "club": "C00001",
+   "name": "Rade Sanlez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 29,
+   "true_ca": 1341,
+   "true_phys": 1352,
+   "true_tech": 1411,
+   "true_ment": 1243,
+   "pa": 1478,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00002",
+   "club": "C00001",
+   "name": "Harlan Calbrook",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1290,
+   "true_phys": 1290,
+   "true_tech": 1397,
+   "true_ment": 1160,
+   "pa": 1443,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00003",
+   "club": "C00001",
+   "name": "Sanri Radinho",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 26,
+   "true_ca": 1267,
+   "true_phys": 1282,
+   "true_tech": 1193,
+   "true_ment": 1340,
+   "pa": 1457,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00004",
+   "club": "C00001",
+   "name": "Cal Albrook",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 28,
+   "true_ca": 1253,
+   "true_phys": 1274,
+   "true_tech": 1216,
+   "true_ment": 1273,
+   "pa": 1343,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00005",
+   "club": "C00001",
+   "name": "Kje Jangaard",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 20,
+   "true_ca": 1145,
+   "true_phys": 1139,
+   "true_tech": 1064,
+   "true_ment": 1248,
+   "pa": 1460,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00006",
+   "club": "C00001",
+   "name": "Lu Sanmol",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1627,
+   "true_phys": 1660,
+   "true_tech": 1526,
+   "true_ment": 1711,
+   "pa": 1717,
+   "scout_band": {
+    "ca_high": 166,
+    "ca_low": 158,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00007",
+   "club": "C00001",
+   "name": "Laubjo Sorgaard",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1232,
+   "true_phys": 1271,
+   "true_tech": 1264,
+   "true_ment": 1151,
+   "pa": 1244,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00008",
+   "club": "C00001",
+   "name": "Nybjo Eigaard",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 28,
+   "true_ca": 1429,
+   "true_phys": 1563,
+   "true_tech": 1419,
+   "true_ment": 1288,
+   "pa": 1595,
+   "scout_band": {
+    "ca_high": 146,
+    "ca_low": 138,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00009",
+   "club": "C00001",
+   "name": "Wil Harford",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1473,
+   "true_phys": 1583,
+   "true_tech": 1417,
+   "true_ment": 1414,
+   "pa": 1581,
+   "scout_band": {
+    "ca_high": 152,
+    "ca_low": 144,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00010",
+   "club": "C00001",
+   "name": "Gota Rares",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1188,
+   "true_phys": 1204,
+   "true_tech": 1137,
+   "true_ment": 1230,
+   "pa": 1191,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00011",
+   "club": "C00001",
+   "name": "Ka Oswick",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 25,
+   "true_ca": 1268,
+   "true_phys": 1360,
+   "true_tech": 1153,
+   "true_ment": 1301,
+   "pa": 1500,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00012",
+   "club": "C00001",
+   "name": "Ri Torvez",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 21,
+   "true_ca": 1463,
+   "true_phys": 1490,
+   "true_tech": 1592,
+   "true_ment": 1279,
+   "pa": 1499,
+   "scout_band": {
+    "ca_high": 149,
+    "ca_low": 141,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00013",
+   "club": "C00001",
+   "name": "Janke Asvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1334,
+   "true_phys": 1264,
+   "true_tech": 1342,
+   "true_ment": 1403,
+   "pa": 1419,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00014",
+   "club": "C00001",
+   "name": "Dello Gores",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 1057,
+   "true_phys": 973,
+   "true_tech": 1071,
+   "true_ment": 1137,
+   "pa": 1394,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00015",
+   "club": "C00001",
+   "name": "Lu Luras",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 28,
+   "true_ca": 1287,
+   "true_phys": 1290,
+   "true_tech": 1380,
+   "true_ment": 1172,
+   "pa": 1602,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00016",
+   "club": "C00001",
+   "name": "Brenken Calson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1113,
+   "true_phys": 1105,
+   "true_tech": 1216,
+   "true_ment": 999,
+   "pa": 1364,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00017",
+   "club": "C00001",
+   "name": "Sorsten Asberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 21,
+   "true_ca": 1423,
+   "true_phys": 1505,
+   "true_tech": 1466,
+   "true_ment": 1279,
+   "pa": 1564,
+   "scout_band": {
+    "ca_high": 146,
+    "ca_low": 138,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00018",
+   "club": "C00001",
+   "name": "Rusten Sorsen",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 28,
+   "true_ca": 1241,
+   "true_phys": 1189,
+   "true_tech": 1183,
+   "true_ment": 1370,
+   "pa": 1274,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00019",
+   "club": "C00001",
+   "name": "Jan Laulund",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 25,
+   "true_ca": 1361,
+   "true_phys": 1316,
+   "true_tech": 1320,
+   "true_ment": 1461,
+   "pa": 1483,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00020",
+   "club": "C00001",
+   "name": "Es Gotiago",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 22,
+   "true_ca": 1386,
+   "true_phys": 1483,
+   "true_tech": 1304,
+   "true_ment": 1375,
+   "pa": 1473,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00021",
+   "club": "C00001",
+   "name": "Aske Ruberg",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 25,
+   "true_ca": 1307,
+   "true_phys": 1213,
+   "true_tech": 1392,
+   "true_ment": 1311,
+   "pa": 1375,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00022",
+   "club": "C00001",
+   "name": "Fen Kashaw",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1289,
+   "true_phys": 1360,
+   "true_tech": 1327,
+   "true_ment": 1164,
+   "pa": 1312,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00023",
+   "club": "C00001",
+   "name": "Jannar Nylund",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 23,
+   "true_ca": 1385,
+   "true_phys": 1451,
+   "true_tech": 1447,
+   "true_ment": 1237,
+   "pa": 1711,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00024",
+   "club": "C00001",
+   "name": "As Sorstrom",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 33,
+   "true_ca": 1533,
+   "true_phys": 1418,
+   "true_tech": 1519,
+   "true_ment": 1681,
+   "pa": 1566,
+   "scout_band": {
+    "ca_high": 156,
+    "ca_low": 148,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00025",
+   "club": "C00001",
+   "name": "Kjeke Assen",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 921,
+   "true_phys": 833,
+   "true_tech": 925,
+   "true_ment": 1016,
+   "pa": 1349,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00026",
+   "club": "C00002",
+   "name": "Ei Laustrom",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1369,
+   "true_phys": 1424,
+   "true_tech": 1492,
+   "true_ment": 1160,
+   "pa": 1416,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00027",
+   "club": "C00002",
+   "name": "Delco Goras",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 21,
+   "true_ca": 1307,
+   "true_phys": 1353,
+   "true_tech": 1319,
+   "true_ment": 1241,
+   "pa": 1369,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00028",
+   "club": "C00002",
+   "name": "Ny Maggaard",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 27,
+   "true_ca": 1263,
+   "true_phys": 1221,
+   "true_tech": 1166,
+   "true_ment": 1427,
+   "pa": 1333,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00029",
+   "club": "C00002",
+   "name": "Callan Brenbrook",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 1155,
+   "true_phys": 1090,
+   "true_tech": 1066,
+   "true_ment": 1337,
+   "pa": 1275,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00030",
+   "club": "C00002",
+   "name": "Janmun Kjedal",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 20,
+   "true_ca": 1139,
+   "true_phys": 1155,
+   "true_tech": 1146,
+   "true_ment": 1114,
+   "pa": 1302,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00031",
+   "club": "C00002",
+   "name": "Kater Jorley",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 29,
+   "true_ca": 1200,
+   "true_phys": 1165,
+   "true_tech": 1298,
+   "true_ment": 1121,
+   "pa": 1317,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00032",
+   "club": "C00002",
+   "name": "Dun Jorfield",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 1367,
+   "true_phys": 1291,
+   "true_tech": 1405,
+   "true_ment": 1409,
+   "pa": 1450,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00033",
+   "club": "C00002",
+   "name": "Del Varas",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1203,
+   "true_phys": 1183,
+   "true_tech": 1095,
+   "true_ment": 1356,
+   "pa": 1376,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00034",
+   "club": "C00002",
+   "name": "Vik Eilund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1553,
+   "true_phys": 1442,
+   "true_tech": 1637,
+   "true_ment": 1578,
+   "pa": 1863,
+   "scout_band": {
+    "ca_high": 156,
+    "ca_low": 148,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00035",
+   "club": "C00002",
+   "name": "Vikbjo Maglund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 19,
+   "true_ca": 1154,
+   "true_phys": 1232,
+   "true_tech": 1239,
+   "true_ment": 963,
+   "pa": 1277,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00036",
+   "club": "C00002",
+   "name": "Oswal Kafield",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 1315,
+   "true_phys": 1350,
+   "true_tech": 1319,
+   "true_ment": 1269,
+   "pa": 1314,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00037",
+   "club": "C00002",
+   "name": "Einar Ruvik",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 24,
+   "true_ca": 1217,
+   "true_phys": 1172,
+   "true_tech": 1277,
+   "true_ment": 1197,
+   "pa": 1242,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00038",
+   "club": "C00002",
+   "name": "Esva Deldinho",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1272,
+   "true_phys": 1193,
+   "true_tech": 1275,
+   "true_ment": 1359,
+   "pa": 1306,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00039",
+   "club": "C00002",
+   "name": "Goni Esres",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 18,
+   "true_ca": 986,
+   "true_phys": 1035,
+   "true_tech": 976,
+   "true_ment": 943,
+   "pa": 1081,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00040",
+   "club": "C00002",
+   "name": "Rita Lutiago",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1159,
+   "true_phys": 1059,
+   "true_tech": 1118,
+   "true_ment": 1323,
+   "pa": 1233,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00041",
+   "club": "C00002",
+   "name": "Va Tormol",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1278,
+   "true_phys": 1225,
+   "true_tech": 1395,
+   "true_ment": 1198,
+   "pa": 1372,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00042",
+   "club": "C00002",
+   "name": "Torni Torras",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 34,
+   "true_ca": 1486,
+   "true_phys": 1411,
+   "true_tech": 1577,
+   "true_ment": 1462,
+   "pa": 1507,
+   "scout_band": {
+    "ca_high": 154,
+    "ca_low": 146,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00043",
+   "club": "C00002",
+   "name": "Mico Raras",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 1379,
+   "true_phys": 1478,
+   "true_tech": 1258,
+   "true_ment": 1411,
+   "pa": 1811,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00044",
+   "club": "C00002",
+   "name": "Riri Rimol",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 31,
+   "true_ca": 1408,
+   "true_phys": 1490,
+   "true_tech": 1438,
+   "true_ment": 1280,
+   "pa": 1512,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00045",
+   "club": "C00002",
+   "name": "Fenwal Osworth",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 20,
+   "true_ca": 1091,
+   "true_phys": 1188,
+   "true_tech": 1177,
+   "true_ment": 877,
+   "pa": 1140,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00046",
+   "club": "C00002",
+   "name": "Del Godano",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 22,
+   "true_ca": 1360,
+   "true_phys": 1303,
+   "true_tech": 1307,
+   "true_ment": 1487,
+   "pa": 1440,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00047",
+   "club": "C00002",
+   "name": "Go Raras",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 23,
+   "true_ca": 1267,
+   "true_phys": 1251,
+   "true_tech": 1326,
+   "true_ment": 1214,
+   "pa": 1331,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00048",
+   "club": "C00002",
+   "name": "Viklin Rudal",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 30,
+   "true_ca": 1380,
+   "true_phys": 1469,
+   "true_tech": 1354,
+   "true_ment": 1312,
+   "pa": 1475,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00049",
+   "club": "C00002",
+   "name": "Wilbur Wilbrook",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 31,
+   "true_ca": 1334,
+   "true_phys": 1327,
+   "true_tech": 1228,
+   "true_ment": 1469,
+   "pa": 1594,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00050",
+   "club": "C00002",
+   "name": "Nyke Magstrom",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 21,
+   "true_ca": 1260,
+   "true_phys": 1376,
+   "true_tech": 1297,
+   "true_ment": 1084,
+   "pa": 1375,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00051",
+   "club": "C00003",
+   "name": "Mi Godinho",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 26,
+   "true_ca": 1548,
+   "true_phys": 1500,
+   "true_tech": 1591,
+   "true_ment": 1552,
+   "pa": 1658,
+   "scout_band": {
+    "ca_high": 162,
+    "ca_low": 154,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00052",
+   "club": "C00003",
+   "name": "Sor Nylund",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 22,
+   "true_ca": 1212,
+   "true_phys": 1198,
+   "true_tech": 1228,
+   "true_ment": 1208,
+   "pa": 1272,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00053",
+   "club": "C00003",
+   "name": "Calwal Calshaw",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 1210,
+   "true_phys": 1169,
+   "true_tech": 1157,
+   "true_ment": 1320,
+   "pa": 1326,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00054",
+   "club": "C00003",
+   "name": "Gori Lumol",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1362,
+   "true_phys": 1364,
+   "true_tech": 1345,
+   "true_ment": 1381,
+   "pa": 1475,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00055",
+   "club": "C00003",
+   "name": "Cal Osley",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 23,
+   "true_ca": 1376,
+   "true_phys": 1359,
+   "true_tech": 1443,
+   "true_ment": 1315,
+   "pa": 1497,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00056",
+   "club": "C00003",
+   "name": "Alter Alfield",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 22,
+   "true_ca": 1459,
+   "true_phys": 1470,
+   "true_tech": 1463,
+   "true_ment": 1443,
+   "pa": 1625,
+   "scout_band": {
+    "ca_high": 152,
+    "ca_low": 144,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00057",
+   "club": "C00003",
+   "name": "Laubjo Rustrom",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1224,
+   "true_phys": 1334,
+   "true_tech": 1119,
+   "true_ment": 1226,
+   "pa": 1528,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00058",
+   "club": "C00003",
+   "name": "Ka Jorley",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 25,
+   "true_ca": 1209,
+   "true_phys": 1142,
+   "true_tech": 1171,
+   "true_ment": 1331,
+   "pa": 1245,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00059",
+   "club": "C00003",
+   "name": "Jan Laugaard",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1082,
+   "true_phys": 1187,
+   "true_tech": 999,
+   "true_ment": 1062,
+   "pa": 1112,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00060",
+   "club": "C00003",
+   "name": "Sor Ruberg",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 23,
+   "true_ca": 1109,
+   "true_phys": 1199,
+   "true_tech": 1204,
+   "true_ment": 892,
+   "pa": 1367,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00061",
+   "club": "C00003",
+   "name": "San Milez",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 21,
+   "true_ca": 1371,
+   "true_phys": 1465,
+   "true_tech": 1356,
+   "true_ment": 1284,
+   "pa": 1709,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00062",
+   "club": "C00003",
+   "name": "Sor Nydal",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 20,
+   "true_ca": 989,
+   "true_phys": 1013,
+   "true_tech": 1003,
+   "true_ment": 946,
+   "pa": 1442,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00063",
+   "club": "C00003",
+   "name": "Luco Estiago",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 900,
+   "true_phys": 986,
+   "true_tech": 847,
+   "true_ment": 865,
+   "pa": 1108,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00064",
+   "club": "C00003",
+   "name": "Del Estiago",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 23,
+   "true_ca": 999,
+   "true_phys": 908,
+   "true_tech": 1063,
+   "true_ment": 1025,
+   "pa": 1035,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00065",
+   "club": "C00003",
+   "name": "Wil Dunson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1084,
+   "true_phys": 1169,
+   "true_tech": 1048,
+   "true_ment": 1030,
+   "pa": 1104,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00066",
+   "club": "C00003",
+   "name": "Cal Brenwick",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1343,
+   "true_phys": 1275,
+   "true_tech": 1351,
+   "true_ment": 1411,
+   "pa": 1469,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00067",
+   "club": "C00003",
+   "name": "San Midinho",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 27,
+   "true_ca": 1383,
+   "true_phys": 1461,
+   "true_tech": 1434,
+   "true_ment": 1232,
+   "pa": 1417,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00068",
+   "club": "C00003",
+   "name": "Ri Ludano",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 32,
+   "true_ca": 1475,
+   "true_phys": 1372,
+   "true_tech": 1498,
+   "true_ment": 1565,
+   "pa": 1738,
+   "scout_band": {
+    "ca_high": 152,
+    "ca_low": 144,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00069",
+   "club": "C00003",
+   "name": "Va Sanvez",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 30,
+   "true_ca": 1280,
+   "true_phys": 1352,
+   "true_tech": 1221,
+   "true_ment": 1268,
+   "pa": 1611,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00070",
+   "club": "C00003",
+   "name": "Ny Asstrom",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 29,
+   "true_ca": 1407,
+   "true_phys": 1295,
+   "true_tech": 1299,
+   "true_ment": 1662,
+   "pa": 1527,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00071",
+   "club": "C00003",
+   "name": "Va Estiago",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 29,
+   "true_ca": 1263,
+   "true_phys": 1162,
+   "true_tech": 1303,
+   "true_ment": 1331,
+   "pa": 1307,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00072",
+   "club": "C00003",
+   "name": "Magsten Lauvik",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 1515,
+   "true_phys": 1509,
+   "true_tech": 1554,
+   "true_ment": 1474,
+   "pa": 1535,
+   "scout_band": {
+    "ca_high": 154,
+    "ca_low": 146,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00073",
+   "club": "C00003",
+   "name": "Kjenar Jansen",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1153,
+   "true_phys": 1084,
+   "true_tech": 1212,
+   "true_ment": 1162,
+   "pa": 1186,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00074",
+   "club": "C00003",
+   "name": "Harmor Albrook",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 19,
+   "true_ca": 1055,
+   "true_phys": 996,
+   "true_tech": 1047,
+   "true_ment": 1133,
+   "pa": 1164,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00075",
+   "club": "C00003",
+   "name": "Mide Santiago",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 24,
+   "true_ca": 1603,
+   "true_phys": 1546,
+   "true_tech": 1584,
+   "true_ment": 1690,
+   "pa": 1776,
+   "scout_band": {
+    "ca_high": 166,
+    "ca_low": 158,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00076",
+   "club": "C00004",
+   "name": "Mi Mivez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 27,
+   "true_ca": 1121,
+   "true_phys": 1157,
+   "true_tech": 1108,
+   "true_ment": 1097,
+   "pa": 1323,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00077",
+   "club": "C00004",
+   "name": "Wil Kabrook",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 1129,
+   "true_phys": 1216,
+   "true_tech": 1066,
+   "true_ment": 1107,
+   "pa": 1367,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00078",
+   "club": "C00004",
+   "name": "Bren Alshaw",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 19,
+   "true_ca": 1090,
+   "true_phys": 1161,
+   "true_tech": 1033,
+   "true_ment": 1077,
+   "pa": 1298,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00079",
+   "club": "C00004",
+   "name": "Al Harbrook",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 28,
+   "true_ca": 1195,
+   "true_phys": 1114,
+   "true_tech": 1254,
+   "true_ment": 1215,
+   "pa": 1238,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00080",
+   "club": "C00004",
+   "name": "Mi Esmol",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 21,
+   "true_ca": 1190,
+   "true_phys": 1206,
+   "true_tech": 1121,
+   "true_ment": 1254,
+   "pa": 1204,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00081",
+   "club": "C00004",
+   "name": "Es Vares",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 23,
+   "true_ca": 1309,
+   "true_phys": 1332,
+   "true_tech": 1195,
+   "true_ment": 1420,
+   "pa": 1418,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00082",
+   "club": "C00004",
+   "name": "San Delras",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1230,
+   "true_phys": 1121,
+   "true_tech": 1243,
+   "true_ment": 1339,
+   "pa": 1438,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00083",
+   "club": "C00004",
+   "name": "Bren Osworth",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1234,
+   "true_phys": 1344,
+   "true_tech": 1266,
+   "true_ment": 1072,
+   "pa": 1488,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00084",
+   "club": "C00004",
+   "name": "Fenter Willey",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 18,
+   "true_ca": 1092,
+   "true_phys": 1123,
+   "true_tech": 993,
+   "true_ment": 1174,
+   "pa": 1212,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00085",
+   "club": "C00004",
+   "name": "Dunlan Wilford",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1385,
+   "true_phys": 1432,
+   "true_tech": 1345,
+   "true_ment": 1379,
+   "pa": 1391,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00086",
+   "club": "C00004",
+   "name": "Harbur Osbrook",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 1305,
+   "true_phys": 1416,
+   "true_tech": 1304,
+   "true_ment": 1179,
+   "pa": 1341,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00087",
+   "club": "C00004",
+   "name": "Va Deldinho",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 1181,
+   "true_phys": 1294,
+   "true_tech": 1104,
+   "true_ment": 1144,
+   "pa": 1209,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00088",
+   "club": "C00004",
+   "name": "Del Vares",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 23,
+   "true_ca": 1237,
+   "true_phys": 1320,
+   "true_tech": 1301,
+   "true_ment": 1065,
+   "pa": 1299,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00089",
+   "club": "C00004",
+   "name": "Ka Jorley",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1311,
+   "true_phys": 1395,
+   "true_tech": 1374,
+   "true_ment": 1139,
+   "pa": 1328,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00090",
+   "club": "C00004",
+   "name": "Ka Kaley",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1198,
+   "true_phys": 1100,
+   "true_tech": 1130,
+   "true_ment": 1392,
+   "pa": 1274,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00091",
+   "club": "C00004",
+   "name": "Alwal Jorford",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 30,
+   "true_ca": 1317,
+   "true_phys": 1259,
+   "true_tech": 1403,
+   "true_ment": 1278,
+   "pa": 1340,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00092",
+   "club": "C00004",
+   "name": "Magger Eiberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 19,
+   "true_ca": 909,
+   "true_phys": 905,
+   "true_tech": 852,
+   "true_ment": 981,
+   "pa": 1048,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00093",
+   "club": "C00004",
+   "name": "Ei Lauberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 1266,
+   "true_phys": 1174,
+   "true_tech": 1180,
+   "true_ment": 1472,
+   "pa": 1334,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00094",
+   "club": "C00004",
+   "name": "Dun Osbrook",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 24,
+   "true_ca": 1170,
+   "true_phys": 1116,
+   "true_tech": 1162,
+   "true_ment": 1242,
+   "pa": 1315,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00095",
+   "club": "C00004",
+   "name": "Kje Eidal",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 33,
+   "true_ca": 1325,
+   "true_phys": 1345,
+   "true_tech": 1285,
+   "true_ment": 1349,
+   "pa": 1495,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00096",
+   "club": "C00004",
+   "name": "Nymun Jangaard",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 21,
+   "true_ca": 1125,
+   "true_phys": 1210,
+   "true_tech": 1093,
+   "true_ment": 1068,
+   "pa": 1198,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00097",
+   "club": "C00004",
+   "name": "Harlan Jorley",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1343,
+   "true_phys": 1422,
+   "true_tech": 1328,
+   "true_ment": 1271,
+   "pa": 1430,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00098",
+   "club": "C00004",
+   "name": "Oslan Kaford",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 1109,
+   "true_phys": 1103,
+   "true_tech": 1118,
+   "true_ment": 1104,
+   "pa": 1122,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00099",
+   "club": "C00004",
+   "name": "Mi Delvez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 18,
+   "true_ca": 1016,
+   "true_phys": 1007,
+   "true_tech": 950,
+   "true_ment": 1107,
+   "pa": 1065,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00100",
+   "club": "C00004",
+   "name": "Ru Nygaard",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 826,
+   "true_phys": 834,
+   "true_tech": 897,
+   "true_ment": 731,
+   "pa": 903,
+   "scout_band": {
+    "ca_high": 86,
+    "ca_low": 78,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00101",
+   "club": "C00005",
+   "name": "Lau Viklund",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 33,
+   "true_ca": 1324,
+   "true_phys": 1210,
+   "true_tech": 1429,
+   "true_ment": 1328,
+   "pa": 1523,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00102",
+   "club": "C00005",
+   "name": "Sorger Janvik",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1353,
+   "true_phys": 1286,
+   "true_tech": 1449,
+   "true_ment": 1314,
+   "pa": 1412,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00103",
+   "club": "C00005",
+   "name": "Ra Esvez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 33,
+   "true_ca": 1263,
+   "true_phys": 1296,
+   "true_tech": 1251,
+   "true_ment": 1240,
+   "pa": 1313,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00104",
+   "club": "C00005",
+   "name": "Alric Jorfield",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1188,
+   "true_phys": 1136,
+   "true_tech": 1271,
+   "true_ment": 1147,
+   "pa": 1486,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00105",
+   "club": "C00005",
+   "name": "Ri Lutiago",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1336,
+   "true_phys": 1371,
+   "true_tech": 1379,
+   "true_ment": 1245,
+   "pa": 1653,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00106",
+   "club": "C00005",
+   "name": "Eslo Dellez",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 28,
+   "true_ca": 1149,
+   "true_phys": 1154,
+   "true_tech": 1227,
+   "true_ment": 1049,
+   "pa": 1291,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00107",
+   "club": "C00005",
+   "name": "Jan Lauholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1314,
+   "true_phys": 1383,
+   "true_tech": 1290,
+   "true_ment": 1265,
+   "pa": 1520,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00108",
+   "club": "C00005",
+   "name": "Fen Jorson",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 29,
+   "true_ca": 1166,
+   "true_phys": 1147,
+   "true_tech": 1255,
+   "true_ment": 1080,
+   "pa": 1227,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00109",
+   "club": "C00005",
+   "name": "Rusten Jansen",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 28,
+   "true_ca": 1320,
+   "true_phys": 1370,
+   "true_tech": 1215,
+   "true_ment": 1391,
+   "pa": 1682,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00110",
+   "club": "C00005",
+   "name": "Vikke Rudal",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 25,
+   "true_ca": 1136,
+   "true_phys": 1042,
+   "true_tech": 1208,
+   "true_ment": 1156,
+   "pa": 1237,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00111",
+   "club": "C00005",
+   "name": "Tor Tormol",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 25,
+   "true_ca": 1430,
+   "true_phys": 1454,
+   "true_tech": 1331,
+   "true_ment": 1521,
+   "pa": 1602,
+   "scout_band": {
+    "ca_high": 152,
+    "ca_low": 144,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00112",
+   "club": "C00005",
+   "name": "Rumun Nydal",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 27,
+   "true_ca": 1202,
+   "true_phys": 1292,
+   "true_tech": 1166,
+   "true_ment": 1144,
+   "pa": 1324,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00113",
+   "club": "C00005",
+   "name": "Lauke Eisen",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1696,
+   "true_phys": 1857,
+   "true_tech": 1571,
+   "true_ment": 1664,
+   "pa": 1715,
+   "scout_band": {
+    "ca_high": 174,
+    "ca_low": 166,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00114",
+   "club": "C00005",
+   "name": "Janger Ruvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1343,
+   "true_phys": 1361,
+   "true_tech": 1344,
+   "true_ment": 1322,
+   "pa": 1458,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00115",
+   "club": "C00005",
+   "name": "Mini Delras",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 31,
+   "true_ca": 1280,
+   "true_phys": 1236,
+   "true_tech": 1270,
+   "true_ment": 1342,
+   "pa": 1362,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00116",
+   "club": "C00005",
+   "name": "Ny Maglund",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 31,
+   "true_ca": 1311,
+   "true_phys": 1247,
+   "true_tech": 1341,
+   "true_ment": 1346,
+   "pa": 1384,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00117",
+   "club": "C00005",
+   "name": "Ri Esres",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 1552,
+   "true_phys": 1439,
+   "true_tech": 1689,
+   "true_ment": 1514,
+   "pa": 1648,
+   "scout_band": {
+    "ca_high": 162,
+    "ca_low": 154,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00118",
+   "club": "C00005",
+   "name": "Eiger Magholm",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 24,
+   "true_ca": 1074,
+   "true_phys": 1123,
+   "true_tech": 1016,
+   "true_ment": 1088,
+   "pa": 1128,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00119",
+   "club": "C00005",
+   "name": "Sorke Rustrom",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 1166,
+   "true_phys": 1147,
+   "true_tech": 1112,
+   "true_ment": 1252,
+   "pa": 1186,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00120",
+   "club": "C00005",
+   "name": "Luni Torres",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 22,
+   "true_ca": 1213,
+   "true_phys": 1200,
+   "true_tech": 1149,
+   "true_ment": 1306,
+   "pa": 1568,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00121",
+   "club": "C00005",
+   "name": "Lauke Sorgaard",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 24,
+   "true_ca": 1192,
+   "true_phys": 1273,
+   "true_tech": 1171,
+   "true_ment": 1125,
+   "pa": 1365,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00122",
+   "club": "C00005",
+   "name": "Ei Kjestrom",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 28,
+   "true_ca": 1137,
+   "true_phys": 1045,
+   "true_tech": 1185,
+   "true_ment": 1185,
+   "pa": 1234,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00123",
+   "club": "C00005",
+   "name": "Wilter Wilfield",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 22,
+   "true_ca": 1026,
+   "true_phys": 962,
+   "true_tech": 1087,
+   "true_ment": 1024,
+   "pa": 1161,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00124",
+   "club": "C00005",
+   "name": "Es Sanres",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 30,
+   "true_ca": 1243,
+   "true_phys": 1132,
+   "true_tech": 1262,
+   "true_ment": 1346,
+   "pa": 1524,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00125",
+   "club": "C00005",
+   "name": "Callan Jorford",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1107,
+   "true_phys": 1178,
+   "true_tech": 1017,
+   "true_ment": 1134,
+   "pa": 1284,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00126",
+   "club": "C00006",
+   "name": "Mag Asdal",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 21,
+   "true_ca": 937,
+   "true_phys": 877,
+   "true_tech": 937,
+   "true_ment": 1005,
+   "pa": 1008,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00127",
+   "club": "C00006",
+   "name": "Brenbur Dunfield",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1144,
+   "true_phys": 1127,
+   "true_tech": 1244,
+   "true_ment": 1044,
+   "pa": 1228,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00128",
+   "club": "C00006",
+   "name": "Sorlin Nyberg",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 19,
+   "true_ca": 954,
+   "true_phys": 1040,
+   "true_tech": 1006,
+   "true_ment": 793,
+   "pa": 1068,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00129",
+   "club": "C00006",
+   "name": "Janlin Kjegaard",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 19,
+   "true_ca": 745,
+   "true_phys": 715,
+   "true_tech": 680,
+   "true_ment": 856,
+   "pa": 971,
+   "scout_band": {
+    "ca_high": 76,
+    "ca_low": 68,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00130",
+   "club": "C00006",
+   "name": "Dunbur Harley",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1211,
+   "true_phys": 1120,
+   "true_tech": 1117,
+   "true_ment": 1428,
+   "pa": 1420,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00131",
+   "club": "C00006",
+   "name": "Fenwal Harshaw",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 21,
+   "true_ca": 1233,
+   "true_phys": 1134,
+   "true_tech": 1203,
+   "true_ment": 1381,
+   "pa": 1343,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00132",
+   "club": "C00006",
+   "name": "Eibjo Viksen",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 18,
+   "true_ca": 741,
+   "true_phys": 808,
+   "true_tech": 789,
+   "true_ment": 609,
+   "pa": 835,
+   "scout_band": {
+    "ca_high": 79,
+    "ca_low": 71,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00133",
+   "club": "C00006",
+   "name": "Nynar Vikvik",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 21,
+   "true_ca": 1401,
+   "true_phys": 1418,
+   "true_tech": 1441,
+   "true_ment": 1334,
+   "pa": 1442,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00134",
+   "club": "C00006",
+   "name": "Wilter Alshaw",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1238,
+   "true_phys": 1198,
+   "true_tech": 1124,
+   "true_ment": 1420,
+   "pa": 1340,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00135",
+   "club": "C00006",
+   "name": "Eike Ruvik",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 21,
+   "true_ca": 1062,
+   "true_phys": 1088,
+   "true_tech": 994,
+   "true_ment": 1114,
+   "pa": 1069,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00136",
+   "club": "C00006",
+   "name": "Jor Dunley",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 28,
+   "true_ca": 1224,
+   "true_phys": 1313,
+   "true_tech": 1156,
+   "true_ment": 1204,
+   "pa": 1291,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00137",
+   "club": "C00006",
+   "name": "Es Vadinho",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 19,
+   "true_ca": 935,
+   "true_phys": 950,
+   "true_tech": 897,
+   "true_ment": 963,
+   "pa": 994,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00138",
+   "club": "C00006",
+   "name": "Ei Kjeberg",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 34,
+   "true_ca": 1327,
+   "true_phys": 1214,
+   "true_tech": 1355,
+   "true_ment": 1423,
+   "pa": 1415,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00139",
+   "club": "C00006",
+   "name": "Lu Delres",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1173,
+   "true_phys": 1126,
+   "true_tech": 1271,
+   "true_ment": 1108,
+   "pa": 1212,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00140",
+   "club": "C00006",
+   "name": "Brenbur Dunley",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 973,
+   "true_phys": 1029,
+   "true_tech": 938,
+   "true_ment": 951,
+   "pa": 1047,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00141",
+   "club": "C00006",
+   "name": "Ei Ruvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 23,
+   "true_ca": 1304,
+   "true_phys": 1218,
+   "true_tech": 1297,
+   "true_ment": 1410,
+   "pa": 1332,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00142",
+   "club": "C00006",
+   "name": "Wil Brenbrook",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 1151,
+   "true_phys": 1227,
+   "true_tech": 1172,
+   "true_ment": 1040,
+   "pa": 1260,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00143",
+   "club": "C00006",
+   "name": "Einar Magstrom",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 1294,
+   "true_phys": 1393,
+   "true_tech": 1319,
+   "true_ment": 1151,
+   "pa": 1463,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00144",
+   "club": "C00006",
+   "name": "Jannar Vikberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 1001,
+   "true_phys": 941,
+   "true_tech": 1082,
+   "true_ment": 972,
+   "pa": 1083,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00145",
+   "club": "C00006",
+   "name": "Tor Ritiago",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 34,
+   "true_ca": 950,
+   "true_phys": 917,
+   "true_tech": 960,
+   "true_ment": 974,
+   "pa": 1013,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00146",
+   "club": "C00006",
+   "name": "Osder Calshaw",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 26,
+   "true_ca": 1174,
+   "true_phys": 1203,
+   "true_tech": 1113,
+   "true_ment": 1213,
+   "pa": 1428,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00147",
+   "club": "C00006",
+   "name": "Alter Brenford",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1498,
+   "true_phys": 1544,
+   "true_tech": 1559,
+   "true_ment": 1371,
+   "pa": 1557,
+   "scout_band": {
+    "ca_high": 152,
+    "ca_low": 144,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00148",
+   "club": "C00006",
+   "name": "Luri Esdinho",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 1037,
+   "true_phys": 988,
+   "true_tech": 1074,
+   "true_ment": 1047,
+   "pa": 1104,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00149",
+   "club": "C00006",
+   "name": "San Gotiago",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 1082,
+   "true_phys": 1163,
+   "true_tech": 1029,
+   "true_ment": 1055,
+   "pa": 1322,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00150",
+   "club": "C00006",
+   "name": "Jormor Harbrook",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 18,
+   "true_ca": 765,
+   "true_phys": 792,
+   "true_tech": 831,
+   "true_ment": 656,
+   "pa": 890,
+   "scout_band": {
+    "ca_high": 76,
+    "ca_low": 68,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00151",
+   "club": "C00007",
+   "name": "Delta Sanres",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 29,
+   "true_ca": 1069,
+   "true_phys": 1032,
+   "true_tech": 1162,
+   "true_ment": 999,
+   "pa": 1353,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00152",
+   "club": "C00007",
+   "name": "Calter Wilbrook",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 1412,
+   "true_phys": 1486,
+   "true_tech": 1375,
+   "true_ment": 1374,
+   "pa": 1412,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00153",
+   "club": "C00007",
+   "name": "Ru Jandal",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 23,
+   "true_ca": 1173,
+   "true_phys": 1097,
+   "true_tech": 1249,
+   "true_ment": 1168,
+   "pa": 1222,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00154",
+   "club": "C00007",
+   "name": "Riri Gores",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1248,
+   "true_phys": 1171,
+   "true_tech": 1211,
+   "true_ment": 1379,
+   "pa": 1355,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00155",
+   "club": "C00007",
+   "name": "Al Harson",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 1100,
+   "true_phys": 1126,
+   "true_tech": 1052,
+   "true_ment": 1129,
+   "pa": 1180,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00156",
+   "club": "C00007",
+   "name": "Jan Janvik",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 28,
+   "true_ca": 1182,
+   "true_phys": 1223,
+   "true_tech": 1086,
+   "true_ment": 1250,
+   "pa": 1516,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00157",
+   "club": "C00007",
+   "name": "Sorbjo Rustrom",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1340,
+   "true_phys": 1452,
+   "true_tech": 1433,
+   "true_ment": 1103,
+   "pa": 1397,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00158",
+   "club": "C00007",
+   "name": "Del Lures",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 24,
+   "true_ca": 1233,
+   "true_phys": 1227,
+   "true_tech": 1247,
+   "true_ment": 1224,
+   "pa": 1642,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00159",
+   "club": "C00007",
+   "name": "Es Ludinho",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 33,
+   "true_ca": 1188,
+   "true_phys": 1226,
+   "true_tech": 1085,
+   "true_ment": 1269,
+   "pa": 1425,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00160",
+   "club": "C00007",
+   "name": "Ra Mimol",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1169,
+   "true_phys": 1092,
+   "true_tech": 1115,
+   "true_ment": 1322,
+   "pa": 1340,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00161",
+   "club": "C00007",
+   "name": "Ka Jorworth",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 27,
+   "true_ca": 1389,
+   "true_phys": 1341,
+   "true_tech": 1280,
+   "true_ment": 1574,
+   "pa": 1551,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00162",
+   "club": "C00007",
+   "name": "Cal Kafield",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 17,
+   "true_ca": 915,
+   "true_phys": 880,
+   "true_tech": 936,
+   "true_ment": 928,
+   "pa": 1002,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00163",
+   "club": "C00007",
+   "name": "Brenwal Harson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1284,
+   "true_phys": 1294,
+   "true_tech": 1357,
+   "true_ment": 1185,
+   "pa": 1394,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00164",
+   "club": "C00007",
+   "name": "San Ramol",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 863,
+   "true_phys": 777,
+   "true_tech": 945,
+   "true_ment": 863,
+   "pa": 950,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00165",
+   "club": "C00007",
+   "name": "Kje Vikvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 25,
+   "true_ca": 1270,
+   "true_phys": 1200,
+   "true_tech": 1334,
+   "true_ment": 1272,
+   "pa": 1441,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00166",
+   "club": "C00007",
+   "name": "Ruger Sorvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1273,
+   "true_phys": 1212,
+   "true_tech": 1327,
+   "true_ment": 1278,
+   "pa": 1364,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00167",
+   "club": "C00007",
+   "name": "Sor Kjelund",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 1045,
+   "true_phys": 1062,
+   "true_tech": 978,
+   "true_ment": 1105,
+   "pa": 1235,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00168",
+   "club": "C00007",
+   "name": "Janke Eidal",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 20,
+   "true_ca": 948,
+   "true_phys": 884,
+   "true_tech": 877,
+   "true_ment": 1106,
+   "pa": 1306,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00169",
+   "club": "C00007",
+   "name": "Cal Fenson",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 20,
+   "true_ca": 887,
+   "true_phys": 822,
+   "true_tech": 877,
+   "true_ment": 973,
+   "pa": 911,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00170",
+   "club": "C00007",
+   "name": "Jan Janberg",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 26,
+   "true_ca": 1110,
+   "true_phys": 1178,
+   "true_tech": 1033,
+   "true_ment": 1124,
+   "pa": 1468,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00171",
+   "club": "C00007",
+   "name": "Del Valez",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 25,
+   "true_ca": 1045,
+   "true_phys": 1043,
+   "true_tech": 1122,
+   "true_ment": 956,
+   "pa": 1139,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00172",
+   "club": "C00007",
+   "name": "Es Gotiago",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 21,
+   "true_ca": 926,
+   "true_phys": 852,
+   "true_tech": 856,
+   "true_ment": 1093,
+   "pa": 964,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00173",
+   "club": "C00007",
+   "name": "Golo Torvez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 33,
+   "true_ca": 1188,
+   "true_phys": 1192,
+   "true_tech": 1176,
+   "true_ment": 1198,
+   "pa": 1418,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00174",
+   "club": "C00007",
+   "name": "Mide Vadano",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 34,
+   "true_ca": 1096,
+   "true_phys": 1110,
+   "true_tech": 1109,
+   "true_ment": 1064,
+   "pa": 1169,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00175",
+   "club": "C00007",
+   "name": "Fenken Alshaw",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 969,
+   "true_phys": 1004,
+   "true_tech": 993,
+   "true_ment": 900,
+   "pa": 1052,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00176",
+   "club": "C00008",
+   "name": "Vikvald Magholm",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 26,
+   "true_ca": 945,
+   "true_phys": 944,
+   "true_tech": 890,
+   "true_ment": 1012,
+   "pa": 978,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00177",
+   "club": "C00008",
+   "name": "Sorke Magvik",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 19,
+   "true_ca": 934,
+   "true_phys": 1024,
+   "true_tech": 912,
+   "true_ment": 859,
+   "pa": 971,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00178",
+   "club": "C00008",
+   "name": "Mag Eidal",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 21,
+   "true_ca": 1428,
+   "true_phys": 1409,
+   "true_tech": 1389,
+   "true_ment": 1497,
+   "pa": 1449,
+   "scout_band": {
+    "ca_high": 149,
+    "ca_low": 141,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00179",
+   "club": "C00008",
+   "name": "Harwal Dunson",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 32,
+   "true_ca": 1154,
+   "true_phys": 1227,
+   "true_tech": 1137,
+   "true_ment": 1090,
+   "pa": 1411,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00180",
+   "club": "C00008",
+   "name": "Vik Lausen",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 30,
+   "true_ca": 1336,
+   "true_phys": 1365,
+   "true_tech": 1340,
+   "true_ment": 1299,
+   "pa": 1420,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00181",
+   "club": "C00008",
+   "name": "Tor Godinho",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 22,
+   "true_ca": 1513,
+   "true_phys": 1554,
+   "true_tech": 1612,
+   "true_ment": 1347,
+   "pa": 1611,
+   "scout_band": {
+    "ca_high": 156,
+    "ca_low": 148,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00182",
+   "club": "C00008",
+   "name": "Esma Vamol",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 29,
+   "true_ca": 1119,
+   "true_phys": 1163,
+   "true_tech": 1066,
+   "true_ment": 1133,
+   "pa": 1308,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00183",
+   "club": "C00008",
+   "name": "Lau Kjeholm",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1142,
+   "true_phys": 1142,
+   "true_tech": 1090,
+   "true_ment": 1205,
+   "pa": 1293,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00184",
+   "club": "C00008",
+   "name": "Del Santiago",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1193,
+   "true_phys": 1167,
+   "true_tech": 1122,
+   "true_ment": 1309,
+   "pa": 1253,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00185",
+   "club": "C00008",
+   "name": "Oslan Wilwick",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1198,
+   "true_phys": 1224,
+   "true_tech": 1171,
+   "true_ment": 1201,
+   "pa": 1232,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00186",
+   "club": "C00008",
+   "name": "Vikger Lausen",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 23,
+   "true_ca": 1433,
+   "true_phys": 1535,
+   "true_tech": 1512,
+   "true_ment": 1224,
+   "pa": 1649,
+   "scout_band": {
+    "ca_high": 146,
+    "ca_low": 138,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00187",
+   "club": "C00008",
+   "name": "Va Mitiago",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 25,
+   "true_ca": 1092,
+   "true_phys": 1173,
+   "true_tech": 1037,
+   "true_ment": 1067,
+   "pa": 1130,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00188",
+   "club": "C00008",
+   "name": "Ri Delras",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1407,
+   "true_phys": 1416,
+   "true_tech": 1519,
+   "true_ment": 1263,
+   "pa": 1501,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00189",
+   "club": "C00008",
+   "name": "Tor Ridano",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1139,
+   "true_phys": 1031,
+   "true_tech": 1194,
+   "true_ment": 1194,
+   "pa": 1417,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00190",
+   "club": "C00008",
+   "name": "Es Tordinho",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 1123,
+   "true_phys": 1076,
+   "true_tech": 1196,
+   "true_ment": 1089,
+   "pa": 1183,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00191",
+   "club": "C00008",
+   "name": "Rusten Sorholm",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 18,
+   "true_ca": 1075,
+   "true_phys": 1069,
+   "true_tech": 1008,
+   "true_ment": 1162,
+   "pa": 1185,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00192",
+   "club": "C00008",
+   "name": "Wilwal Dunbrook",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 1097,
+   "true_phys": 1144,
+   "true_tech": 1138,
+   "true_ment": 995,
+   "pa": 1093,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00193",
+   "club": "C00008",
+   "name": "Kje Aslund",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 18,
+   "true_ca": 1006,
+   "true_phys": 934,
+   "true_tech": 946,
+   "true_ment": 1158,
+   "pa": 1206,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00194",
+   "club": "C00008",
+   "name": "Delva Radinho",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 18,
+   "true_ca": 830,
+   "true_phys": 899,
+   "true_tech": 796,
+   "true_ment": 793,
+   "pa": 884,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00195",
+   "club": "C00008",
+   "name": "Nynar Magvik",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 23,
+   "true_ca": 1159,
+   "true_phys": 1114,
+   "true_tech": 1215,
+   "true_ment": 1144,
+   "pa": 1278,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00196",
+   "club": "C00008",
+   "name": "Rico Ludano",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 20,
+   "true_ca": 696,
+   "true_phys": 648,
+   "true_tech": 641,
+   "true_ment": 818,
+   "pa": 744,
+   "scout_band": {
+    "ca_high": 74,
+    "ca_low": 66,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00197",
+   "club": "C00008",
+   "name": "Vari Mivez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 29,
+   "true_ca": 1223,
+   "true_phys": 1336,
+   "true_tech": 1145,
+   "true_ment": 1190,
+   "pa": 1266,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00198",
+   "club": "C00008",
+   "name": "As Sorholm",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 1230,
+   "true_phys": 1239,
+   "true_tech": 1173,
+   "true_ment": 1288,
+   "pa": 1268,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00199",
+   "club": "C00008",
+   "name": "Lau Kjeholm",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 22,
+   "true_ca": 1215,
+   "true_phys": 1139,
+   "true_tech": 1146,
+   "true_ment": 1383,
+   "pa": 1317,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00200",
+   "club": "C00008",
+   "name": "Goco Esras",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1271,
+   "true_phys": 1189,
+   "true_tech": 1206,
+   "true_ment": 1441,
+   "pa": 1406,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00201",
+   "club": "C00009",
+   "name": "Esri Ludinho",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 1262,
+   "true_phys": 1245,
+   "true_tech": 1160,
+   "true_ment": 1404,
+   "pa": 1573,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00202",
+   "club": "C00009",
+   "name": "Alder Kaworth",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 27,
+   "true_ca": 1108,
+   "true_phys": 1024,
+   "true_tech": 1198,
+   "true_ment": 1095,
+   "pa": 1336,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00203",
+   "club": "C00009",
+   "name": "Tor Vatiago",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1058,
+   "true_phys": 1019,
+   "true_tech": 1110,
+   "true_ment": 1040,
+   "pa": 1258,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00204",
+   "club": "C00009",
+   "name": "Dunken Osford",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1160,
+   "true_phys": 1175,
+   "true_tech": 1261,
+   "true_ment": 1021,
+   "pa": 1189,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00205",
+   "club": "C00009",
+   "name": "Kjeke Nyholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 961,
+   "true_phys": 1011,
+   "true_tech": 1005,
+   "true_ment": 853,
+   "pa": 1107,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00206",
+   "club": "C00009",
+   "name": "Lau Asgaard",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1019,
+   "true_phys": 1018,
+   "true_tech": 1061,
+   "true_ment": 971,
+   "pa": 1166,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00207",
+   "club": "C00009",
+   "name": "Magbjo Vikholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 22,
+   "true_ca": 1037,
+   "true_phys": 941,
+   "true_tech": 993,
+   "true_ment": 1199,
+   "pa": 1092,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00208",
+   "club": "C00009",
+   "name": "Launar Laulund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1387,
+   "true_phys": 1508,
+   "true_tech": 1492,
+   "true_ment": 1123,
+   "pa": 1438,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00209",
+   "club": "C00009",
+   "name": "Jor Kashaw",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1075,
+   "true_phys": 1060,
+   "true_tech": 1019,
+   "true_ment": 1159,
+   "pa": 1106,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00210",
+   "club": "C00009",
+   "name": "Vikvald Asberg",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1126,
+   "true_phys": 1095,
+   "true_tech": 1167,
+   "true_ment": 1112,
+   "pa": 1286,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00211",
+   "club": "C00009",
+   "name": "Vata Rilez",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 1122,
+   "true_phys": 1173,
+   "true_tech": 1209,
+   "true_ment": 959,
+   "pa": 1313,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00212",
+   "club": "C00009",
+   "name": "Asmun Vikstrom",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 31,
+   "true_ca": 947,
+   "true_phys": 991,
+   "true_tech": 1008,
+   "true_ment": 825,
+   "pa": 955,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00213",
+   "club": "C00009",
+   "name": "Go Gores",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 936,
+   "true_phys": 939,
+   "true_tech": 971,
+   "true_ment": 891,
+   "pa": 1057,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00214",
+   "club": "C00009",
+   "name": "Vik Assen",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 25,
+   "true_ca": 1130,
+   "true_phys": 1132,
+   "true_tech": 1171,
+   "true_ment": 1079,
+   "pa": 1247,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00215",
+   "club": "C00009",
+   "name": "Jorken Kaford",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 29,
+   "true_ca": 1208,
+   "true_phys": 1137,
+   "true_tech": 1316,
+   "true_ment": 1160,
+   "pa": 1482,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00216",
+   "club": "C00009",
+   "name": "Kje Sorsen",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1112,
+   "true_phys": 1140,
+   "true_tech": 1185,
+   "true_ment": 991,
+   "pa": 1536,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00217",
+   "club": "C00009",
+   "name": "Bren Calfield",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 1096,
+   "true_phys": 1205,
+   "true_tech": 1011,
+   "true_ment": 1076,
+   "pa": 1210,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00218",
+   "club": "C00009",
+   "name": "Mi Santiago",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 19,
+   "true_ca": 922,
+   "true_phys": 916,
+   "true_tech": 939,
+   "true_ment": 907,
+   "pa": 1056,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00219",
+   "club": "C00009",
+   "name": "Eilin Sorlund",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 34,
+   "true_ca": 1161,
+   "true_phys": 1116,
+   "true_tech": 1246,
+   "true_ment": 1110,
+   "pa": 1177,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00220",
+   "club": "C00009",
+   "name": "Brender Dunworth",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 24,
+   "true_ca": 1279,
+   "true_phys": 1314,
+   "true_tech": 1303,
+   "true_ment": 1209,
+   "pa": 1566,
+   "scout_band": {
+    "ca_high": 134,
+    "ca_low": 126,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00221",
+   "club": "C00009",
+   "name": "Va Ravez",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 21,
+   "true_ca": 1186,
+   "true_phys": 1191,
+   "true_tech": 1178,
+   "true_ment": 1190,
+   "pa": 1271,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00222",
+   "club": "C00009",
+   "name": "Ri Esras",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 795,
+   "true_phys": 862,
+   "true_tech": 816,
+   "true_ment": 694,
+   "pa": 874,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00223",
+   "club": "C00009",
+   "name": "Sanni Vavez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 34,
+   "true_ca": 1132,
+   "true_phys": 1158,
+   "true_tech": 1183,
+   "true_ment": 1041,
+   "pa": 1225,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00224",
+   "club": "C00009",
+   "name": "Ei Rustrom",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 24,
+   "true_ca": 1239,
+   "true_phys": 1175,
+   "true_tech": 1242,
+   "true_ment": 1308,
+   "pa": 1333,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00225",
+   "club": "C00009",
+   "name": "Os Calshaw",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 22,
+   "true_ca": 1094,
+   "true_phys": 1140,
+   "true_tech": 1139,
+   "true_ment": 989,
+   "pa": 1266,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00226",
+   "club": "C00010",
+   "name": "Sanlo Sanlez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 26,
+   "true_ca": 1209,
+   "true_phys": 1320,
+   "true_tech": 1102,
+   "true_ment": 1212,
+   "pa": 1287,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00227",
+   "club": "C00010",
+   "name": "Santa Sandano",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 20,
+   "true_ca": 873,
+   "true_phys": 830,
+   "true_tech": 905,
+   "true_ment": 882,
+   "pa": 1141,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00228",
+   "club": "C00010",
+   "name": "Harter Calley",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 23,
+   "true_ca": 1151,
+   "true_phys": 1220,
+   "true_tech": 1223,
+   "true_ment": 988,
+   "pa": 1435,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00229",
+   "club": "C00010",
+   "name": "Alken Jorley",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1182,
+   "true_phys": 1265,
+   "true_tech": 1174,
+   "true_ment": 1099,
+   "pa": 1304,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00230",
+   "club": "C00010",
+   "name": "Wil Fenson",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 31,
+   "true_ca": 1103,
+   "true_phys": 1060,
+   "true_tech": 1134,
+   "true_ment": 1114,
+   "pa": 1228,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00231",
+   "club": "C00010",
+   "name": "Vik Vikvik",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 20,
+   "true_ca": 957,
+   "true_phys": 878,
+   "true_tech": 1042,
+   "true_ment": 944,
+   "pa": 961,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00232",
+   "club": "C00010",
+   "name": "Rusten Sorholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 31,
+   "true_ca": 955,
+   "true_phys": 919,
+   "true_tech": 988,
+   "true_ment": 957,
+   "pa": 976,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00233",
+   "club": "C00010",
+   "name": "Brenmor Jorshaw",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 25,
+   "true_ca": 982,
+   "true_phys": 928,
+   "true_tech": 1050,
+   "true_ment": 960,
+   "pa": 1184,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00234",
+   "club": "C00010",
+   "name": "Rari Godinho",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 25,
+   "true_ca": 1056,
+   "true_phys": 963,
+   "true_tech": 1150,
+   "true_ment": 1050,
+   "pa": 1062,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00235",
+   "club": "C00010",
+   "name": "Launar Viklund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 24,
+   "true_ca": 1390,
+   "true_phys": 1412,
+   "true_tech": 1464,
+   "true_ment": 1275,
+   "pa": 1647,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00236",
+   "club": "C00010",
+   "name": "Sor Eisen",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 1387,
+   "true_phys": 1255,
+   "true_tech": 1380,
+   "true_ment": 1545,
+   "pa": 1400,
+   "scout_band": {
+    "ca_high": 144,
+    "ca_low": 136,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00237",
+   "club": "C00010",
+   "name": "Luri Torres",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 29,
+   "true_ca": 1139,
+   "true_phys": 1076,
+   "true_tech": 1144,
+   "true_ment": 1204,
+   "pa": 1288,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00238",
+   "club": "C00010",
+   "name": "Dun Fenson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 28,
+   "true_ca": 1108,
+   "true_phys": 1034,
+   "true_tech": 1058,
+   "true_ment": 1251,
+   "pa": 1315,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00239",
+   "club": "C00010",
+   "name": "Nynar Kjelund",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 23,
+   "true_ca": 1327,
+   "true_phys": 1329,
+   "true_tech": 1319,
+   "true_ment": 1334,
+   "pa": 1499,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00240",
+   "club": "C00010",
+   "name": "Lau Nydal",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1058,
+   "true_phys": 955,
+   "true_tech": 1125,
+   "true_ment": 1093,
+   "pa": 1063,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00241",
+   "club": "C00010",
+   "name": "Kje Magdal",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1148,
+   "true_phys": 1126,
+   "true_tech": 1221,
+   "true_ment": 1084,
+   "pa": 1261,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00242",
+   "club": "C00010",
+   "name": "San Midano",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 1227,
+   "true_phys": 1334,
+   "true_tech": 1235,
+   "true_ment": 1096,
+   "pa": 1364,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00243",
+   "club": "C00010",
+   "name": "Cal Fenwick",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 27,
+   "true_ca": 1100,
+   "true_phys": 1106,
+   "true_tech": 1023,
+   "true_ment": 1184,
+   "pa": 1238,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00244",
+   "club": "C00010",
+   "name": "Es Esdinho",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 1121,
+   "true_phys": 1186,
+   "true_tech": 1192,
+   "true_ment": 962,
+   "pa": 1189,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00245",
+   "club": "C00010",
+   "name": "Sanva Mivez",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 23,
+   "true_ca": 1093,
+   "true_phys": 1132,
+   "true_tech": 1058,
+   "true_ment": 1091,
+   "pa": 1370,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00246",
+   "club": "C00010",
+   "name": "Del Ravez",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 34,
+   "true_ca": 907,
+   "true_phys": 961,
+   "true_tech": 969,
+   "true_ment": 771,
+   "pa": 979,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00247",
+   "club": "C00010",
+   "name": "Al Wilson",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 27,
+   "true_ca": 1182,
+   "true_phys": 1096,
+   "true_tech": 1287,
+   "true_ment": 1152,
+   "pa": 1226,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00248",
+   "club": "C00010",
+   "name": "Fen Dunley",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 24,
+   "true_ca": 1138,
+   "true_phys": 1222,
+   "true_tech": 1239,
+   "true_ment": 922,
+   "pa": 1158,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00249",
+   "club": "C00010",
+   "name": "Va Gotiago",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 728,
+   "true_phys": 711,
+   "true_tech": 746,
+   "true_ment": 726,
+   "pa": 857,
+   "scout_band": {
+    "ca_high": 74,
+    "ca_low": 66,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00250",
+   "club": "C00010",
+   "name": "Ra Midinho",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 938,
+   "true_phys": 868,
+   "true_tech": 942,
+   "true_ment": 1011,
+   "pa": 1266,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00251",
+   "club": "C00011",
+   "name": "Cal Harley",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 18,
+   "true_ca": 819,
+   "true_phys": 880,
+   "true_tech": 750,
+   "true_ment": 834,
+   "pa": 1126,
+   "scout_band": {
+    "ca_high": 86,
+    "ca_low": 78,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00252",
+   "club": "C00011",
+   "name": "Al Osson",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 32,
+   "true_ca": 1281,
+   "true_phys": 1203,
+   "true_tech": 1372,
+   "true_ment": 1260,
+   "pa": 1574,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00253",
+   "club": "C00011",
+   "name": "Ka Dunfield",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 21,
+   "true_ca": 1128,
+   "true_phys": 1033,
+   "true_tech": 1180,
+   "true_ment": 1173,
+   "pa": 1208,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00254",
+   "club": "C00011",
+   "name": "Sorlin Eistrom",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 1196,
+   "true_phys": 1302,
+   "true_tech": 1236,
+   "true_ment": 1027,
+   "pa": 1205,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00255",
+   "club": "C00011",
+   "name": "Fenmor Brenwick",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 19,
+   "true_ca": 909,
+   "true_phys": 964,
+   "true_tech": 843,
+   "true_ment": 927,
+   "pa": 1145,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00256",
+   "club": "C00011",
+   "name": "Assten Kjedal",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 25,
+   "true_ca": 1085,
+   "true_phys": 1088,
+   "true_tech": 1043,
+   "true_ment": 1132,
+   "pa": 1103,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00257",
+   "club": "C00011",
+   "name": "Al Alworth",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1332,
+   "true_phys": 1232,
+   "true_tech": 1279,
+   "true_ment": 1508,
+   "pa": 1420,
+   "scout_band": {
+    "ca_high": 136,
+    "ca_low": 128,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00258",
+   "club": "C00011",
+   "name": "Wil Oswick",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 19,
+   "true_ca": 728,
+   "true_phys": 675,
+   "true_tech": 773,
+   "true_ment": 735,
+   "pa": 871,
+   "scout_band": {
+    "ca_high": 76,
+    "ca_low": 68,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00259",
+   "club": "C00011",
+   "name": "Kjeke Sorvik",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 23,
+   "true_ca": 1156,
+   "true_phys": 1196,
+   "true_tech": 1049,
+   "true_ment": 1240,
+   "pa": 1351,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00260",
+   "club": "C00011",
+   "name": "Vik Sordal",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1174,
+   "true_phys": 1174,
+   "true_tech": 1145,
+   "true_ment": 1208,
+   "pa": 1262,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00261",
+   "club": "C00011",
+   "name": "San Rares",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 24,
+   "true_ca": 964,
+   "true_phys": 1004,
+   "true_tech": 1035,
+   "true_ment": 834,
+   "pa": 1092,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00262",
+   "club": "C00011",
+   "name": "Har Wilbrook",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 18,
+   "true_ca": 733,
+   "true_phys": 751,
+   "true_tech": 788,
+   "true_ment": 647,
+   "pa": 774,
+   "scout_band": {
+    "ca_high": 76,
+    "ca_low": 68,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00263",
+   "club": "C00011",
+   "name": "Ka Harshaw",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 20,
+   "true_ca": 762,
+   "true_phys": 748,
+   "true_tech": 769,
+   "true_ment": 771,
+   "pa": 782,
+   "scout_band": {
+    "ca_high": 79,
+    "ca_low": 71,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00264",
+   "club": "C00011",
+   "name": "Jan Ruholm",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1141,
+   "true_phys": 1193,
+   "true_tech": 1178,
+   "true_ment": 1038,
+   "pa": 1229,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00265",
+   "club": "C00011",
+   "name": "Ny Janholm",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 30,
+   "true_ca": 1221,
+   "true_phys": 1175,
+   "true_tech": 1155,
+   "true_ment": 1352,
+   "pa": 1297,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00266",
+   "club": "C00011",
+   "name": "Calric Fenford",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 25,
+   "true_ca": 1259,
+   "true_phys": 1267,
+   "true_tech": 1153,
+   "true_ment": 1377,
+   "pa": 1341,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00267",
+   "club": "C00011",
+   "name": "Bren Kaworth",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 18,
+   "true_ca": 861,
+   "true_phys": 848,
+   "true_tech": 801,
+   "true_ment": 947,
+   "pa": 1009,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00268",
+   "club": "C00011",
+   "name": "Sor Kjevik",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 24,
+   "true_ca": 1350,
+   "true_phys": 1327,
+   "true_tech": 1243,
+   "true_ment": 1505,
+   "pa": 1555,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00269",
+   "club": "C00011",
+   "name": "Kjemun Eiberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 19,
+   "true_ca": 788,
+   "true_phys": 802,
+   "true_tech": 773,
+   "true_ment": 791,
+   "pa": 858,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00270",
+   "club": "C00011",
+   "name": "Ny Assen",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 26,
+   "true_ca": 1102,
+   "true_phys": 1139,
+   "true_tech": 1122,
+   "true_ment": 1035,
+   "pa": 1138,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00271",
+   "club": "C00011",
+   "name": "Jorwal Fenson",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 28,
+   "true_ca": 1270,
+   "true_phys": 1218,
+   "true_tech": 1267,
+   "true_ment": 1332,
+   "pa": 1421,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00272",
+   "club": "C00011",
+   "name": "Os Kafield",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1178,
+   "true_phys": 1203,
+   "true_tech": 1163,
+   "true_ment": 1166,
+   "pa": 1261,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00273",
+   "club": "C00011",
+   "name": "Ruvald Jansen",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1158,
+   "true_phys": 1075,
+   "true_tech": 1251,
+   "true_ment": 1141,
+   "pa": 1515,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00274",
+   "club": "C00011",
+   "name": "Torva Tordinho",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 22,
+   "true_ca": 1153,
+   "true_phys": 1237,
+   "true_tech": 1077,
+   "true_ment": 1150,
+   "pa": 1173,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00275",
+   "club": "C00011",
+   "name": "Lau Nyberg",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1029,
+   "true_phys": 948,
+   "true_tech": 959,
+   "true_ment": 1206,
+   "pa": 1358,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00276",
+   "club": "C00012",
+   "name": "Dun Brenbrook",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 930,
+   "true_phys": 978,
+   "true_tech": 865,
+   "true_ment": 955,
+   "pa": 1268,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00277",
+   "club": "C00012",
+   "name": "Luma Goras",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 23,
+   "true_ca": 962,
+   "true_phys": 985,
+   "true_tech": 1001,
+   "true_ment": 889,
+   "pa": 1098,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00278",
+   "club": "C00012",
+   "name": "Lau Magstrom",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 1051,
+   "true_phys": 1067,
+   "true_tech": 952,
+   "true_ment": 1153,
+   "pa": 1222,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00279",
+   "club": "C00012",
+   "name": "Ru Nyberg",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 33,
+   "true_ca": 1146,
+   "true_phys": 1221,
+   "true_tech": 1228,
+   "true_ment": 963,
+   "pa": 1352,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00280",
+   "club": "C00012",
+   "name": "Gota Rivez",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 26,
+   "true_ca": 1087,
+   "true_phys": 1097,
+   "true_tech": 1108,
+   "true_ment": 1052,
+   "pa": 1374,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00281",
+   "club": "C00012",
+   "name": "Eslo Torras",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 23,
+   "true_ca": 864,
+   "true_phys": 869,
+   "true_tech": 928,
+   "true_ment": 781,
+   "pa": 955,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00282",
+   "club": "C00012",
+   "name": "Delde Ludano",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1029,
+   "true_phys": 1041,
+   "true_tech": 1109,
+   "true_ment": 921,
+   "pa": 1125,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00283",
+   "club": "C00012",
+   "name": "Ra Estiago",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 29,
+   "true_ca": 1036,
+   "true_phys": 1028,
+   "true_tech": 1111,
+   "true_ment": 956,
+   "pa": 1077,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00284",
+   "club": "C00012",
+   "name": "Sor Laulund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 1109,
+   "true_phys": 1200,
+   "true_tech": 1042,
+   "true_ment": 1086,
+   "pa": 1270,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00285",
+   "club": "C00012",
+   "name": "Esde Esvez",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 24,
+   "true_ca": 1253,
+   "true_phys": 1170,
+   "true_tech": 1231,
+   "true_ment": 1375,
+   "pa": 1275,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00286",
+   "club": "C00012",
+   "name": "Harbur Alshaw",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 21,
+   "true_ca": 1026,
+   "true_phys": 996,
+   "true_tech": 960,
+   "true_ment": 1138,
+   "pa": 1076,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00287",
+   "club": "C00012",
+   "name": "Jormor Brenshaw",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 19,
+   "true_ca": 911,
+   "true_phys": 996,
+   "true_tech": 825,
+   "true_ment": 917,
+   "pa": 1043,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00288",
+   "club": "C00012",
+   "name": "As Laugaard",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 18,
+   "true_ca": 866,
+   "true_phys": 889,
+   "true_tech": 847,
+   "true_ment": 863,
+   "pa": 880,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00289",
+   "club": "C00012",
+   "name": "Sor Sorberg",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 24,
+   "true_ca": 1164,
+   "true_phys": 1218,
+   "true_tech": 1262,
+   "true_ment": 984,
+   "pa": 1272,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00290",
+   "club": "C00012",
+   "name": "Tor Radinho",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1076,
+   "true_phys": 1109,
+   "true_tech": 977,
+   "true_ment": 1159,
+   "pa": 1159,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00291",
+   "club": "C00012",
+   "name": "Maglin Nysen",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 986,
+   "true_phys": 907,
+   "true_tech": 902,
+   "true_ment": 1177,
+   "pa": 1031,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00292",
+   "club": "C00012",
+   "name": "Mag Magstrom",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 27,
+   "true_ca": 1361,
+   "true_phys": 1452,
+   "true_tech": 1426,
+   "true_ment": 1180,
+   "pa": 1512,
+   "scout_band": {
+    "ca_high": 142,
+    "ca_low": 134,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00293",
+   "club": "C00012",
+   "name": "Fenbur Jorshaw",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 28,
+   "true_ca": 1057,
+   "true_phys": 958,
+   "true_tech": 1063,
+   "true_ment": 1161,
+   "pa": 1297,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00294",
+   "club": "C00012",
+   "name": "Fen Harwick",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 1161,
+   "true_phys": 1249,
+   "true_tech": 1163,
+   "true_ment": 1058,
+   "pa": 1265,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00295",
+   "club": "C00012",
+   "name": "Magger Magsen",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 28,
+   "true_ca": 1112,
+   "true_phys": 1115,
+   "true_tech": 1009,
+   "true_ment": 1231,
+   "pa": 1132,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00296",
+   "club": "C00012",
+   "name": "Vik Vikdal",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 23,
+   "true_ca": 1236,
+   "true_phys": 1175,
+   "true_tech": 1312,
+   "true_ment": 1214,
+   "pa": 1319,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00297",
+   "club": "C00012",
+   "name": "Go Esras",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 26,
+   "true_ca": 1254,
+   "true_phys": 1227,
+   "true_tech": 1362,
+   "true_ment": 1154,
+   "pa": 1379,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00298",
+   "club": "C00012",
+   "name": "Ny Kjedal",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 21,
+   "true_ca": 1185,
+   "true_phys": 1233,
+   "true_tech": 1253,
+   "true_ment": 1050,
+   "pa": 1250,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00299",
+   "club": "C00012",
+   "name": "Kjelin Rudal",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 23,
+   "true_ca": 1038,
+   "true_phys": 956,
+   "true_tech": 1022,
+   "true_ment": 1150,
+   "pa": 1187,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00300",
+   "club": "C00012",
+   "name": "Ra Lutiago",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1051,
+   "true_phys": 1144,
+   "true_tech": 972,
+   "true_ment": 1039,
+   "pa": 1080,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00301",
+   "club": "C00013",
+   "name": "Delco Deltiago",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 967,
+   "true_phys": 884,
+   "true_tech": 1050,
+   "true_ment": 962,
+   "pa": 1080,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00302",
+   "club": "C00013",
+   "name": "Riva Esvez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 21,
+   "true_ca": 1063,
+   "true_phys": 999,
+   "true_tech": 1136,
+   "true_ment": 1049,
+   "pa": 1072,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00303",
+   "club": "C00013",
+   "name": "Harwal Jorson",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 31,
+   "true_ca": 1213,
+   "true_phys": 1287,
+   "true_tech": 1312,
+   "true_ment": 1011,
+   "pa": 1247,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00304",
+   "club": "C00013",
+   "name": "Cal Oswick",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 18,
+   "true_ca": 800,
+   "true_phys": 748,
+   "true_tech": 785,
+   "true_ment": 878,
+   "pa": 879,
+   "scout_band": {
+    "ca_high": 86,
+    "ca_low": 78,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00305",
+   "club": "C00013",
+   "name": "Es Ludano",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 21,
+   "true_ca": 898,
+   "true_phys": 852,
+   "true_tech": 859,
+   "true_ment": 997,
+   "pa": 974,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00306",
+   "club": "C00013",
+   "name": "Mag Janholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1023,
+   "true_phys": 1074,
+   "true_tech": 942,
+   "true_ment": 1061,
+   "pa": 1066,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00307",
+   "club": "C00013",
+   "name": "Fenter Brenshaw",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1034,
+   "true_phys": 1006,
+   "true_tech": 994,
+   "true_ment": 1113,
+   "pa": 1110,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00308",
+   "club": "C00013",
+   "name": "Rade Rilez",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 26,
+   "true_ca": 936,
+   "true_phys": 923,
+   "true_tech": 902,
+   "true_ment": 993,
+   "pa": 1133,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00309",
+   "club": "C00013",
+   "name": "Fenter Albrook",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 28,
+   "true_ca": 986,
+   "true_phys": 900,
+   "true_tech": 952,
+   "true_ment": 1125,
+   "pa": 1044,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00310",
+   "club": "C00013",
+   "name": "Ru Asgaard",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 955,
+   "true_phys": 864,
+   "true_tech": 1035,
+   "true_ment": 961,
+   "pa": 1051,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00311",
+   "club": "C00013",
+   "name": "Ra Sanras",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 24,
+   "true_ca": 1063,
+   "true_phys": 1014,
+   "true_tech": 1125,
+   "true_ment": 1045,
+   "pa": 1125,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00312",
+   "club": "C00013",
+   "name": "Harbur Osson",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 20,
+   "true_ca": 964,
+   "true_phys": 1021,
+   "true_tech": 980,
+   "true_ment": 880,
+   "pa": 1118,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00313",
+   "club": "C00013",
+   "name": "Ny Rustrom",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1115,
+   "true_phys": 1203,
+   "true_tech": 1039,
+   "true_ment": 1108,
+   "pa": 1508,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00314",
+   "club": "C00013",
+   "name": "Va Ritiago",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 24,
+   "true_ca": 1148,
+   "true_phys": 1104,
+   "true_tech": 1074,
+   "true_ment": 1286,
+   "pa": 1203,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00315",
+   "club": "C00013",
+   "name": "Torni Vamol",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 926,
+   "true_phys": 954,
+   "true_tech": 908,
+   "true_ment": 917,
+   "pa": 994,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00316",
+   "club": "C00013",
+   "name": "Eslo Tordinho",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 24,
+   "true_ca": 937,
+   "true_phys": 894,
+   "true_tech": 969,
+   "true_ment": 946,
+   "pa": 994,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00317",
+   "club": "C00013",
+   "name": "Magvald Kjeberg",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 1172,
+   "true_phys": 1190,
+   "true_tech": 1105,
+   "true_ment": 1231,
+   "pa": 1233,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00318",
+   "club": "C00013",
+   "name": "Wilric Jorshaw",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 27,
+   "true_ca": 1289,
+   "true_phys": 1209,
+   "true_tech": 1252,
+   "true_ment": 1425,
+   "pa": 1539,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00319",
+   "club": "C00013",
+   "name": "As Aslund",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 17,
+   "true_ca": 961,
+   "true_phys": 936,
+   "true_tech": 978,
+   "true_ment": 970,
+   "pa": 1253,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00320",
+   "club": "C00013",
+   "name": "Jormor Fenwick",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 24,
+   "true_ca": 1184,
+   "true_phys": 1185,
+   "true_tech": 1121,
+   "true_ment": 1257,
+   "pa": 1211,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00321",
+   "club": "C00013",
+   "name": "Rata Sanmol",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 23,
+   "true_ca": 1152,
+   "true_phys": 1061,
+   "true_tech": 1109,
+   "true_ment": 1308,
+   "pa": 1337,
+   "scout_band": {
+    "ca_high": 122,
+    "ca_low": 114,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00322",
+   "club": "C00013",
+   "name": "Mi Tormol",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 30,
+   "true_ca": 927,
+   "true_phys": 959,
+   "true_tech": 929,
+   "true_ment": 889,
+   "pa": 1104,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00323",
+   "club": "C00013",
+   "name": "Rita Ravez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 19,
+   "true_ca": 792,
+   "true_phys": 734,
+   "true_tech": 821,
+   "true_ment": 822,
+   "pa": 1051,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00324",
+   "club": "C00013",
+   "name": "Vani Esdinho",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 18,
+   "true_ca": 695,
+   "true_phys": 748,
+   "true_tech": 683,
+   "true_ment": 650,
+   "pa": 699,
+   "scout_band": {
+    "ca_high": 72,
+    "ca_low": 64,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00325",
+   "club": "C00013",
+   "name": "Ny Nylund",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 24,
+   "true_ca": 1078,
+   "true_phys": 1014,
+   "true_tech": 1104,
+   "true_ment": 1120,
+   "pa": 1229,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00326",
+   "club": "C00014",
+   "name": "Wilwal Alson",
+   "nationality": "Kestrelian",
+   "pos": "GK",
+   "age": 24,
+   "true_ca": 1127,
+   "true_phys": 1067,
+   "true_tech": 1193,
+   "true_ment": 1116,
+   "pa": 1153,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00327",
+   "club": "C00014",
+   "name": "Sanma Luras",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 27,
+   "true_ca": 1066,
+   "true_phys": 989,
+   "true_tech": 1168,
+   "true_ment": 1031,
+   "pa": 1137,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00328",
+   "club": "C00014",
+   "name": "Goni Rimol",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 28,
+   "true_ca": 984,
+   "true_phys": 896,
+   "true_tech": 900,
+   "true_ment": 1185,
+   "pa": 1065,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00329",
+   "club": "C00014",
+   "name": "Sanlo Ramol",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 1342,
+   "true_phys": 1344,
+   "true_tech": 1456,
+   "true_ment": 1204,
+   "pa": 1512,
+   "scout_band": {
+    "ca_high": 139,
+    "ca_low": 131,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00330",
+   "club": "C00014",
+   "name": "Lude Dellez",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 24,
+   "true_ca": 1004,
+   "true_phys": 1090,
+   "true_tech": 1022,
+   "true_ment": 884,
+   "pa": 1252,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00331",
+   "club": "C00014",
+   "name": "Magsten Magvik",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 18,
+   "true_ca": 865,
+   "true_phys": 892,
+   "true_tech": 911,
+   "true_ment": 779,
+   "pa": 909,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00332",
+   "club": "C00014",
+   "name": "Ei Ruvik",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 32,
+   "true_ca": 1231,
+   "true_phys": 1172,
+   "true_tech": 1168,
+   "true_ment": 1373,
+   "pa": 1327,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00333",
+   "club": "C00014",
+   "name": "Lau Eilund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 24,
+   "true_ca": 977,
+   "true_phys": 1016,
+   "true_tech": 973,
+   "true_ment": 938,
+   "pa": 1012,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00334",
+   "club": "C00014",
+   "name": "Harter Kaworth",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 984,
+   "true_phys": 981,
+   "true_tech": 923,
+   "true_ment": 1059,
+   "pa": 1189,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00335",
+   "club": "C00014",
+   "name": "Ka Brenley",
+   "nationality": "Kestrelian",
+   "pos": "FB",
+   "age": 27,
+   "true_ca": 1144,
+   "true_phys": 1124,
+   "true_tech": 1229,
+   "true_ment": 1066,
+   "pa": 1177,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00336",
+   "club": "C00014",
+   "name": "Kater Dunford",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 20,
+   "true_ca": 729,
+   "true_phys": 688,
+   "true_tech": 747,
+   "true_ment": 753,
+   "pa": 732,
+   "scout_band": {
+    "ca_high": 76,
+    "ca_low": 68,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00337",
+   "club": "C00014",
+   "name": "Alken Jorfield",
+   "nationality": "Kestrelian",
+   "pos": "DM",
+   "age": 26,
+   "true_ca": 870,
+   "true_phys": 864,
+   "true_tech": 921,
+   "true_ment": 814,
+   "pa": 953,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00338",
+   "club": "C00014",
+   "name": "Mag Laustrom",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 19,
+   "true_ca": 971,
+   "true_phys": 993,
+   "true_tech": 984,
+   "true_ment": 932,
+   "pa": 976,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00339",
+   "club": "C00014",
+   "name": "Asger Magvik",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 20,
+   "true_ca": 881,
+   "true_phys": 963,
+   "true_tech": 909,
+   "true_ment": 755,
+   "pa": 996,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00340",
+   "club": "C00014",
+   "name": "Lu Radano",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1145,
+   "true_phys": 1242,
+   "true_tech": 1198,
+   "true_ment": 970,
+   "pa": 1144,
+   "scout_band": {
+    "ca_high": 119,
+    "ca_low": 111,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00341",
+   "club": "C00014",
+   "name": "Wilbur Calson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 22,
+   "true_ca": 1002,
+   "true_phys": 993,
+   "true_tech": 958,
+   "true_ment": 1066,
+   "pa": 1268,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00342",
+   "club": "C00014",
+   "name": "Del Radano",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 24,
+   "true_ca": 1227,
+   "true_phys": 1197,
+   "true_tech": 1321,
+   "true_ment": 1147,
+   "pa": 1311,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00343",
+   "club": "C00014",
+   "name": "Rata Eslez",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 20,
+   "true_ca": 795,
+   "true_phys": 745,
+   "true_tech": 802,
+   "true_ment": 843,
+   "pa": 1032,
+   "scout_band": {
+    "ca_high": 82,
+    "ca_low": 74,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00344",
+   "club": "C00014",
+   "name": "Esri Vares",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 23,
+   "true_ca": 968,
+   "true_phys": 904,
+   "true_tech": 894,
+   "true_ment": 1131,
+   "pa": 1088,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00345",
+   "club": "C00014",
+   "name": "Fen Calfield",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 24,
+   "true_ca": 1103,
+   "true_phys": 1161,
+   "true_tech": 1081,
+   "true_ment": 1065,
+   "pa": 1298,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00346",
+   "club": "C00014",
+   "name": "Wilbur Brenfield",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 20,
+   "true_ca": 854,
+   "true_phys": 856,
+   "true_tech": 913,
+   "true_ment": 780,
+   "pa": 1025,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00347",
+   "club": "C00014",
+   "name": "Jan Sorvik",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 796,
+   "true_phys": 781,
+   "true_tech": 787,
+   "true_ment": 824,
+   "pa": 958,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00348",
+   "club": "C00014",
+   "name": "Fenken Wilwick",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 794,
+   "true_phys": 813,
+   "true_tech": 864,
+   "true_ment": 688,
+   "pa": 1041,
+   "scout_band": {
+    "ca_high": 82,
+    "ca_low": 74,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00349",
+   "club": "C00014",
+   "name": "Ru Eidal",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 28,
+   "true_ca": 1042,
+   "true_phys": 995,
+   "true_tech": 1060,
+   "true_ment": 1073,
+   "pa": 1343,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00350",
+   "club": "C00014",
+   "name": "Jan Laudal",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 23,
+   "true_ca": 1058,
+   "true_phys": 1069,
+   "true_tech": 1108,
+   "true_ment": 986,
+   "pa": 1234,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00351",
+   "club": "C00015",
+   "name": "Vikvald Jansen",
+   "nationality": "Noremic",
+   "pos": "GK",
+   "age": 30,
+   "true_ca": 1090,
+   "true_phys": 1152,
+   "true_tech": 1023,
+   "true_ment": 1099,
+   "pa": 1348,
+   "scout_band": {
+    "ca_high": 114,
+    "ca_low": 106,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00352",
+   "club": "C00015",
+   "name": "Tor Govez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 27,
+   "true_ca": 997,
+   "true_phys": 908,
+   "true_tech": 1031,
+   "true_ment": 1057,
+   "pa": 1144,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00353",
+   "club": "C00015",
+   "name": "Delva Delras",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 17,
+   "true_ca": 759,
+   "true_phys": 704,
+   "true_tech": 746,
+   "true_ment": 838,
+   "pa": 765,
+   "scout_band": {
+    "ca_high": 79,
+    "ca_low": 71,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00354",
+   "club": "C00015",
+   "name": "Vik Sorlund",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 29,
+   "true_ca": 1208,
+   "true_phys": 1276,
+   "true_tech": 1229,
+   "true_ment": 1105,
+   "pa": 1258,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00355",
+   "club": "C00015",
+   "name": "Ri Vadano",
+   "nationality": "Valdorian",
+   "pos": "CB",
+   "age": 19,
+   "true_ca": 931,
+   "true_phys": 856,
+   "true_tech": 915,
+   "true_ment": 1035,
+   "pa": 1034,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00356",
+   "club": "C00015",
+   "name": "Ruke Vikdal",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 28,
+   "true_ca": 1009,
+   "true_phys": 959,
+   "true_tech": 997,
+   "true_ment": 1079,
+   "pa": 1049,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00357",
+   "club": "C00015",
+   "name": "Har Calworth",
+   "nationality": "Kestrelian",
+   "pos": "CB",
+   "age": 20,
+   "true_ca": 968,
+   "true_phys": 902,
+   "true_tech": 1035,
+   "true_ment": 963,
+   "pa": 967,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00358",
+   "club": "C00015",
+   "name": "Ri Lutiago",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 29,
+   "true_ca": 1212,
+   "true_phys": 1329,
+   "true_tech": 1157,
+   "true_ment": 1146,
+   "pa": 1341,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00359",
+   "club": "C00015",
+   "name": "Nymun Asholm",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 34,
+   "true_ca": 1196,
+   "true_phys": 1153,
+   "true_tech": 1225,
+   "true_ment": 1211,
+   "pa": 1250,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00360",
+   "club": "C00015",
+   "name": "Sanco Milez",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 22,
+   "true_ca": 1092,
+   "true_phys": 1056,
+   "true_tech": 1026,
+   "true_ment": 1213,
+   "pa": 1181,
+   "scout_band": {
+    "ca_high": 116,
+    "ca_low": 108,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00361",
+   "club": "C00015",
+   "name": "Jan Laugaard",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 20,
+   "true_ca": 751,
+   "true_phys": 723,
+   "true_tech": 715,
+   "true_ment": 826,
+   "pa": 792,
+   "scout_band": {
+    "ca_high": 82,
+    "ca_low": 74,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00362",
+   "club": "C00015",
+   "name": "Tor Tortiago",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 25,
+   "true_ca": 1037,
+   "true_phys": 1088,
+   "true_tech": 1084,
+   "true_ment": 922,
+   "pa": 1039,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00363",
+   "club": "C00015",
+   "name": "Dunken Dunson",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 1036,
+   "true_phys": 1077,
+   "true_tech": 1013,
+   "true_ment": 1016,
+   "pa": 1063,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00364",
+   "club": "C00015",
+   "name": "Janger Magstrom",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 24,
+   "true_ca": 918,
+   "true_phys": 907,
+   "true_tech": 989,
+   "true_ment": 845,
+   "pa": 1017,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00365",
+   "club": "C00015",
+   "name": "As Rugaard",
+   "nationality": "Noremic",
+   "pos": "CM",
+   "age": 21,
+   "true_ca": 1186,
+   "true_phys": 1230,
+   "true_tech": 1226,
+   "true_ment": 1088,
+   "pa": 1443,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00366",
+   "club": "C00015",
+   "name": "Dun Wilworth",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 26,
+   "true_ca": 1266,
+   "true_phys": 1267,
+   "true_tech": 1340,
+   "true_ment": 1177,
+   "pa": 1382,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00367",
+   "club": "C00015",
+   "name": "Al Osshaw",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 18,
+   "true_ca": 933,
+   "true_phys": 992,
+   "true_tech": 908,
+   "true_ment": 895,
+   "pa": 1191,
+   "scout_band": {
+    "ca_high": 96,
+    "ca_low": 88,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00368",
+   "club": "C00015",
+   "name": "Ru Sorgaard",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 27,
+   "true_ca": 1255,
+   "true_phys": 1189,
+   "true_tech": 1337,
+   "true_ment": 1232,
+   "pa": 1361,
+   "scout_band": {
+    "ca_high": 129,
+    "ca_low": 121,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00369",
+   "club": "C00015",
+   "name": "Vik Sorsen",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 995,
+   "true_phys": 1084,
+   "true_tech": 983,
+   "true_ment": 907,
+   "pa": 1148,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00370",
+   "club": "C00015",
+   "name": "Vikbjo Rustrom",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 18,
+   "true_ca": 822,
+   "true_phys": 864,
+   "true_tech": 893,
+   "true_ment": 690,
+   "pa": 907,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00371",
+   "club": "C00015",
+   "name": "Va Goras",
+   "nationality": "Valdorian",
+   "pos": "AM",
+   "age": 30,
+   "true_ca": 1026,
+   "true_phys": 997,
+   "true_tech": 1021,
+   "true_ment": 1064,
+   "pa": 1208,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00372",
+   "club": "C00015",
+   "name": "Ka Wilworth",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 21,
+   "true_ca": 1072,
+   "true_phys": 989,
+   "true_tech": 1043,
+   "true_ment": 1201,
+   "pa": 1079,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00373",
+   "club": "C00015",
+   "name": "Magke Vikvik",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 28,
+   "true_ca": 1049,
+   "true_phys": 976,
+   "true_tech": 1030,
+   "true_ment": 1155,
+   "pa": 1344,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00374",
+   "club": "C00015",
+   "name": "Lau Eistrom",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1021,
+   "true_phys": 1107,
+   "true_tech": 951,
+   "true_ment": 1007,
+   "pa": 1153,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00375",
+   "club": "C00015",
+   "name": "Ralo Godano",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1251,
+   "true_phys": 1179,
+   "true_tech": 1174,
+   "true_ment": 1426,
+   "pa": 1323,
+   "scout_band": {
+    "ca_high": 132,
+    "ca_low": 124,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00376",
+   "club": "C00016",
+   "name": "Dello Delvez",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 968,
+   "true_phys": 913,
+   "true_tech": 1042,
+   "true_ment": 941,
+   "pa": 1039,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00377",
+   "club": "C00016",
+   "name": "Sanma Torras",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 25,
+   "true_ca": 759,
+   "true_phys": 765,
+   "true_tech": 720,
+   "true_ment": 800,
+   "pa": 870,
+   "scout_band": {
+    "ca_high": 79,
+    "ca_low": 71,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00378",
+   "club": "C00016",
+   "name": "Tor Rares",
+   "nationality": "Valdorian",
+   "pos": "GK",
+   "age": 31,
+   "true_ca": 1079,
+   "true_phys": 1067,
+   "true_tech": 1066,
+   "true_ment": 1109,
+   "pa": 1221,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00379",
+   "club": "C00016",
+   "name": "Vikmun Sorholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 31,
+   "true_ca": 978,
+   "true_phys": 914,
+   "true_tech": 1022,
+   "true_ment": 997,
+   "pa": 1016,
+   "scout_band": {
+    "ca_high": 104,
+    "ca_low": 96,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00380",
+   "club": "C00016",
+   "name": "Ei Nyholm",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 27,
+   "true_ca": 951,
+   "true_phys": 909,
+   "true_tech": 905,
+   "true_ment": 1055,
+   "pa": 1171,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00381",
+   "club": "C00016",
+   "name": "Lau Kjevik",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 22,
+   "true_ca": 816,
+   "true_phys": 847,
+   "true_tech": 844,
+   "true_ment": 746,
+   "pa": 871,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00382",
+   "club": "C00016",
+   "name": "Nylin Sordal",
+   "nationality": "Noremic",
+   "pos": "CB",
+   "age": 21,
+   "true_ca": 1029,
+   "true_phys": 1074,
+   "true_tech": 972,
+   "true_ment": 1045,
+   "pa": 1051,
+   "scout_band": {
+    "ca_high": 109,
+    "ca_low": 101,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00383",
+   "club": "C00016",
+   "name": "Mag Laulund",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 23,
+   "true_ca": 902,
+   "true_phys": 917,
+   "true_tech": 835,
+   "true_ment": 964,
+   "pa": 912,
+   "scout_band": {
+    "ca_high": 94,
+    "ca_low": 86,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00384",
+   "club": "C00016",
+   "name": "Kje Rudal",
+   "nationality": "Noremic",
+   "pos": "FB",
+   "age": 28,
+   "true_ca": 939,
+   "true_phys": 909,
+   "true_tech": 941,
+   "true_ment": 972,
+   "pa": 1133,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00385",
+   "club": "C00016",
+   "name": "Del Ridinho",
+   "nationality": "Valdorian",
+   "pos": "FB",
+   "age": 28,
+   "true_ca": 844,
+   "true_phys": 864,
+   "true_tech": 798,
+   "true_ment": 878,
+   "pa": 1054,
+   "scout_band": {
+    "ca_high": 86,
+    "ca_low": 78,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00386",
+   "club": "C00016",
+   "name": "Lulo Sanras",
+   "nationality": "Valdorian",
+   "pos": "DM",
+   "age": 23,
+   "true_ca": 1061,
+   "true_phys": 1129,
+   "true_tech": 1098,
+   "true_ment": 940,
+   "pa": 1149,
+   "scout_band": {
+    "ca_high": 112,
+    "ca_low": 104,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00387",
+   "club": "C00016",
+   "name": "Lausten Sorholm",
+   "nationality": "Noremic",
+   "pos": "DM",
+   "age": 28,
+   "true_ca": 831,
+   "true_phys": 850,
+   "true_tech": 844,
+   "true_ment": 795,
+   "pa": 839,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00388",
+   "club": "C00016",
+   "name": "Miri Ludinho",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 28,
+   "true_ca": 1199,
+   "true_phys": 1262,
+   "true_tech": 1173,
+   "true_ment": 1158,
+   "pa": 1227,
+   "scout_band": {
+    "ca_high": 126,
+    "ca_low": 118,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00389",
+   "club": "C00016",
+   "name": "Albur Kabrook",
+   "nationality": "Kestrelian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 964,
+   "true_phys": 1015,
+   "true_tech": 1014,
+   "true_ment": 846,
+   "pa": 985,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00390",
+   "club": "C00016",
+   "name": "San Raras",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 30,
+   "true_ca": 1188,
+   "true_phys": 1244,
+   "true_tech": 1233,
+   "true_ment": 1071,
+   "pa": 1534,
+   "scout_band": {
+    "ca_high": 124,
+    "ca_low": 116,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00391",
+   "club": "C00016",
+   "name": "Ri Tortiago",
+   "nationality": "Valdorian",
+   "pos": "CM",
+   "age": 27,
+   "true_ca": 929,
+   "true_phys": 974,
+   "true_tech": 917,
+   "true_ment": 892,
+   "pa": 1039,
+   "scout_band": {
+    "ca_high": 92,
+    "ca_low": 84,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00392",
+   "club": "C00016",
+   "name": "Fen Fenfield",
+   "nationality": "Kestrelian",
+   "pos": "W",
+   "age": 30,
+   "true_ca": 963,
+   "true_phys": 902,
+   "true_tech": 1030,
+   "true_ment": 952,
+   "pa": 976,
+   "scout_band": {
+    "ca_high": 102,
+    "ca_low": 94,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00393",
+   "club": "C00016",
+   "name": "Kjeke Sorvik",
+   "nationality": "Noremic",
+   "pos": "W",
+   "age": 26,
+   "true_ca": 894,
+   "true_phys": 839,
+   "true_tech": 829,
+   "true_ment": 1034,
+   "pa": 1124,
+   "scout_band": {
+    "ca_high": 89,
+    "ca_low": 81,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00394",
+   "club": "C00016",
+   "name": "Del Vatiago",
+   "nationality": "Valdorian",
+   "pos": "W",
+   "age": 22,
+   "true_ca": 927,
+   "true_phys": 886,
+   "true_tech": 996,
+   "true_ment": 892,
+   "pa": 1194,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00395",
+   "club": "C00016",
+   "name": "Jormor Osfield",
+   "nationality": "Kestrelian",
+   "pos": "AM",
+   "age": 19,
+   "true_ca": 786,
+   "true_phys": 849,
+   "true_tech": 837,
+   "true_ment": 653,
+   "pa": 974,
+   "scout_band": {
+    "ca_high": 84,
+    "ca_low": 76,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00396",
+   "club": "C00016",
+   "name": "Sorlin Nysen",
+   "nationality": "Noremic",
+   "pos": "AM",
+   "age": 19,
+   "true_ca": 660,
+   "true_phys": 600,
+   "true_tech": 687,
+   "true_ment": 695,
+   "pa": 709,
+   "scout_band": {
+    "ca_high": 66,
+    "ca_low": 58,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00397",
+   "club": "C00016",
+   "name": "Cal Fenbrook",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 20,
+   "true_ca": 951,
+   "true_phys": 867,
+   "true_tech": 950,
+   "true_ment": 1047,
+   "pa": 1059,
+   "scout_band": {
+    "ca_high": 99,
+    "ca_low": 91,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00398",
+   "club": "C00016",
+   "name": "Go Sanlez",
+   "nationality": "Valdorian",
+   "pos": "ST",
+   "age": 34,
+   "true_ca": 1036,
+   "true_phys": 1077,
+   "true_tech": 975,
+   "true_ment": 1064,
+   "pa": 1109,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00399",
+   "club": "C00016",
+   "name": "Viksten Janberg",
+   "nationality": "Noremic",
+   "pos": "ST",
+   "age": 25,
+   "true_ca": 1035,
+   "true_phys": 1127,
+   "true_tech": 950,
+   "true_ment": 1032,
+   "pa": 1044,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  },
+  {
+   "pid": "P00400",
+   "club": "C00016",
+   "name": "Dunmor Fenworth",
+   "nationality": "Kestrelian",
+   "pos": "ST",
+   "age": 21,
+   "true_ca": 1056,
+   "true_phys": 1147,
+   "true_tech": 1073,
+   "true_ment": 931,
+   "pa": 1086,
+   "scout_band": {
+    "ca_high": 106,
+    "ca_low": 98,
+    "confidence": "A"
+   }
+  }
+ ]
+}

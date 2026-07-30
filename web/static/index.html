@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FM Bench</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* language toggle — human UI only */
+  #lang-toggle {
+    position: fixed; top: 10px; right: 12px; z-index: 1000;
+    font: 600 13px/1 var(--mono, monospace);
+    padding: 6px 10px; border-radius: 8px; cursor: pointer;
+    border: 1px solid rgba(128,128,128,.4);
+    background: rgba(128,128,128,.12); color: inherit;
+  }
+  #lang-toggle:hover { background: rgba(128,128,128,.25); }
+</style>
+</head>
+<body>
+
+<button id="lang-toggle" data-i18n="lang.toggle" title="Language / 语言">中文</button>
+
+<div id="banner-area"></div>
+
+<!-- new game overlay -->
+<div id="new-game" class="overlay hidden">
+  <div class="dialog">
+    <h1 data-i18n-html="ng.title"><span class="accent">⚽ FM Bench</span> — take the job</h1>
+    <p class="muted" data-i18n="ng.lead">You manage the club. The engine simulates the world day by day
+      and stops when something needs your decision. Same rules, same tools,
+      same information as the AI agents get.</p>
+    <div class="fields">
+      <label><span data-i18n="ng.seed">Seed</span> <input id="ng-seed" type="number" value="42"></label>
+      <label><span data-i18n="ng.years">Years</span>
+        <select id="ng-years">
+          <option value="5" selected data-i18n="ng.years5">5 (short track)</option>
+          <option value="20" data-i18n="ng.years20">20 (full career)</option>
+        </select>
+      </label>
+    </div>
+    <div class="pitch-note" data-i18n-html="ng.pitchNote">
+      Player ability is never shown exactly — you get scouted <b>ranges</b> with a
+      confidence grade. The board expects results <i>and</i> financial discipline;
+      fail both and you're sacked, which settles your score early at a steep discount.
+    </div>
+    <button id="ng-start" class="primary big" data-i18n="ng.start">Start career</button>
+  </div>
+</div>
+
+<!-- season rollover overlay -->
+<div id="season-over" class="overlay hidden">
+  <div class="dialog">
+    <div class="season-head"><h1 data-i18n="so.title">Season review</h1><span class="yr" id="so-year"></span></div>
+    <div id="so-body"></div>
+    <button id="so-close" class="primary" data-i18n="so.close">On to the new season ▶</button>
+  </div>
+</div>
+
+<!-- final score overlay -->
+<div id="game-over" class="overlay hidden">
+  <div class="dialog">
+    <h1 id="go-title" data-i18n="go.title">Career over</h1>
+    <div id="go-body"></div>
+    <button id="go-new" class="primary big" data-i18n="go.new">New career</button>
+  </div>
+</div>
+
+<header id="topbar" class="hidden">
+  <div class="hdr-club" id="hdr-club"></div>
+  <div class="hdr-stats">
+    <div class="stat"><span class="v" id="hdr-date"></span><label data-i18n="hdr.date">date</label></div>
+    <div class="stat"><span class="v" id="hdr-pos"></span><label data-i18n="hdr.position">position</label></div>
+    <div class="stat"><span class="v" id="hdr-cash"></span><label data-i18n="hdr.cash">cash</label></div>
+    <div class="stat gauge"><span class="v" id="hdr-conf"></span>
+      <div class="track"><div class="fill" id="hdr-conf-fill"></div></div>
+      <label data-i18n="hdr.board">board</label></div>
+    <div class="stat"><span class="pills" id="hdr-budget"></span><label data-i18n="hdr.budget">queries · offers</label></div>
+  </div>
+  <button id="btn-continue" class="primary big" data-i18n="hdr.continue">Continue ▶</button>
+</header>
+
+<main id="layout" class="hidden">
+  <section id="inbox-pane">
+    <h2 id="inbox-title" data-i18n="inbox.title">Inbox</h2>
+    <div id="since-card"></div>
+    <div id="stop-warnings"></div>
+    <div id="inbox-list"></div>
+    <div id="continue-zone">
+      <button id="btn-continue2" class="primary big" data-i18n="hdr.continue">Continue ▶</button>
+      <div id="continue-hint" data-i18n-html="continue.hint">The engine simulates until the next decision stop —
+        exactly what an agent gets from <span style="font-family:var(--mono)">advance()</span>.
+        Shortcut: <kbd>c</kbd></div>
+    </div>
+  </section>
+
+  <section id="tabs-pane">
+    <nav id="tabs">
+      <button data-tab="squad" class="active"><span class="k">1</span><span data-i18n="tab.squad">Squad</span></button>
+      <button data-tab="tactics"><span class="k">2</span><span data-i18n="tab.tactics">Tactics</span></button>
+      <button data-tab="table"><span class="k">3</span><span data-i18n="tab.table">Table</span></button>
+      <button data-tab="fixtures"><span class="k">4</span><span data-i18n="tab.fixtures">Fixtures</span></button>
+      <button data-tab="market"><span class="k">5</span><span data-i18n="tab.market">Market</span></button>
+      <button data-tab="finances"><span class="k">6</span><span data-i18n="tab.finances">Finances</span></button>
+      <button data-tab="club"><span class="k">7</span><span data-i18n="tab.club">Club</span></button>
+      <button data-tab="youth"><span class="k">8</span><span data-i18n="tab.youth">Youth</span></button>
+      <button data-tab="history"><span class="k">9</span><span data-i18n="tab.history">History</span></button>
+      <button data-tab="notebook"><span class="k">0</span><span data-i18n="tab.notebook">Notebook</span></button>
+    </nav>
+    <div id="tab-body"></div>
+  </section>
+</main>
+
+<footer id="page-foot" class="hidden">
+  <span><kbd>c</kbd> <span data-i18n="foot.continue">continue</span></span>
+  <span><kbd>1</kbd>–<kbd>0</kbd> <span data-i18n="foot.tabs">switch tabs</span></span>
+  <span data-i18n="foot.tools">Every button here is one of the same tools AI agents call.</span>
+</footer>
+
+<div id="toast-area"></div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

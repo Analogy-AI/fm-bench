@@ -1,0 +1,9 @@
+# FM-Bench runtime dependencies (Python 3.11+)
+# Core engine + solo benchmark:
+pyyaml>=6.0
+# LLM runs (only needed when --agent claude / an LLM model is used):
+anthropic>=0.40
+# Optional: OpenAI-compatible providers (GPT and OpenAI-compatible endpoints):
+openai>=1.40
+# Dev / determinism regression tests:
+pytest>=8.0

@@ -1,0 +1,28 @@
+{
+  "headless_2y_seed11": "602fddefae9af3fc6e46c82918a1d672",
+  "headless_2y_seed3": "c844e1fbd2285d6af0f6461be4d09390",
+  "idle_2y_seed11": {
+    "event_chain_hash": "478d1fe52de0a601",
+    "final_state_hash": "1db8838a1d49438d116570b8519f4867",
+    "s_final": -14.5364,
+    "settle_reason": "fired",
+    "stops_total": 12
+  },
+  "idle_2y_seed11_555": {
+    "event_chain_hash": "3b6fdb1455cd6e88",
+    "final_state_hash": "644b97a3a8cf5aa58553bd1b3fa9f15b",
+    "s_final": 1.3209
+  },
+  "idle_2y_seed3": {
+    "event_chain_hash": "25f6fb37f87c9a72",
+    "final_state_hash": "65be33e4f63fa083e39c68bfa2a7b4e4",
+    "s_final": 9.9437,
+    "settle_reason": "completed",
+    "stops_total": 38
+  },
+  "idle_2y_seed3_555": {
+    "event_chain_hash": "cfb9c5f669a11503",
+    "final_state_hash": "8efaf5e71563d3e5be74d9665f82d9f8",
+    "s_final": 11.0828
+  }
+}

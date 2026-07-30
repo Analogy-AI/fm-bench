@@ -1,0 +1,428 @@
+# FM Bench v0 — single source of all tunable constants (DESIGN §2.1 rule 3).
+# All values are calibration initial values unless marked LOCKED.
+
+world:
+  divisions: 1                 # LOCKED (DECISIONS #1: 1x16 is the standard world; prom/rel deferred)
+  clubs_per_division: 16       # LOCKED
+  days_per_year: 360
+  rounds: 30
+  first_match_day: 65
+  match_interval_days: 7
+  promoted: 3
+  relegated: 3
+  season_settlement_day: 300
+  youth_intake_day: 305
+  senior_squad_size: 25
+  min_squad_size: 18
+  max_squad_size: 30
+  free_agent_purge_seasons: 2
+  opponent_cash_mult: 1.0      # hard_offline mode >1: AI (non-player) clubs start richer
+
+windows:
+  summer_open: 1
+  summer_close: 60
+  winter_open: 181
+  winter_close: 210
+  winter_ask_mult: 1.15
+  window_end_desperate_mult: 0.8
+  window_end_last_days: 7
+  listed_discount: 0.9
+  distress_mult: 0.65
+
+attributes:
+  scale_max: 2000              # fixed point; display CA = value / 10 (CA in 1..200)
+
+playergen:
+  t1_quality_top: 1330
+  t1_quality_bottom: 1020
+  t2_quality_top: 1000
+  t2_quality_bottom: 800
+  squad_ca_sigma: 120
+  pa_extra_mu: 70             # PA ~ CA + truncnorm(pa_extra_mu, pa_sigma), clipped
+  pa_sigma: 160
+  pa_max: 1950
+  age_min: 17
+  age_max: 34
+
+development:
+  k_dev_weekly: 3.4            # base; young multipliers below (17yo target ~ +120 pts/yr)
+  age_mult: {20: 2.0, 23: 1.5, 26: 1.0, 99: 0.5}   # applied at age <= key
+  low_minutes_factor: 0.25
+  full_minutes_per_28d: 360
+  training_quality_per_level: [1.0, 1.1, 1.2]
+  season_train_start: 60
+  season_train_end: 280
+
+aging:
+  # position group: [peak_age, annual_phys_decline_pct, cliff_age, cliff_extra_pct]
+  groups:
+    GK:  [31, 2.2, 36, 6.0]
+    CB:  [28, 4.0, 33, 7.5]
+    DM:  [28, 4.0, 33, 7.5]
+    FB:  [27, 5.2, 32, 8.5]
+    CM:  [27, 5.2, 32, 8.5]
+    W:   [26, 7.0, 30, 10.0]
+    AM:  [26, 7.0, 30, 10.0]
+    ST:  [27, 5.2, 31, 8.5]
+  tech_decline_pct: 2.0
+  mental_growth_pct: 0.8
+  mental_growth_until: 28
+  major_injury_headstart_years: 0.5
+  retire_age: 34
+  retire_ca_below: 750
+  hard_retire_age: 37
+
+injury:
+  base_match_rate: 0.022
+  age30_mult: 1.4
+  fatigue70_mult: 2.75
+  tiers:                       # [share, min_days, max_days]
+    - [0.60, 3, 10]
+    - [0.25, 14, 42]
+    - [0.12, 60, 120]
+    - [0.03, 180, 270]
+  season_ender_perm_phys_loss: [0.03, 0.08]
+  major_injury_stop_days: 21
+
+fatigue:
+  # Calibration v0.3: recovery cut 12 -> 3.9/day so weekly rhythm nets
+  # +3..+7 fatigue for an un-rotated outfield starter (GK stays sustainable).
+  # An iron-man XI crosses thresh1 (~-20% perf) around rounds 10-14 and keeps
+  # climbing; resting one week fully clears a sub-thresh1 reading. A ~20-man
+  # squad rotating each slot every ~3rd match is fatigue-neutral. This is the
+  # F13 activation: squad depth now has mechanical value.
+  per_match: {GK: 16, CB: 30, DM: 32, FB: 33, CM: 33, W: 34, AM: 33, ST: 32}
+  recovery_base: 3.9
+  recovery_age_penalty: 0.15   # per year over 28
+  thresh1: 70
+  thresh1_perf: 0.80
+  thresh2: 85
+  thresh2_perf: 0.55
+
+morale:
+  start: 60
+  win: 2
+  loss: -2
+  streak_loss_extra: -1
+  renewal_delay: -10
+  negotiation_collapse: -15
+  drift_target: 50
+  drift_per_week: 1
+  effect_base: 0.9
+  effect_span: 500
+
+match:
+  base_lambda_home: 1.45
+  base_lambda_away: 1.20
+  home_adv: 1.18
+  alpha: 1.35
+  segments: 6
+  max_goals: 9
+  matchup_cap: 0.20
+  style_switch_penalty_matches: 2
+  style_misfit_penalty: 0.05
+  out_of_position_penalty: 0.85
+  form_mult_min: 0.92
+  form_mult_max: 1.08
+  rating_persistent_bias_sigma: 0.15
+
+tactics:
+  formations: ["4-4-2", "4-3-3", "3-5-2"]
+  styles: [possession, gegenpress, lowblock]
+  # rps[a][b] = attack bonus for side playing style a against style b
+  rps:
+    gegenpress: {possession: 0.12, lowblock: 0.0, gegenpress: 0.0}
+    possession: {lowblock: 0.10, gegenpress: 0.0, possession: 0.0}
+    lowblock:   {gegenpress: 0.12, possession: 0.0, lowblock: 0.0}
+  possession_vs_lowblock_late: 0.15   # replaces 0.10 in segments 4-6 if opp avg fatigue > 60
+
+economy:
+  inflation_revenue: 0.04
+  solidarity_M: 0    # anti-hollowing (opt-in): annual solidarity €M to low-ranked
+                     # clubs, scaled by rank (bottom gets most); 0 = off (default)
+  inflation_wage: 0.045
+  inflation_transfer: 0.06
+  tv_base_M: {1: 60, 2: 16}
+  tv_gradient_top_M: {1: 40, 2: 8}    # linear from pos 1 down to ~0 at pos 16
+  ticket_price: 80
+  home_games: 15
+  commercial_coef_M: 0.42             # x rep_ema^2/100 (superlinear brand income)
+  commercial_div2_scale: 0.5          # T2 commercial haircut
+  operating_cost_pct: 0.16            # opex as share of last-season revenue
+  prize_champion_M: {1: 25, 2: 6}     # linear gradient down to 0
+  wage_ratio_warning: 0.85
+  # G1/G2 recalibration: T1 median wage/revenue now sits at 0.55-0.70 under
+  # all-AI play (w0 1.65M, AI wage target 0.68, opex 16%, gate/commercial cut).
+  # Floor 0.35 catches sandbagging (band p10 ~= 0.35-0.47) without firing a
+  # top-heavy club whose revenue outruns its wage spend.
+  wage_ratio_fire_floor: 0.35
+  admin_cash_threshold: -0.10         # x annual revenue
+  admin_days: 90
+  # Round-3 (autopsy): the 90-day fuse was invisible — controlled clubs now
+  # get qualitative countdown warnings so recovery is playable, not luck.
+  admin_warn_days: [30, 60]
+  admin_points_penalty: 12
+  admin_settle_prob: 0.7
+  parachute: [0.55, 0.30]
+  facility_upkeep_pct: 0.02
+  agent_commission: 0.05
+  misc_fixed_cost_M: {1: 8, 2: 2}
+
+wagemodel:
+  w0_cents: 1650000                    # annual cents at CA*=0 anchor (see contract.py)
+  k_per_ca_pt: 0.046                  # per display CA point
+  min_annual_M: 0.05
+  initial_wage_noise: 0.12            # persistent +/- spread on worldgen wages (C1 anti-oracle)
+  wage_quantum_M: 0.05                # worldgen wages quantized to this step
+  youth_wage_M: 0.08
+  form_coef: 0.1
+  leverage_last_year: 1.6
+
+valuation:
+  a_cents: 3570000                    # anchor: CA 120 ~ 8M, CA 180 ~ 120M
+  k_per_ca_pt: 0.0451
+  age_curve: {17: 0.6, 21: 0.85, 24: 1.0, 28: 0.85, 30: 0.7, 32: 0.45, 35: 0.2}
+  contract_gt24: 1.0
+  contract_12to24: 0.85
+  contract_lt12: 0.6
+
+opponents:
+  # 5/5/5 opponent competence tiers (capability track). DEFAULT ON since
+  # 2026-07-14 (owner decision): the official 1v15 exam IS the 5/5/5 world —
+  # real leagues have uneven management quality, so "the 15" are natively
+  # tiered. "none" keeps the pre-feature all-medium world for debug/ablation
+  # (byte-identical to the legacy engine). The assignment is FIXED IN
+  # PARAMS — a pure function of params + worldgen wealth ranks, no RNG — so
+  # every tested model sits the SAME exam. The player's club is never
+  # tiered. Flipping the default moved params_hash: golden hashes were
+  # re-captured; old-pool separation is carried by comparability stamps.
+  tier_mix: "555"              # "555" (official) | none (legacy/debug)
+  # Applied to non-player clubs ranked by initial cash (richest first, cid
+  # tie-break). The cyclic hard/medium/easy pattern INTERLEAVES competence
+  # with wealth: each wealth quintile (ranks 1-5 / 6-10 / 11-15) contains
+  # all three tiers, so money and brains are decorrelated.
+  tier_order: [hard, medium, easy, hard, medium, easy, hard, medium, easy,
+               hard, medium, easy, hard, medium, easy]
+  # competence levers (all deterministic functions of state — no new RNG
+  # draws, so flag-off worlds cannot shift). medium == exactly today's AI.
+  # calibration (5y x seeds 1-5 scripted anchors): v1 easy=1.6/hard=0.6 came
+  # out NET EASIER (+2.3 heuristic) — easy sellers' noisy asks were free
+  # bargains and their iron-man XIs donated points league-wide, while hard's
+  # edge was too subtle. v2 tempers easy's exploitability and gives hard real
+  # teeth (sharper beliefs, proactive buys, ambitious wage budgets).
+  tiers:
+    easy:                       # noisy, lazy, complacent management
+      scout_sigma_mult: 1.3     # worse beliefs -> misvalued buys/sales/lineups
+      fitness_aware_lineup: false  # iron-mans the best XI; no rotation
+      market_day_stride: 2      # acts on only every 2nd market day
+      buy_need_gap_mult: 1.5    # needs a bigger upgrade before bothering to buy
+      wage_target_mult: 0.92    # complacent board under-budgets wages
+    medium:                     # byte-identical to the untiered scripted AI
+      scout_sigma_mult: 1.0
+      fitness_aware_lineup: true
+      market_day_stride: 1
+      buy_need_gap_mult: 1.0
+      wage_target_mult: 1.0
+    hard:                       # sharp, proactive, ambitious management
+      scout_sigma_mult: 0.35    # tighter beliefs -> better targets and prices
+      fitness_aware_lineup: true
+      market_day_stride: 1
+      buy_need_gap_mult: 0.25   # upgrades proactively on small gaps
+      wage_target_mult: 1.10    # ambitious board funds a stronger wage bill
+
+market_ai:
+  # v0.3 sealed-bid market (DESIGN_v0.3.md change 2; default OFF = v0.2
+  # behavior byte-identical). Offers to bot sellers queue and resolve at
+  # day end: single buyer -> classic negotiation, >=2 buyers -> first-price
+  # sealed auction (clearing prices never published; RNG tie-break).
+  sealed_bids: false
+  strategy: scripted          # scripted (default, official runs) | llm (online/exhibition only, stub)
+  # v0.3 market reopen: round-3 anti-probe friction overcorrected (measured 0
+  # completed purchases across all investigated LLM/oracle runs). Sellers list
+  # closer to their valuation and close faster; the anti-oracle regression
+  # (ask-implied CA must not out-resolve scouting) still gates these numbers.
+  ask_over_value: 1.12
+  accept_ratio: 0.90
+  counter_lo: 0.72
+  reject_ask_bump: 0.05
+  max_rounds: 3
+  market_day_interval: 3
+  offer_ttl_days: 10
+  single_source_markup: 0.12
+  bargain_extra_markup: 0.08
+  markup_season_decay: 0.08
+  flip_rate_threshold: 0.4
+  flip_owned_days: 360
+  flip_buy_penalty: 0.10
+  flip_sell_penalty: 0.10
+  wage_target_ratio: 0.68
+  buy_need_gap: 60                    # fixed pts a target must beat weakest starter by
+  sell_surplus_squad: 28
+  # per-seed mispricing (X1): direction/size rolled per seed, replaces fixed age alpha
+  mispricing_abs_max: 0.15
+  list_price_sigma: 0.15          # lognormal ask noise, persistent per (player, window)
+  free_agent_fee_ratio: 0.20      # signing fee (share of believed value) — the
+                                  # zero-fee channel must not dominate paid transfers
+                                  # (0.35 choked FA signings to zero league-wide)
+
+scouting:
+  n_scouts: 4
+  bias_sigma: 40
+  session_sigma: 30
+  own_bias_sigma: 15
+  own_session_sigma: 10
+  band_width_own: 80                  # fixed pts -> displayed as CA range of 8
+  band_width_scouted: 160
+  band_width_public: 300
+  youth_star_sigma: 1.0
+
+board:
+  start_confidence: 50
+  upset_win: 6
+  expected_win: 3
+  expected_loss: -3
+  upset_loss: -6
+  upset_margin: 0.25                  # win prob below this => upset
+  draw_as_favourite: -3
+  draw_as_underdog: 3
+  monthly_per_place: -1
+  season_gap_cap: 12
+  target_cushion: 1                   # board expects "within N of squad-strength
+                                      # rank"; absorbs single-division match
+                                      # variance. Calibrated for 1x16 (round 2
+                                      # sweep, docs/CALIBRATION_1x16.md): 1 gives
+                                      # a monotonic 20y ladder with the widest
+                                      # disciplined-vs-passive gap and an all-
+                                      # positive oracle ceiling; >=2 inverts.
+  adaptive_target_weight: 1.0         # <1 blends last season's ACTUAL finish into
+                                      # the target (Bayesian board): target =
+                                      # round(w*rank + (1-w)*last_pos). 1.0 = off.
+  adaptive_target_max_relax: 3        # X5 guard: adapted target can sit at most
+                                      # this many places easier than strength rank
+  confidence_drift_rate: 0            # monthly mean-reversion of confidence toward
+                                      # start_confidence (recoverable-spiral knob);
+                                      # 0 = off (byte-identical default)
+  finance_penalty: -3                 # monthly hit while wage ratio breaches the warning line
+  finance_improving_factor: 0.5       # finance penalty multiplier while ratio trends DOWN vs last month
+  finance_improving_eps: 0.01         # ratio must drop by at least this to count as improving
+  upper_half_conf_floor: 25           # monthly support: top-half position lifts confidence to >= this
+  y1_monthly_factor: 0.5              # rookie grace: year-1 monthly finance+gap channels scaled down
+  fire_vote_below: 20
+  fire_vote_prob: 0.6
+  fire_below: 10
+  investment_floor_confidence: 50     # only fire for under-investment (wage
+                                      # ratio below economy.wage_ratio_fire_floor)
+                                      # when confidence is under this — spares
+                                      # efficient winning clubs (1x16 20y fix)
+  budget_boost_above: 80
+  budget_boost_pct: 0.15
+  patience_min: 3
+  patience_max: 5
+  # v0.3 anti-roster-shrink sandbag (X5 completion): board expectations are
+  # floored at season-start squad strength; the floor decays toward the real
+  # squad across seasons so a deliberate rebuild is viable in 1-2 years.
+  strength_floor_decay: 0.5           # per-season pull of the floor toward current strength
+  strength_floor_scale_cap: 1.30      # max lambda-scale applied on the board's bookmaker basis
+
+academy:
+  intake_base: 3                      # + level => 3..5 prospects
+  cost_upgrade_M: {2: 8, 3: 20}
+  upgrade_days: 360
+  running_cost_M: {1: 1.0, 2: 2.5, 3: 5.0}
+  pa_mu_base: 112                      # display CA scale
+  pa_mu_per_sqrt_level: 8
+  pa_sigma: 25
+  pa_clip: [40, 195]
+  ca_ratio: [0.35, 0.55]
+  youth_contract_years: 3
+  reverse_pa_mu: 0    # anti-hollowing (opt-in): PA-mu boost for low-ranked clubs
+                      # (reverse-order "draft"); 0 = off, byte-identical default
+
+training_facility:
+  cost_upgrade_M: {2: 6, 3: 15}
+  upgrade_days: 360
+  injury_mult_per_level: [1.0, 0.925, 0.85]
+
+stadium:
+  expand_step: 8000
+  cost_base_M: 80
+  cost_pow: 1.3
+  cap_ref: 30000
+  upgrade_days: 720
+  base_attendance: 0.55
+
+stops:
+  fixed:                              # day-of-year -> stop type
+    2: PRESEASON_BOARD
+    5: WINDOW_SUMMER_PLAN
+    59: DEADLINE_SUMMER
+    63: LINEUP_LOCK
+    90: MONTHLY_REPORT
+    120: MONTHLY_REPORT
+    150: MONTHLY_REPORT
+    181: WINDOW_WINTER_OPEN
+    190: MIDSEASON_REVIEW
+    209: DEADLINE_WINTER
+    240: MONTHLY_REPORT
+    300: SEASON_SETTLEMENT
+    305: YOUTH_INTAKE
+  offer_batch_days: 15
+  query_budget: 30
+  offer_budget: 10          # negotiation moves (offers+responses) per stop
+  max_standing_orders: 10
+  notebook_max_chars: 0        # 0 = unlimited (default); set >0 to cap notebook and test memory discipline
+
+score:
+  w_honors: 18
+  w_networth: 10
+  w_squadvalue: 6            # v0.2: stabilizer only; trading profit lives in the VA channel
+  h_div: 60
+  va_w_div: 40               # v0.2: net-worth VALUE-ADDED divisor (composite.py rationale)
+  m_div: 80
+  honors:
+    T1_CHAMPION: 100
+    T1_TOP4: 20
+    T2_CHAMPION: 30
+    T2_PROMOTED: 15
+    RELEGATED_T1: -40
+  last_n_seasons: 3
+  cash_excess_wage_mult: 3
+  cash_excess_discount: 0.3
+  squad_liquidity_discount: 0.8
+  construction_discount: 0.5
+  rho_base: 0.8
+  rho_exp: 1.5
+  death_discount_base: 0.8   # v0.3 revival: per-death multiplier on the positive part
+
+draft:
+  # v0.3 equal-endowment draft (docs/DESIGN_v0.3.md change 1). Default OFF:
+  # legacy worlds are byte-identical (no state, no RNG on the off path).
+  # Pricing invariant (owner decision #3): the best XI is unaffordable —
+  # 3-4 top-tier picks at most — while the cheapest 15 sit far under budget
+  # so every drafter can field a legal squad. Gate: a greedy buy-the-stars
+  # scripted drafter must not beat the balanced heuristic drafter.
+  enabled: false
+  budget_m: 100
+  stipend_m: 50                # leftover budget + stipend -> opening cash
+  min_picks: 15                # 11 to field an XI + injury buffer; >=1 GK
+  reputation: 70               # uniform club shells (equal endowment)
+  stadium_capacity: 38000
+  bot_reserve_m: 10            # scripted drafters keep this much cash back
+  bot_max_picks: 22
+  tiers:                       # 8+12+15+15 = 50 templates
+    - {name: top,      count: 8,  price_lo_m: 25, price_hi_m: 30, ca_mu: 1430, ca_sigma: 60, wage_mult: 1.6}
+    - {name: starter,  count: 12, price_lo_m: 8,  price_hi_m: 15, ca_mu: 1260, ca_sigma: 60, wage_mult: 1.15}
+    - {name: rotation, count: 15, price_lo_m: 3,  price_hi_m: 6,  ca_mu: 1120, ca_sigma: 60}
+    - {name: floor,    count: 15, price_lo_m: 1,  price_hi_m: 2,  ca_mu: 960,  ca_sigma: 60}
+
+revival:
+  # v0.3 second-chance + uniform league bailout (DESIGN_v0.3.md change 3).
+  # Default OFF: legacy settle-on-death behavior byte-identical. When ON:
+  # firing/administration become deaths with revival (confidence floor +
+  # injection + 0.8^k score discount); every club entering administration
+  # (bots included) draws the same decreasing injection schedule.
+  enabled: false
+  injections_m: [30, 15, 5]    # k-th bailout amount; beyond list = last entry
+  confidence_floor: 35
+  max_deaths: 3                # revivals per seat; the next death settles for
+                               # real (a hopeless seat stops burning cost)

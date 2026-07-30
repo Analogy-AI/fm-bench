@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FM Bench — Manager Demo</title>
+<style>
+:root{
+  --bg:#0f1712; --panel:#17221b; --panel2:#1e2c22; --raised:#24342a;
+  --chalk:#e9efe9; --dim:#92a797; --faint:#6b7f70;
+  --line:#33463a; --line-soft:#263528;
+  --gold:#f0b943; --gold-dim:#a8842f; --good:#7cc890; --warn:#e5a066; --bad:#df7d7d;
+  --gold-bg:rgba(240,185,67,.10); --bad-bg:rgba(223,125,125,.12);
+  --mono:"SF Mono",Menlo,Consolas,monospace;
+  --shadow:0 6px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--chalk);
+  background:radial-gradient(1000px 420px at 50% -80px,#16241b 0%,var(--bg) 60%);
+  font:14px/1.55 "Avenir Next","Segoe UI",system-ui,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer;background:var(--panel2);color:var(--chalk);
+  border:1px solid var(--line);border-radius:6px;padding:4px 11px;
+  transition:border-color .12s,background .12s}
+button:hover{border-color:var(--dim);background:var(--raised)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+button.primary{background:var(--gold);color:#221a06;border-color:var(--gold);font-weight:600}
+button.primary:hover{background:#f6c85e;border-color:#f6c85e}
+button.small{font-size:12px;padding:2px 8px}
+button:disabled{opacity:.45;cursor:default}
+input,select,textarea{background:#101a14;color:var(--chalk);border:1px solid var(--line);
+  border-radius:6px;padding:4px 8px;font:inherit}
+input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:0}
+kbd{font-family:var(--mono);font-size:10.5px;color:var(--dim);border:1px solid var(--line);
+  border-bottom-width:2px;border-radius:4px;padding:0 5px}
+.wrap{max-width:1080px;margin:0 auto;padding:14px}
+header{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center;
+  border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:12px}
+header .club{font-size:19px;font-weight:600}
+header .club span{color:var(--gold)}
+.stat{display:flex;flex-direction:column;font-size:13px;color:var(--dim)}
+.stat b{color:var(--chalk);font-family:var(--mono);font-weight:600;font-size:14px;
+  font-variant-numeric:tabular-nums}
+.stat b.good{color:var(--good)} .stat b.warn{color:var(--warn)} .stat b.bad{color:var(--bad)}
+.stat .cap{font-size:9.5px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em}
+.gaugetrack{width:64px;height:4px;border-radius:99px;background:var(--panel2);
+  border:1px solid var(--line-soft);overflow:hidden;margin-top:3px}
+.gaugetrack i{display:block;height:100%;border-radius:99px}
+.cols{display:grid;grid-template-columns:minmax(300px,5fr) minmax(340px,7fr);gap:14px}
+@media(max-width:820px){.cols{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.panel h3{margin:0 0 8px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.inbox-item{border:1px solid var(--line-soft);border-left:3px solid var(--line);
+  border-radius:7px;padding:8px 10px;margin-bottom:8px;background:var(--panel2);font-size:13.5px}
+.inbox-item.sev-gold{border-left-color:var(--gold)}
+.inbox-item.sev-bad{border-left-color:var(--bad)}
+.inbox-item.sev-warn{border-left-color:var(--warn)}
+.inbox-item.sev-good{border-left-color:var(--good)}
+.inbox-item .tag{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;
+  padding:1px 6px;border-radius:99px;border:1px solid var(--line);color:var(--dim);margin-right:6px}
+.inbox-item .tag.offer{color:var(--gold);border-color:rgba(240,185,67,.45);background:var(--gold-bg)}
+.inbox-item .tag.bad{color:var(--bad);border-color:rgba(223,125,125,.45);background:var(--bad-bg)}
+.inbox-item .tag.good{color:var(--good);border-color:rgba(124,200,144,.45)}
+.inbox-item .acts{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.inbox-item .acts input{width:70px;font-family:var(--mono);font-size:12px}
+#continueBtn{width:100%;padding:10px;font-size:15px;margin-top:4px;letter-spacing:.01em}
+.tabs{display:flex;gap:2px;flex-wrap:wrap;margin-bottom:10px;border-bottom:1px solid var(--line)}
+.tabs button{border:none;background:transparent;color:var(--dim);border-radius:0;
+  border-bottom:2px solid transparent;font-size:13px;padding:5px 11px}
+.tabs button:hover{color:var(--chalk)}
+.tabs button.on{color:var(--gold);border-bottom-color:var(--gold);font-weight:600;background:transparent}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--faint);text-align:left;
+  padding:5px 6px;border-bottom:1px solid var(--line);white-space:nowrap;font-weight:600}
+td{padding:4px 6px;border-bottom:1px solid var(--line-soft);
+  font-variant-numeric:tabular-nums;white-space:nowrap}
+td.mono{font-family:var(--mono);font-size:12px}
+tr:hover td{background:rgba(255,255,255,.03)}
+tr.me td{background:var(--gold-bg)}
+tr.me td:first-child{border-left:2px solid var(--gold)}
+tr.inj td{opacity:.55}
+.band{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11.5px}
+.band .trk{width:64px;height:6px;border-radius:99px;background:#101a14;
+  border:1px solid var(--line-soft);position:relative;overflow:hidden}
+.band .rng{position:absolute;top:0;bottom:0;border-radius:99px}
+.band.cA .rng{background:rgba(240,185,67,.85)} .band.cB .rng{background:rgba(240,185,67,.55)}
+.band.cC .rng{background:rgba(146,167,151,.5)} .band.cD .rng{background:rgba(146,167,151,.3)}
+.conf{font-size:9.5px;font-family:var(--mono);border:1px solid var(--line);border-radius:3px;
+  padding:0 3px;color:var(--dim)}
+.matchlog{font-family:var(--mono);font-size:12px;color:var(--dim);margin:8px 0 0;white-space:pre-wrap;
+  border-top:1px dashed var(--line);padding-top:8px}
+.toast{position:fixed;top:14px;right:14px;background:var(--raised);border:1px solid var(--line);
+  border-left:3px solid var(--gold);border-radius:7px;padding:9px 14px;max-width:340px;
+  font-size:13px;z-index:50;box-shadow:var(--shadow);animation:rise .22s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.toast{animation:none}}
+.overlay{position:fixed;inset:0;background:rgba(5,9,6,.84);display:flex;align-items:center;
+  justify-content:center;z-index:40;backdrop-filter:blur(3px)}
+.modal{background:linear-gradient(180deg,rgba(240,185,67,.05),transparent 90px),var(--panel);
+  border:1px solid var(--line);border-radius:12px;padding:26px 30px;max-width:540px;width:92%;
+  max-height:88vh;overflow-y:auto;box-shadow:var(--shadow)}
+.modal h2{margin:0 0 10px;color:var(--gold);font-size:22px;text-wrap:balance}
+.score-big{font-family:var(--mono);font-size:40px;color:var(--gold);line-height:1.1;
+  font-variant-numeric:tabular-nums;margin:6px 0 10px}
+.score-big .cap{display:block;font-size:10px;letter-spacing:.14em;color:var(--faint);
+  text-transform:uppercase}
+.chn{margin:7px 0}
+.chn .lbl{display:flex;justify-content:space-between;font-size:12px;color:var(--dim);margin-bottom:3px}
+.chn .lbl b{font-family:var(--mono);color:var(--chalk)}
+.chn .trk{height:9px;border-radius:99px;background:#101a14;border:1px solid var(--line-soft);overflow:hidden}
+.chn .fil{height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--gold-dim),var(--gold));
+  transition:width .9s cubic-bezier(.2,.7,.3,1)}
+@media (prefers-reduced-motion:reduce){.chn .fil{transition:none}}
+.scorebar{display:grid;grid-template-columns:auto 1fr auto;gap:5px 12px;align-items:center;
+  font-size:12.5px;margin:12px 0}
+.scorebar .bar{height:8px;border-radius:99px;background:var(--panel2);
+  border:1px solid var(--line-soft);position:relative;overflow:hidden}
+.scorebar .bar i{position:absolute;inset:0;border-radius:99px;background:var(--line)}
+.scorebar .bar.you i{background:linear-gradient(90deg,var(--gold-dim),var(--gold))}
+.scorebar .lbl{color:var(--dim)} .scorebar .lbl.you{color:var(--gold);font-weight:600}
+.scorebar .val{font-family:var(--mono);color:var(--dim);font-variant-numeric:tabular-nums}
+.scorebar .val.you{color:var(--gold)}
+.help li{margin-bottom:6px;font-size:13.5px}
+footer{margin-top:20px;padding-top:10px;border-top:1px dashed var(--line);color:var(--faint);font-size:12px}
+.hint{color:var(--dim);font-size:12.5px}
+.money{font-family:var(--mono)}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+//<SIM>
+"use strict";
+// ---------- deterministic PRNG (mulberry32) ----------
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;
+  let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;
+  return((t^t>>>14)>>>0)/4294967296}}
+let R;                       // active rng
+const rnd =()=>R();
+const ri  =(a,b)=>a+Math.floor(rnd()*(b-a+1));
+const pick=a=>a[Math.floor(rnd()*a.length)];
+function gauss(sd){let u=0,v=0;while(u===0)u=rnd();while(v===0)v=rnd();
+  return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)*sd}
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const fmtM=x=>"€"+(Math.round(x*10)/10)+"M";
+
+// ---------- world generation ----------
+const CLUB_A=["Vel","Nor","Kes","Dal","Mor","Tar","Lin","Osten","Fen","Gar","Hol","Ruv","Sel","Bran","Wester","Kron"];
+const CLUB_B=["burg","wick","stad","holm","field","gate","port","mere","ford","haven","ton","dale"];
+const CLUB_C=["City","United","Rovers","Athletic","FC","Sporting"];
+const FN=["Anders","Boris","Carlos","Dino","Emil","Franco","Gino","Henrik","Ivo","Janko","Kurt","Luca","Milan","Nico","Otto","Pavel","Rico","Stefan","Timo","Ugo","Viktor","Willem","Yann","Zoran","Aldo","Bruno","Casper","Darius","Elias","Filip"];
+const LN=["Albrecht","Baros","Cerny","Dvorak","Ekvall","Farkas","Gruner","Hoffman","Ilic","Jansen","Kovac","Lindt","Marek","Novak","Olsen","Petrov","Radic","Stein","Tomic","Ullrich","Vogel","Weiss","Zeman","Kral","Moser","Nagy","Orban","Pilar","Ristic","Sturm"];
+const POS_TMPL=["GK","GK","DF","DF","DF","DF","DF","DF","MF","MF","MF","MF","MF","MF","FW","FW","FW","FW"];
+const STYLES=["Possession","Gegenpress","Counter"];  // P>G, G>C, C>P
+
+let G=null;
+let pidSeq=0;
+
+function newPlayer(base, young){
+  const age = young? ri(17,19): ri(19,33);
+  const peak = clamp(base+gauss(9),40,95);
+  // current ability off the age curve around a hidden peak
+  let ca;
+  if(age<=21) ca = peak*(0.62+0.03*(age-17));
+  else if(age<=29) ca = peak*(0.77+0.029*(age-21));
+  else ca = peak*(1.0-0.035*(age-29));
+  ca = clamp(ca+gauss(3),35,95);
+  return {
+    id:"P"+(++pidSeq), name:pick(FN)+" "+pick(LN), pos:null, age,
+    ca, pot:Math.max(peak,ca),               // hidden
+    bias:gauss(4),                            // persistent scout bias, hidden
+    misprice:0.85+rnd()*0.3,                  // hidden per-player market noise
+    scout:0, form:0, injury:0, listed:false,
+    contractS: young? 2+rnd()*1 : 1+rnd()*3,  // seasons remaining
+    wage:0, minutes:0
+  };
+}
+function playerValue(p){ // true value, used by the sim side only
+  const base=0.075*Math.pow(Math.max(0,p.ca-38),1.75);
+  const agef=p.age<=23?1.25:p.age<=28?1.05:p.age<=31?0.75:0.45;
+  const cf=p.contractS<0.6?0.6:1;
+  return Math.max(0.2, base*agef*cf*p.misprice);
+}
+function estValue(p){ // what the UI shows (belief-based, coarse)
+  const c=beliefCenter(p);
+  const base=0.075*Math.pow(Math.max(0,c-38),1.75);
+  const agef=p.age<=23?1.25:p.age<=28?1.05:p.age<=31?0.75:0.45;
+  const cf=p.contractS<0.6?0.6:1;
+  return Math.round(Math.max(0.2,base*agef*cf)*2)/2;
+}
+function marketWage(p){return Math.max(0.4, estValue(p)*0.10*(1+gauss(0.05)))}
+function beliefCenter(p){return p.ca+p.bias}
+function beliefBand(p){ // never the truth: center = truth+bias, width by scout level
+  const w=[26,17,11,8][p.scout];
+  const c=beliefCenter(p);
+  const lo=Math.round(clamp(c-w/2,20,99)/2)*2, hi=Math.round(clamp(c+w/2,20,99)/2)*2;
+  return {lo,hi,conf:["D","C","B","A"][p.scout]};
+}
+function newClub(i,strength,mine){
+  const c={id:i,name:pick(CLUB_A)+pick(CLUB_B)+" "+pick(CLUB_C),mine:!!mine,
+    style:pick(STYLES),players:[],cash: mine?25:ri(10,60),
+    pts:0,gd:0,w:0,d:0,l:0};
+  for(const pos of POS_TMPL){const p=newPlayer(strength,false);p.pos=pos;
+    p.wage=marketWage(p)*(0.48+rnd()*0.15);c.players.push(p)}  // ~55-60% of revenue in total
+  return c;
+}
+function fixtures16(){ // circle method double round robin, ids 0..15
+  const n=16,rounds=[];const arr=[...Array(n).keys()];
+  for(let r=0;r<n-1;r++){const rd=[];
+    for(let k=0;k<n/2;k++){const a=arr[k],b=arr[n-1-k];
+      rd.push(r%2?[a,b]:[b,a])}
+    rounds.push(rd);arr.splice(1,0,arr.pop());}
+  return rounds.concat(rounds.map(rd=>rd.map(([a,b])=>[b,a])));
+}
+function newGame(seed,seasons){
+  R=mulberry32(seed);pidSeq=0;
+  const clubs=[];for(let i=0;i<16;i++){
+    const strength= i===7? 66 : 54+Math.round((15-i)*1.5); // id 7 = you, mid table
+    clubs.push(newClub(i,strength,i===7));}
+  G={seed,seasons,season:1,stop:0,clubs,me:clubs[7],rounds:fixtures16(),
+    inbox:[],offersIn:[],bidsOut:[],market:[],history:[],honors:0,honorList:[],
+    conf:65,lowConfStops:0,warnStops:0,revenueLast:38,style:"Possession",
+    lineup:null,notebook:"",over:null,log:[],youthSeen:false,scoutSpend:0};
+  refreshMarket();
+  makeStopEvents(true);
+  return G;
+}
+// ---------- market ----------
+function refreshMarket(){
+  G.market=[];
+  for(let i=0;i<8;i++){const p=newPlayer(50+ri(0,22),rnd()<0.25);
+    p.pos=pick(["DF","MF","MF","FW","DF","GK"]);
+    p.ask=playerValue(p)*(0.95+rnd()*0.35);p.rounds=0;G.market.push(p)}
+}
+const windowOpen=()=>{const s=G.stop%15;return s<3||s===7||s===8};
+
+// ---------- stops & events ----------
+function makeStopEvents(first){
+  G.inbox=[];
+  const me=G.me;
+  if(first)G.inbox.push({t:"info",tag:"WELCOME",txt:"The board expects a solid mid-table finish. Overspend on wages and they will notice. Good luck, manager."});
+  // incoming offers for my players
+  if(windowOpen()){
+    for(const p of me.players){
+      const v=playerValue(p);
+      const pr=(p.listed?0.30:0.05)+(v>18?0.06:0);
+      if(rnd()<pr&&me.players.length>14){
+        const o={id:"O"+ri(1000,9999),pid:p.id,from:pick(G.clubs.filter(c=>!c.mine)).name,
+          amount:Math.round(v*(0.7+rnd()*0.5)*2)/2,round:0,
+          limit:v*(1.02+rnd()*0.2)};
+        G.offersIn.push(o);}
+    }
+  }
+  for(const o of G.offersIn){const p=byId(o.pid);if(!p)continue;
+    G.inbox.push({t:"offer",tag:"OFFER",oid:o.id,
+      txt:`${o.from} bids ${fmtM(o.amount)} for ${p.name} (${p.pos}, ${p.age})`+(o.round?` — round ${o.round+1}`:"")});}
+  // expiring contracts
+  for(const p of me.players)if(p.contractS<0.55&&p.contractS>0)
+    G.inbox.push({t:"expiry",tag:"CONTRACT",pid:p.id,txt:`${p.name}'s contract expires at season end. Renew or lose him on a free.`});
+  // youth prospect once per season
+  if(G.stop%15===5&&!G.youthSeen){G.youthSeen=true;
+    const y=newPlayer(52,true);y.pos=pick(["DF","MF","FW"]);y.wage=0.5;G.youth=y;
+    const b=beliefBand(y);
+    G.inbox.push({t:"youth",tag:"ACADEMY",txt:`Academy prospect ${y.name} (${y.pos}, ${y.age}) is ready for a pro deal — ability ${b.lo}–${b.hi}, coaches see high potential. Wage €0.5M/yr.`});}
+  // finance warning
+  const wr=wageRatio();
+  if(wr>0.75)G.inbox.push({t:"warn",tag:"BOARD",bad:1,txt:`Board warning: wage bill is ${(wr*100)|0}% of revenue (they tolerate 75%). Confidence is slipping.`});
+  if(G.conf<25)G.inbox.push({t:"warn",tag:"BOARD",bad:1,txt:"The board has scheduled a vote on your future. Results, now."});
+  if(windowOpen())G.inbox.push({t:"info",tag:"WINDOW",good:1,txt:"Transfer window is OPEN — buy in the Market tab, sell via incoming offers."});
+}
+function byId(id){return G.me.players.find(p=>p.id===id)||G.market.find(p=>p.id===id)||(G.youth&&G.youth.id===id?G.youth:null)}
+function wageBill(){return G.me.players.reduce((s,p)=>s+p.wage,0)}
+function wageRatio(){return wageBill()/Math.max(1,G.revenueLast)}
+function squadValue(){return G.me.players.reduce((s,p)=>s+playerValue(p),0)}
+function netWorth(){return G.me.cash+0.8*squadValue()}
+
+// ---------- actions ----------
+function actOffer(oid,decision,amount){
+  const i=G.offersIn.findIndex(o=>o.id===oid);if(i<0)return"no such offer";
+  const o=G.offersIn[i],p=G.me.players.find(x=>x.id===o.pid);
+  if(!p){G.offersIn.splice(i,1);makeStopEvents();return"That player has already left the club."}
+  if(decision==="accept"){
+    if(G.me.players.length<=13)return"Board blocks the sale: squad too thin (min 13).";
+    G.me.cash+=o.amount;G.me.players=G.me.players.filter(x=>x.id!==o.pid);
+    G.offersIn.splice(i,1);toast(`${p.name} sold for ${fmtM(o.amount)}.`);
+  }else if(decision==="reject"){G.offersIn.splice(i,1);toast("Offer rejected.");}
+  else{ // counter
+    const x=+amount;if(!(x>0))return"Enter a counter amount.";
+    if(x<=o.limit){o.amount=Math.round(x*2)/2;o.accepted=1;
+      toast(`${o.from} accepts ${fmtM(o.amount)} — confirm with Accept.`);}
+    else if(o.round<1){o.round++;o.amount=Math.round(((x+o.amount)/2)*2)/2;
+      toast(`${o.from} counters at ${fmtM(o.amount)}.`);}
+    else{G.offersIn.splice(i,1);toast(`${o.from} walks away.`);}
+  }
+  makeStopEvents();return null;
+}
+function actBid(pid,amount){
+  if(!windowOpen())return"Transfer window is closed.";
+  const p=G.market.find(x=>x.id===pid);if(!p)return"Gone from the market.";
+  const x=+amount;if(!(x>0))return"Enter a bid.";
+  if(x>G.me.cash)return"Not enough cash.";
+  if(x>=p.ask){
+    const w=marketWage(p);
+    G.me.cash-=x;p.wage=w;p.contractS=3;p.scout=Math.max(p.scout,1);
+    G.me.players.push(p);G.market=G.market.filter(m=>m.id!==pid);
+    toast(`Signed ${p.name} for ${fmtM(x)}, wage ${fmtM(w)}/yr.`);
+  }else if(x>=p.ask*0.7&&p.rounds<2){p.rounds++;p.hint=Math.round(((x+p.ask)/2)*2)/2;
+    toast(`Bid rejected. Their counter-signal: around ${fmtM(p.hint)}.`);}
+  else toast("Bid flatly rejected.");
+  makeStopEvents();return null;
+}
+function actScout(pid){const p=byId(pid);if(!p)return"?";
+  if(p.scout>=3)return"Fully scouted (reports never become exact — that is the game).";
+  if(G.me.cash<0.3)return"Not enough cash (€0.3M).";
+  G.me.cash-=0.3;G.scoutSpend+=0.3;p.scout++;toast(`Scout report on ${p.name} updated.`);return null}
+function actRenew(pid){const p=byId(pid);if(!p)return"?";
+  const w=Math.max(p.wage*1.12,marketWage(p)*1.1);
+  p.wage=w;p.contractS=3;toast(`${p.name} renewed 3 seasons at ${fmtM(w)}/yr.`);
+  makeStopEvents();return null}
+function actList(pid){const p=byId(pid);p.listed=!p.listed;
+  toast(p.listed?`${p.name} listed for transfer.`:`${p.name} unlisted.`);return null}
+function actRelease(pid){
+  if(G.me.players.length<=13)return"Squad too thin to release (min 13).";
+  const p=byId(pid);const fee=p.wage*p.contractS*0.5;
+  if(G.me.cash<fee)return`Severance ${fmtM(fee)} exceeds cash.`;
+  G.me.cash-=fee;G.me.players=G.me.players.filter(x=>x.id!==pid);
+  toast(`${p.name} released (severance ${fmtM(fee)}).`);makeStopEvents();return null}
+function actYouth(sign){
+  if(!G.youth)return"?";
+  if(sign){G.youth.contractS=3;G.me.players.push(G.youth);toast(`${G.youth.name} signs his first pro deal.`)}
+  else toast("Prospect released to seek a club elsewhere.");
+  G.youth=null;makeStopEvents();return null}
+function setStyle(s){G.style=s;toast(`Tactics: ${s}.`)}
+function setLineup(ids){
+  if(ids.length!==11)return"Pick exactly 11 players.";
+  if(!ids.some(id=>byId(id)&&byId(id).pos==="GK"))return"You need a goalkeeper.";
+  if(ids.some(id=>{const p=byId(id);return !p||p.injury>0}))return"An injured player cannot start.";
+  G.lineup=ids;toast("Lineup saved — it WILL be honored.");return null}
+
+// ---------- match & season sim ----------
+function xiOf(club){
+  if(club.mine&&G.lineup){
+    const xi=G.lineup.map(byId).filter(p=>p&&p.injury<=0);
+    if(xi.length===11)return xi;}
+  const av=club.players.filter(p=>p.injury<=0);
+  av.sort((a,b)=>(b.ca+b.form)-(a.ca+a.form));
+  const gk=av.find(p=>p.pos==="GK");const rest=av.filter(p=>p!==gk).slice(0,10);
+  return gk?[gk,...rest]:av.slice(0,11);
+}
+function styleMult(a,b){
+  if(a===b)return 1;
+  const beats={Possession:"Gegenpress",Gegenpress:"Counter",Counter:"Possession"};
+  return beats[a]===b?1.06:0.94;
+}
+function playMatch(A,B){
+  const xa=xiOf(A),xb=xiOf(B);
+  const sa=xa.reduce((s,p)=>s+p.ca+p.form,0),sb=xb.reduce((s,p)=>s+p.ca+p.form,0);
+  const stA=A.mine?G.style:A.style, stB=B.mine?G.style:B.style;
+  let ea=1.45*Math.pow(sa/sb,2.2)*styleMult(stA,stB);
+  let eb=1.25*Math.pow(sb/sa,2.2)*styleMult(stB,stA);
+  const goals=e=>{let g=0,p=Math.exp(-e),c=p,u=rnd();while(u>c&&g<7){g++;p*=e/g;c+=p}return g};
+  const ga=goals(ea),gb=goals(eb);
+  for(const[c,gf,gc]of[[A,ga,gb],[B,gb,ga]]){
+    c.gd+=gf-gc;if(gf>gc){c.pts+=3;c.w++}else if(gf===gc){c.pts+=1;c.d++}else c.l++;}
+  // minutes & injuries for my club
+  for(const c of[A,B])if(c.mine){
+    for(const p of (c===A?xa:xb)){p.minutes++;
+      if(rnd()<0.020*(p.age>=30?1.5:1)){p.injury=ri(1,4);
+        G.inbox.push({t:"warn",tag:"INJURY",bad:1,txt:`${p.name} injured — out ~${p.injury} stop${p.injury>1?"s":""}.`});}}
+  }
+  return {ga,gb};
+}
+function tablePos(){const t=[...G.clubs].sort((a,b)=>b.pts-a.pts||b.gd-a.gd);
+  return t.indexOf(G.me)+1}
+function expectedPts(){return 2.5} // mid club, 2 games per stop
+
+function advanceStop(){
+  if(G.over)return;
+  G.log=[];
+  // resolve dangling accepted counters, decay offers
+  G.offersIn=G.offersIn.filter(o=>{if(!o.accepted)o.ttl=(o.ttl||0)+1;return (o.ttl||0)<2});
+  // play 2 rounds
+  const meBefore=G.me.pts;
+  for(let k=0;k<2;k++){
+    const rd=G.rounds[(G.stop*2+k)%30];
+    for(const[h,a]of rd){const A=G.clubs[h],B=G.clubs[a];const r=playMatch(A,B);
+      if(A.mine||B.mine)G.log.push(`${A.name} ${r.ga}–${r.gb} ${B.name}`);}
+  }
+  // wages & revenue drip
+  G.me.cash+=G.revenueLast/15 - wageBill()/15;
+  // injuries tick, contracts tick, form drift
+  for(const p of G.me.players){if(p.injury>0)p.injury--;
+    p.contractS-=1/15;p.form=clamp(p.form+gauss(1.2),-4,4)}
+  // board confidence
+  const dp=(G.me.pts-meBefore)-expectedPts();
+  G.conf=clamp(G.conf+dp*1.15+(wageRatio()>0.75?-2:0)+gauss(1),0,100);
+  if(G.conf<12)G.lowConfStops++;else G.lowConfStops=0;
+  if(G.me.cash<-5){return settle("administration")}
+  if(G.lowConfStops>=3){return settle("fired")}
+  G.stop++;
+  // season end?
+  if(G.stop%15===0){seasonEnd();if(G.over)return}
+  if(G.stop%15===3||G.stop%15===9)refreshMarket();
+  makeStopEvents();
+}
+function seasonEnd(){
+  const pos=tablePos();
+  let h=0,note="";
+  if(pos===1){h=40;note="LEAGUE CHAMPIONS!"}
+  else if(pos<=4){h=15;note="Top-4 finish."}
+  else if(pos>=14){h=-10;note="Board humiliated by a bottom-3 finish."}
+  if(h){G.honors+=h;G.honorList.push(`S${G.season}: ${note} (${h>0?"+":""}${h})`);}
+  G.history.push({season:G.season,pos,pts:G.me.pts,cash:G.me.cash});
+  // revenue for next season from position
+  G.revenueLast=Math.round((56-2.1*pos)*(1+gauss(0.04)));
+  toast(`Season ${G.season} over — finished ${pos}${["st","nd","rd"][pos-1]||"th"}. ${note}`);
+  // aging & growth
+  for(const c of G.clubs)for(const p of c.players){
+    p.age++;
+    if(c.mine){
+      const share=clamp(p.minutes/30,0,1);
+      if(p.age<=23)p.ca=clamp(p.ca+(2+rnd()*3)*share+(rnd()<0.3?1:0),35,Math.max(p.ca,p.pot));
+      if(p.age>=30)p.ca=clamp(p.ca-(p.age-29)*1.1,30,99);
+      p.minutes=0;
+      if(p.contractS<=0){G.inbox.push({t:"info",tag:"CONTRACT",txt:`${p.name} left on a free transfer.`});}
+    }else{
+      if(p.age<=23)p.ca=clamp(p.ca+2.5*rnd(),35,p.pot);
+      if(p.age>=30)p.ca=clamp(p.ca-(p.age-29)*1.1,30,99);
+    }
+  }
+  G.me.players=G.me.players.filter(p=>p.contractS>0);
+  // AI squads quietly refresh a bit
+  for(const c of G.clubs)if(!c.mine&&rnd()<0.5){
+    c.players.sort((a,b)=>a.ca-b.ca);
+    const out=c.players.shift();const np=newPlayer(60+gauss(6),false);np.pos=out.pos;
+    np.wage=marketWage(np);c.players.push(np);}
+  // reset table
+  for(const c of G.clubs){c.pts=0;c.gd=0;c.w=0;c.d=0;c.l=0}
+  G.conf=clamp(G.conf+ (pos<=6?8:pos>=12?-6:2),0,100);
+  G.youthSeen=false;G.season++;
+  if(G.season>G.seasons)return settle("completed");
+}
+function settle(reason){
+  const t=(G.stop)/(G.seasons*15);
+  const rho=reason==="completed"?1:0.8*Math.pow(Math.max(0.02,t),1.5)*(reason==="administration"?0.7:1);
+  const h=Math.max(0,G.honors);
+  const sh=h*0.35;
+  const nw=Math.max(0,netWorth()),sv=squadValue();
+  const snw=6*Math.log(1+nw/40), ssv=5*Math.log(1+sv/40);
+  G.over={reason,rho:Math.round(rho*1000)/1000,t:Math.round(t*100)/100,
+    honors:G.honors,sh:r1(sh),snw:r1(snw),ssv:r1(ssv),nw:r1(nw),sv:r1(sv),
+    score:r1((sh+snw+ssv)*rho)};
+  return G.over;
+}
+const r1=x=>Math.round(x*10)/10;
+
+// random self-test policy (headless)
+function selfTest(seed){
+  newGame(seed,5);
+  let guard=0;
+  while(!G.over&&guard++<200){
+    for(const o of[...G.offersIn])actOffer(o.id,rnd()<0.35?"accept":"reject");
+    if(G.youth&&rnd()<0.5)actYouth(true);
+    if(windowOpen()&&rnd()<0.25&&G.market.length){const p=pick(G.market);
+      actBid(p.id,Math.round(estValue(p)*(0.8+rnd()*0.5)*2)/2);}
+    advanceStop();
+  }
+  return G.over;
+}
+//</SIM>
+
+// ---------- UI ----------
+let TAB="Squad", sel=new Set(), started=false;
+const $=id=>document.getElementById(id);
+function toast(msg){if(typeof document==="undefined")return;
+  const d=document.createElement("div");d.className="toast";d.textContent=msg;
+  document.body.appendChild(d);setTimeout(()=>d.remove(),3200)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function render(){
+  const app=$("app");
+  if(!started){app.innerHTML=startScreen();return}
+  if(G.over){app.innerHTML=scoreScreen();
+    requestAnimationFrame(()=>document.querySelectorAll(".chn .fil")
+      .forEach(f=>f.style.width=f.dataset.w+"%"));return}
+  const wr=wageRatio(),pos=tablePos();
+  const wrCls=wr>0.75?"bad":wr>0.6?"warn":"good";
+  const cfCls=G.conf<25?"bad":G.conf<45?"warn":"good";
+  const cfColor=G.conf<25?"var(--bad)":G.conf<45?"var(--warn)":"var(--good)";
+  app.innerHTML=`
+  <header>
+    <div class="club">⚽ <span>${esc(G.me.name)}</span></div>
+    <div class="stat"><b>S${G.season}/${G.seasons} · ${G.stop%15+1}/15</b><span class="cap">season · stop</span></div>
+    <div class="stat"><b>#${pos}</b><span class="cap">position /16</span></div>
+    <div class="stat"><b class="${G.me.cash<5?"warn":""}">${fmtM(G.me.cash)}</b><span class="cap">cash</span></div>
+    <div class="stat"><b class="${wrCls}">${(wr*100)|0}%</b><span class="cap">wages / rev</span></div>
+    <div class="stat"><b class="${cfCls}">${G.conf|0}</b>
+      <span class="gaugetrack"><i style="width:${Math.max(2,Math.min(100,G.conf))}%;background:${cfColor}"></i></span>
+      <span class="cap">board</span></div>
+    <div class="stat"><b>${G.honors}</b><span class="cap">honors</span></div>
+  </header>
+  <div class="cols">
+    <div>
+      <div class="panel">
+        <h3>Inbox — decisions for this stop</h3>
+        ${G.inbox.map(inboxItem).join("")||'<div class="hint">Quiet for now. Press Continue.</div>'}
+        ${G.log.length?`<div class="matchlog">${G.log.map(esc).join("\n")}</div>`:""}
+        <button id="continueBtn" class="primary" onclick="UI.adv()">Continue ▶</button>
+        <div class="hint" style="margin-top:6px">The engine simulates until the next decision stop — exactly what an AI agent experiences via advance(). Shortcut: <kbd>c</kbd></div>
+      </div>
+    </div>
+    <div>
+      <div class="tabs">${["Squad","Tactics","Table","Market","Finances","Notebook","Help"]
+        .map(t=>`<button class="${t===TAB?"on":""}" onclick="UI.tab('${t}')">${t}</button>`).join("")}</div>
+      <div class="panel">${tabBody()}</div>
+    </div>
+  </div>
+  <footer>Demo of <b>FM Bench</b> — an LLM-agent benchmark where AI managers run a club for 20 years. Humans and agents play the same game through the same actions.</footer>`;
+}
+function inboxItem(it,i){
+  const tagCls=it.t==="offer"?"offer":it.bad?"bad":it.good?"good":"";
+  const sev=it.t==="offer"?"sev-gold":it.bad?"sev-bad":
+    (it.t==="expiry"?"sev-warn":it.t==="youth"?"sev-good":it.good?"sev-good":"");
+  let acts="";
+  if(it.t==="offer"){const o=G.offersIn.find(o=>o.id===it.oid);
+    if(o)acts=`<div class="acts">
+      <button class="small" onclick="UI.offer('${o.id}','accept')">${o.accepted?"Confirm sale":"Accept"}</button>
+      <button class="small" onclick="UI.offer('${o.id}','reject')">Reject</button>
+      <input id="ct_${o.id}" type="number" step="0.5" placeholder="€M">
+      <button class="small" onclick="UI.offer('${o.id}','counter',document.getElementById('ct_${o.id}').value)">Counter</button>
+    </div>`;}
+  if(it.t==="expiry")acts=`<div class="acts"><button class="small" onclick="UI.renew('${it.pid}')">Renew (+12% wage, 3y)</button></div>`;
+  if(it.t==="youth"&&G.youth)acts=`<div class="acts">
+    <button class="small" onclick="UI.youth(1)">Sign pro deal</button>
+    <button class="small" onclick="UI.youth(0)">Let him go</button></div>`;
+  return `<div class="inbox-item ${sev}"><span class="tag ${tagCls}">${it.tag}</span>${esc(it.txt)}${acts}</div>`;
+}
+/* ability band as a range bar (demo CA scale ~20-99 -> 30-100 domain) */
+function bandHtml(p){
+  const b=beliefBand(p);
+  const lo=Math.max(0,(b.lo-30)/70*100), hi=Math.min(100,(b.hi-30)/70*100);
+  return `<span class="band c${b.conf}">${b.lo}–${b.hi}`+
+    `<span class="trk"><span class="rng" style="left:${lo}%;width:${Math.max(4,hi-lo)}%"></span></span>`+
+    `<span class="conf">${b.conf}</span></span>`;
+}
+function tabBody(){
+  if(TAB==="Squad"){
+    const rows=G.me.players.map(p=>{
+      return `<tr class="${p.injury>0?"inj":""}">
+      <td><input type="checkbox" ${sel.has(p.id)?"checked":""} onchange="UI.selp('${p.id}')"></td>
+      <td>${esc(p.name)}${p.listed?" 🏷":""}${p.injury>0?" 🩹":""}</td><td>${p.pos}</td><td>${p.age}</td>
+      <td>${bandHtml(p)}</td>
+      <td class="mono">${fmtM(p.wage)}</td><td class="mono">${p.contractS.toFixed(1)}s</td>
+      <td class="mono">~${fmtM(estValue(p))}</td>
+      <td>
+        <button class="small" onclick="UI.scout('${p.id}')">Scout</button>
+        <button class="small" onclick="UI.list('${p.id}')">${p.listed?"Unlist":"List"}</button>
+        <button class="small" onclick="UI.release('${p.id}')">Release</button>
+      </td></tr>`}).join("");
+    return `<div class="hint">Ability is a scouted <b>range</b> — the truth is never shown, to you or to AI agents. Tick 11 and save your XI (it is honored). Injured players can't start.</div>
+      <table><tr><th></th><th>Player</th><th>Pos</th><th>Age</th><th>Ability</th><th>Wage/yr</th><th>Deal</th><th>Est. val</th><th></th></tr>${rows}</table>
+      <div style="margin-top:8px"><button onclick="UI.saveXI()">Save lineup (${sel.size}/11)</button>
+      <button class="small" onclick="UI.autoXI()">Auto-pick best XI</button></div>`;
+  }
+  if(TAB==="Tactics")return `
+    <div class="hint">Styles counter each other (capped effect — squad quality still rules):<br>Possession beats Gegenpress · Gegenpress beats Counter · Counter beats Possession.</div>
+    <div style="display:flex;gap:8px;margin-top:10px">${STYLES.map(s=>
+      `<button class="${G.style===s?"primary":""}" onclick="UI.style('${s}')">${s}</button>`).join("")}</div>
+    <p class="hint" style="margin-top:10px">Opponents keep their own styles — scouting the fixture list and adapting is worth points over a season.</p>`;
+  if(TAB==="Table"){
+    const t=[...G.clubs].sort((a,b)=>b.pts-a.pts||b.gd-a.gd);
+    return `<table><tr><th>#</th><th>Club</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr>${
+      t.map((c,i)=>`<tr class="${c.mine?"me":""}"><td>${i+1}</td><td>${esc(c.name)}</td><td>${c.w}</td><td>${c.d}</td><td>${c.l}</td><td>${c.gd}</td><td><b>${c.pts}</b></td></tr>`).join("")}</table>`;
+  }
+  if(TAB==="Market"){
+    if(!windowOpen())return `<div class="hint">Transfer window is closed. It opens at the start of a season (stops 1–3) and mid-season (stops 8–9).</div>`;
+    const rows=G.market.map(p=>{
+      return `<tr><td>${esc(p.name)}</td><td>${p.pos}</td><td>${p.age}</td>
+      <td>${bandHtml(p)}</td>
+      <td class="mono">~${fmtM(estValue(p))}${p.hint?` <span class="hint">(counter ~${fmtM(p.hint)})</span>`:""}</td>
+      <td><button class="small" onclick="UI.scout('${p.id}')">Scout</button>
+      <input id="bid_${p.id}" type="number" step="0.5" placeholder="€M" style="width:70px">
+      <button class="small" onclick="UI.bid('${p.id}',document.getElementById('bid_${p.id}').value)">Bid</button></td></tr>`}).join("");
+    return `<div class="hint">Asking prices are hidden — probe with bids (they get pricier if you lowball twice). Scouting a target (€0.3M) narrows his ability band.</div>
+      <table><tr><th>Player</th><th>Pos</th><th>Age</th><th>Ability</th><th>Est. val</th><th></th></tr>${rows}</table>`;
+  }
+  if(TAB==="Finances"){
+    const rows=G.history.map(h=>`<tr><td>S${h.season}</td><td>${h.pos}</td><td>${h.pts}</td><td class="mono">${fmtM(h.cash)}</td></tr>`).join("");
+    return `<table>
+      <tr><td>Cash</td><td class="mono">${fmtM(G.me.cash)}</td></tr>
+      <tr><td>Season revenue (drips in per stop)</td><td class="mono">${fmtM(G.revenueLast)}</td></tr>
+      <tr><td>Wage bill /yr</td><td class="mono">${fmtM(wageBill())} (${(wageRatio()*100)|0}% of revenue)</td></tr>
+      <tr><td>Squad value (est.)</td><td class="mono">${fmtM(G.me.players.reduce((s,p)=>s+estValue(p),0))}</td></tr>
+      <tr><td>Scouting spent</td><td class="mono">${fmtM(G.scoutSpend)}</td></tr></table>
+      <div class="hint" style="margin-top:8px">Board tolerance: wages ≤75% of revenue. Cash below −€5M = administration = game over.</div>
+      ${rows?`<h3 style="margin-top:14px">Past seasons</h3><table><tr><th>Season</th><th>Pos</th><th>Pts</th><th>Cash at end</th></tr>${rows}</table>`:""}`;
+  }
+  if(TAB==="Notebook")return `
+    <div class="hint">Your cross-season memory. AI agents get this exact mechanism (a size-capped notebook) — what to remember is part of the test.</div>
+    <textarea id="nb" style="width:100%;height:220px;margin-top:8px">${esc(G.notebook)}</textarea>
+    <div style="margin-top:6px"><button onclick="UI.saveNb()">Save notes</button></div>`;
+  if(TAB==="Help")return `<ol class="help">
+    <li><b>Goal</b>: the highest composite score after ${G.seasons} seasons — honors + club net worth + squad value. Getting fired ends the game early with a steep penalty.</li>
+    <li><b>Each stop</b>: handle the Inbox (offers, contracts, injuries), adjust squad/tactics/market, then hit <b>Continue ▶</b>. Two league rounds play out between stops.</li>
+    <li><b>Nobody sees true ability</b> — only scouted ranges with a confidence grade. Reports converge near the truth but never reach it. Judge players by results too.</li>
+    <li><b>Money has teeth</b>: wages above 75% of revenue anger the board; cash below −€5M is bankruptcy. Selling stars funds rebuilds — timing matters.</li>
+    <li><b>Age curves are real</b>: kids grow if they play; veterans decline after 30. Buying a 31-year-old star is renting, not investing.</li>
+    <li><b>The board is watching</b>: results below expectation drain confidence; two stops in the red zone and you're gone.</li></ol>`;
+  return "";
+}
+function startScreen(){return `
+  <div class="overlay"><div class="modal">
+    <h2>⚽ FM Bench — Manager Demo</h2>
+    <p>Run a mid-table club for five seasons. Trophies and club value score points; getting fired ends it early. Same world, same hidden information, same actions an AI agent gets.</p>
+    <p>Seed <input id="seed" type="number" value="42" style="width:90px"> <span class="hint">(same seed = same world)</span></p>
+    <button class="primary" onclick="UI.start()">Start career</button>
+  </div></div>`}
+function scoreScreen(){const o=G.over;
+  const ladder=[["Random clicks",6,0],["Scripted manager",12,0],["You",o.score,1]];
+  const mx=Math.max(16,...ladder.map(l=>l[1]));
+  const chn=(lbl,val)=>`<div class="chn"><div class="lbl"><span>${lbl}</span><b>${val}</b></div>
+    <div class="trk"><div class="fil" data-w="${Math.max(2,Math.min(100,val*7))}"></div></div></div>`;
+  return `<div class="overlay"><div class="modal">
+    <h2>${o.reason==="completed"?"Career complete":o.reason==="fired"?"You were sacked":"Administration — bankrupt"}</h2>
+    <div class="score-big"><span class="cap">composite score</span>${o.score}</div>
+    <p class="hint">Settled <b>${o.reason}</b> at t=${o.t} · early-exit multiplier ρ = <span class="money">${o.rho}</span></p>
+    ${chn(`Honors (${o.honors} pts)`,o.sh)}
+    ${chn(`Net worth (${fmtM(o.nw)})`,o.snw)}
+    ${chn(`Squad value (${fmtM(o.sv)})`,o.ssv)}
+    ${G.honorList.length?`<p class="hint">${G.honorList.map(esc).join("<br>")}</p>`:""}
+    <div class="scorebar">${ladder.map(([l,v,you])=>
+      `<span class="lbl${you?" you":""}">${l}</span>`+
+      `<span class="bar${you?" you":""}"><i style="width:${Math.max(3,v/mx*100)}%"></i></span>`+
+      `<span class="val${you?" you":""}">${v}</span>`).join("")}</div>
+    <p class="hint">In the real benchmark, AI agents play this loop for 20 years via the same actions you just used.</p>
+    <button class="primary" onclick="UI.restart()">Play again</button>
+  </div></div>`}
+
+const UI={
+  start(){const s=+($("seed").value)||42;newGame(s,5);started=true;render()},
+  restart(){started=false;render()},
+  adv(){if($("nb"))G.notebook=$("nb").value;advanceStop();sel.clear();render()},
+  tab(t){if($("nb"))G.notebook=$("nb").value;TAB=t;render()},
+  offer(id,d,x){const e=actOffer(id,d,x);if(e)toast(e);render()},
+  bid(id,x){const e=actBid(id,x);if(e)toast(e);render()},
+  scout(id){const e=actScout(id);if(e)toast(e);render()},
+  renew(id){const e=actRenew(id);if(e)toast(e);render()},
+  list(id){actList(id);render()},
+  release(id){const e=actRelease(id);if(e)toast(e);render()},
+  youth(s){actYouth(s);render()},
+  style(s){setStyle(s);render()},
+  selp(id){sel.has(id)?sel.delete(id):sel.add(id)},
+  saveXI(){const e=setLineup([...sel]);if(e)toast(e);render()},
+  autoXI(){G.lineup=null;sel.clear();toast("Auto-pick restored (best available XI).");render()},
+  saveNb(){G.notebook=$("nb").value;toast("Notes saved.")},
+};
+window.UI=UI;
+
+document.addEventListener("keydown",e=>{
+  if(e.target.matches("input,textarea,select")||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(started&&G&&!G.over&&e.key==="c"){e.preventDefault();UI.adv()}
+});
+
+if(location.search.includes("test=1")){
+  const res=[1,2,3].map(s=>{const o=selfTest(s);return `seed ${s}: score ${o.score} (${o.reason}, t=${o.t})`});
+  document.getElementById("app").innerHTML=`<div class="panel"><h3>Self-test (random policy, 3 seeds)</h3><pre>${res.join("\n")}</pre></div>`;
+  console.log(res.join("\n"));
+}else render();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+FM-Bench
+Copyright 2026 Analogy AI
+
+This product includes software developed at Analogy AI.
+
+The source code in this repository is licensed under the Apache License,
+Version 2.0 (see the LICENSE file).
+
+Scope of the license and of this release
+----------------------------------------
+The Apache-2.0 grant applies to the CODE in this repository only. This
+repository does NOT include, and the license does NOT grant any rights to,
+the official FM-Bench evaluation data:
+
+  - the hidden / secret seed sets used for official runs,
+  - official run trajectories, action logs, and result files, and
+  - any hosted benchmark dataset.
+
+That evaluation data is confidential. Where it is made available at all, it is
+provided under separate terms for evaluation and INFERENCE use only, and must
+not be used to train, fine-tune, or distill models.
+
+Game trajectories that you generate by running this code yourself are your own
+and are not restricted by the above.

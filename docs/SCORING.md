@@ -114,7 +114,8 @@ it never perturbs `params_hash` comparability stamps. Reference points:
   environment is identical for everyone.
 - **Arena Leaderboard** — Multi-Agent Arena (15 LLMs + 1 scripted anchor): a
   **relative** ranking (Elo + mean rank) aggregated over the per-seat `S_final`
-  values across worlds (`league/ranking.py`, `scripts/arena_ladder.py`). League
+  values across worlds. The Arena ranking code is part of the operated Arena
+  layer and is not in this open release. League
   points and league position are **not** direct scoring channels; ranking is a
   property of this Arena layer, not of the composite.
 
@@ -198,4 +199,4 @@ oracle 档(16)≈39、sonnet-5 五年局 42.6 ≈ 63、"神级"110 分 ≈ 81。
 ## 两个榜(不同层)
 
 - **能力榜** —— Basic Arena(1 被测 LLM + 15 脚本):上面的**绝对** `S_final`,因环境固定而跨模型可比。
-- **对战榜** —— Multi-Agent Arena(15 LLM + 1 脚本锚点):在各席位 `S_final` 之上做的**相对**排名(Elo + 平均名次,`league/ranking.py`、`scripts/arena_ladder.py`)。联赛积分与名次**不是**直接评分通道;排名是对战层的属性,不在 composite 里。
+- **对战榜** —— Multi-Agent Arena(15 LLM + 1 脚本锚点):在各席位 `S_final` 之上做的**相对**排名(Elo + 平均名次;Arena 排名代码属于我们运营的 Arena 层,不在本次开源发布内)。联赛积分与名次**不是**直接评分通道;排名是对战层的属性,不在 composite 里。

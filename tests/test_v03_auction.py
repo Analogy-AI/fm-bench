@@ -1,4 +1,4 @@
-"""v0.3 sealed-bid market battery (DESIGN_v0.3.md change 2 + test plan).
+"""v0.3 sealed-bid market battery (protocol v0.3, change 2).
 
 All scripted, $0. Covers: legacy no-op, seat-order fairness under identical
 sealed bids (the confound the mechanism exists to kill), exposure cap,

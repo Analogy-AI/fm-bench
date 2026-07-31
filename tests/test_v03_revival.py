@@ -1,4 +1,4 @@
-"""v0.3 revival + uniform bailout battery (DESIGN_v0.3.md change 3).
+"""v0.3 revival + uniform bailout battery (protocol v0.3, change 3).
 
 All scripted, $0. Covers: legacy no-op, no-death-arbitrage (self-destruct
 twin probe), VA injection neutrality (dying idle vs living idle), death

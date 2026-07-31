@@ -1,0 +1,54 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.11 is the floor the README advertises; 3.13 is what most
+        # contributors will actually have. The suite is pure stdlib + pyyaml,
+        # so a break on either end is a real portability break.
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+        # the engine stamps results with `git rev-parse --short HEAD`; a
+        # shallow checkout still resolves HEAD, so depth 1 is fine here.
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Tests (determinism, replay, truth-isolation, calibration)
+        run: python -m pytest -q
+
+      - name: Scripted baseline smoke run
+        # the documented quickstart must work on a clean checkout: this is the
+        # exact first command in the README.
+        run: python run_benchmark.py --agent heuristic --seeds 1 --years 5
+
+      - name: Reporting scripts must run from a clean checkout
+        # regression guard: `python scripts/ladder_report.py` used to die with
+        # ModuleNotFoundError because scripts/ shadows the repo root on
+        # sys.path. Every documented script gets exercised here.
+        run: |
+          python scripts/ladder_report.py
+          python scripts/rescore.py results/*.json
+          python scripts/dump_reference_world.py --seed 1 --out /tmp/ref.json
+
+      - name: Anchor table regenerates
+        # the published ladder in docs/FM_BENCH_GUIDE.md §5.2 comes from this
+        # script; if it cannot run, the table cannot be kept honest.
+        run: python scripts/anchor_table.py --seeds 1 --years 3

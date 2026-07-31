@@ -154,7 +154,16 @@ def generate_world(seed: int, params: Params, player_club: str | None = "mid",
     if player_club is not None:
         t1 = world.division_clubs(1)
         ranked = sorted(t1, key=lambda c: (-c.cash, c.cid))
-        rank = STRATA_T1_RANK.get(player_club, STRATA_T1_RANK["mid"])
+        if player_club not in STRATA_T1_RANK:
+            # Silently falling back to "mid" made a typo indistinguishable
+            # from a real strata choice: the run would score a DIFFERENT club
+            # than asked for and still replay bit-identically, so nothing
+            # downstream could catch it. External harnesses (Open Track, MCP)
+            # construct Game directly and bypass argparse's `choices`.
+            raise ValueError(
+                f"unknown player_club {player_club!r}; expected one of "
+                f"{sorted(STRATA_T1_RANK)} or None for an all-AI world")
+        rank = STRATA_T1_RANK[player_club]
         world.player_club_id = ranked[rank].cid
 
     # -- hard_offline mode: advantage the AI opponents (non-player clubs) -----

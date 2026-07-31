@@ -9,7 +9,7 @@ The document contains, in order:
 2. **System prompt** — the complete verbatim system prompt the agent receives (a real 9701-character engine artifact).
 3. **Stop packet** — real per-turn `stop packet` dumps (seed=1, 5-year track), not hand-written.
 4. **Tool returns** — real observation-layer query outputs the agent sees (seed=1).
-5. **Tools** — the 24 tools the agent can call, with their exact JSON schemas.
+5. **Tools** — the 26 tools the agent can call, with their exact JSON schemas.
 6. **Win/scoring mechanics** — how a run ends and how the score is computed.
 7. **Numeric mechanics** — annotated `params.yaml` (the single source of truth).
 8. **Determinism & fairness** — reproducibility and human/agent parity.
@@ -30,7 +30,7 @@ Everything shown as **prompt / packet / tool-return / schema / params** is a **r
 2. [The system prompt the agent receives (verbatim)](#2-system-prompt)
 3. [Per-turn context: a real stop packet (raw dump)](#3-stop-packet)
 4. [Tool returns the agent sees (raw dump)](#4-tool-returns)
-5. [Tools the agent can call (24, with schemas)](#5-tools)
+5. [Tools the agent can call (26, with schemas)](#5-tools)
 6. [Win/scoring mechanics: how a run ends and how the score is computed](#6-winscoring-mechanics)
 7. [Numeric mechanics: the full annotated params.yaml](#7-numeric-mechanics)
 8. [Determinism & fairness](#8-determinism--fairness)
@@ -523,7 +523,7 @@ An illegal call returns `{"ok": false, "error": {"code": ..., "hint": ...}}`, wh
 
 ## 5. Tools
 
-The agent can call **24 tools** (`engine/actions/commands.py`). Each is exposed to the model as a strict JSON schema. The tables below are grouped by category (`*` marks required parameters):
+The agent can call **26 tools** (`engine/actions/commands.py`) — 24 always live, plus 2 draft-phase tools that return `no_draft` unless the opt-in draft is enabled (`params.draft.enabled`, default `false`). Each is exposed to the model as a strict JSON schema. The tables below are grouped by category (`*` marks required parameters):
 
 ### Query (read-only, budget 30 per stop)
 
@@ -562,6 +562,18 @@ The agent can call **24 tools** (`engine/actions/commands.py`). Each is exposed 
 |---|---|---|
 | `append_note` | text*:string | Append to your private notebook (8K token cap). |
 | `rewrite_notes` | text*:string | Replace the entire notebook. |
+
+### Draft (opt-in phase only; `params.draft.enabled`, default `false`)
+
+Both tools are always present in the tool list, and both return
+`{"ok": false, "error": {"code": "no_draft"}}` when no draft phase is in
+progress — so the tool list stays byte-identical (and prompt-cacheable)
+whether or not the world uses a draft.
+
+| tool | params | description |
+|---|---|---|
+| `get_draft_pool` | — | Draft phase only: the shared template pool — position, age, your scout's ability band, potential stars, price, preset wage and contract length — plus your budget status. |
+| `submit_draft` | picks*:array[string], auto_fill:boolean | Draft phase only: submit your complete pick list of template ids. A valid list has >= min_picks players including a goalkeeper and fits the budget; an invalid list is rejected with the reason. Resubmitting replaces your previous list. Set auto_fill=true to have an invalid/short list completed from the cheapest tier. |
 
 ### Control
 
@@ -624,7 +636,7 @@ The three channels are each **log-compressed** (diminishing returns, forcing bal
 - **Net worth — records the "increment VA", not the balance**: the deflated last-3-season net-worth mean **minus day-0 net worth**. **Zero = "you handed the club back as valuable as you found it"**; only a gain is positive. Net worth = cash + discounted squad + facilities − unamortized transfer fees; buying a player books both the asset and the cash/fee side, so "buying spree" cannot pump the score.
 - **Squad value** — last-3-season mean (guards against pre-settlement pump), lower weight, purely a stabilizer.
 
-**Why "increment" rather than "absolute"** (round-4 calibration, see `docs/CALIBRATION_LOG.md`): v0.1 used absolute wealth, which let "starting-endowment luck" explain 34% of score variance and skill only 16%; subtracting one's own starting endowment flipped it to 13% / 33% and fixed the ranking inversion on hard seeds. `rho` multiplies only the positive part — so "get fired early to cut losses" does not hold (no arbitrage). Scores are only comparable **within the same track length** (the rho base varies with the number of years).
+**Why "increment" rather than "absolute"** (round-4 calibration; the round-by-round log is an internal record, not part of this release): v0.1 used absolute wealth, which let "starting-endowment luck" explain 34% of score variance and skill only 16%; subtracting one's own starting endowment flipped it to 13% / 33% and fixed the ranking inversion on hard seeds. `rho` multiplies only the positive part — so "get fired early to cut losses" does not hold (no arbitrage). Scores are only comparable **within the same track length** (the rho base varies with the number of years).
 
 ---
 
@@ -868,7 +880,7 @@ stops:
 2. **System prompt** — agent 收到的完整原文 system prompt（真实的 9701 字符引擎产物）。
 3. **Stop packet** — 每回合真实 `stop packet` dump（seed=1，5 年赛道），非手写。
 4. **Tool 返回** — agent 看到的 observation 层真实查询输出（seed=1）。
-5. **Tools** — agent 能调用的 24 个 tool，含精确 JSON schema。
+5. **Tools** — agent 能调用的 26 个 tool，含精确 JSON schema。
 6. **胜负/计分机制** — 一局怎么结束、分怎么算。
 7. **数值机制** — 注解版 `params.yaml`（单一真相源）。
 8. **确定性与公平** — 可复现性与人机平权。
@@ -940,7 +952,7 @@ Agent 在 stop 内调 query tool 看到的也是 observation 层的过滤输出�
 
 ## 5. Tools
 
-Agent 可调用 **24 个 tool**（`engine/actions/commands.py`）。每个都以严格 JSON schema 暴露给模型。按类分组的完整参数表（查询类 / 行动类 / 笔记类 / 控制类，`*` 标记必填参数）见上方英文版 §5 Tools。
+Agent 可调用 **26 个 tool**（`engine/actions/commands.py`，其中 24 个常驻，另 2 个为 draft 阶段专用；未开启 draft 时返回 `no_draft`）。每个都以严格 JSON schema 暴露给模型。按类分组的完整参数表（查询类 / 行动类 / 笔记类 / 控制类，`*` 标记必填参数）见上方英文版 §5 Tools。
 
 - 查询类（query — 只读，每停 30 次预算）
 - 行动类（action — 谈判类每停 10 次预算）
@@ -977,7 +989,7 @@ Agent 可调用 **24 个 tool**（`engine/actions/commands.py`）。每个都以
 - **Net worth（净值）——记的是「增量 VA」不是余额**：最后 3 季平减净值均值**减去开局净值**。**零分 = "把俱乐部还回来时和接手时一样值钱"**，赚了才是正分。净值 = 现金 + 折价阵容 + 设施 − 未摊销转会费；买人同时记资产和现金/费用两侧，所以"疯狂买人"刷不了分。
 - **Squad value（阵容市值）**：最后 3 季均值（防结算前突击拉盘），权重较低，纯稳定项。
 
-**为什么是「增量」而非「绝对值」**（round-4 校准，见 `docs/CALIBRATION_LOG.md`）：v0.1 用绝对财富，导致"开局家底运气"解释了 34% 的分数方差、技术只占 16%；减去自身开局家底后翻转为 13% / 33%，并修正了硬 seed 下的排序倒挂。`rho` 只乘正部——所以"早点被炒来止损"不成立（无套利）。分数只在**同赛道长度**内可比（rho 基数随年限变）。
+**为什么是「增量」而非「绝对值」**（round-4 校准；逐轮校准日志为内部记录，不在本次发布内）：v0.1 用绝对财富，导致"开局家底运气"解释了 34% 的分数方差、技术只占 16%；减去自身开局家底后翻转为 13% / 33%，并修正了硬 seed 下的排序倒挂。`rho` 只乘正部——所以"早点被炒来止损"不成立（无套利）。分数只在**同赛道长度**内可比（rho 基数随年限变）。
 
 ---
 

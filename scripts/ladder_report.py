@@ -10,9 +10,10 @@
 - Oracle rows are annotated: privileged information ceiling, not a
   legitimate ladder entry.
 
-Caveat: result files do not yet record the engine version they were
-produced by; runs from different calibration rounds may coexist under one
-label. Filter with --glob when that matters.
+Runs are tagged with `score_version/engine_commit@params_hash`; a track
+pooling more than one tag is flagged with a MIXED VERSIONS warning, since
+scores from different calibration rounds are not comparable. Filter with
+--glob to build a single-version table.
 """
 
 from __future__ import annotations
@@ -22,8 +23,13 @@ import glob
 import json
 import pathlib
 import random
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+# `python scripts/ladder_report.py` puts scripts/ on sys.path, not the repo
+# root, so the deferred `score.composite` import below needs this (mirrors
+# scripts/rescore.py and scripts/dump_reference_world.py).
+sys.path.insert(0, str(ROOT))
 BOOT_N = 10_000
 BOOT_SEED = 20260704
 

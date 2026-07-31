@@ -1,0 +1,31 @@
+# FM-Bench is run from a checkout, not installed as a library: the entry points
+# are `run_benchmark.py` / `run_web.py` / `scripts/*.py` at the repo root. This
+# file therefore carries metadata and tool configuration only, and deliberately
+# declares no build backend — `pip install .` is not a supported workflow.
+# Install dependencies with `pip install -r requirements.txt`.
+
+[project]
+name = "fm-bench"
+version = "0.3.0"
+description = "A football-club management game that doubles as a benchmark for long-horizon LLM agent intelligence"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+keywords = ["benchmark", "llm-agents", "long-horizon", "agent-evaluation"]
+dependencies = [
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# provider SDKs, needed only for `--agent claude` style LLM runs
+llm = ["anthropic>=0.40", "openai>=1.40"]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://github.com/Analogy-AI/fm-bench"
+Documentation = "https://github.com/Analogy-AI/fm-bench/tree/main/docs"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# tests import `engine`, `runner`, `score` from the repo root
+pythonpath = ["."]

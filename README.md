@@ -6,16 +6,15 @@ You — or an LLM agent — take charge of a fictional mid-table football club f
 
 Humans and agents play **the same game through the same two doors**: the web client and the agent runner both go through `engine/obs/` (the only read path) and `engine/actions/` (the only write path), so information access is identical — player abilities are never revealed to either, only noisy, permanently-biased scout bands. Every web-UI control calls a real agent tool via one `/api/tool` endpoint; the coverage is not yet total in the other direction (`append_note` and `set_standing_order` are agent-only today, and the opt-in draft phase has no human screen), so a human's action set is currently a subset of an agent's. The engine is a deterministic, headless Python simulation: `seed + action log = bit-identical replay`, which is the foundation for audit and anti-cheat. Difficulty is not rule complexity — it is five structural pillars (hidden information, delayed rewards, compounding-but-recoverable death spirals, a counter-adaptive market, multi-objective board pressure) that each target a known weakness of current LLMs.
 
-> **⚠ HEADLINE RESULT PENDING REWRITE — do not ship this section as-is.**
-> This paragraph previously claimed that frontier models score *below*
-> disciplined scripted baselines. That is **no longer true** on the current
-> engine and protocol: recent campaigns measure frontier models far above every
-> blind scripted anchor, with the strongest seat approaching the privileged
-> truth-access ceiling. The corrected scripted-anchor ladder is in
-> [`docs/FM_BENCH_GUIDE.md`](docs/FM_BENCH_GUIDE.md) §5.2 (regenerate with
-> `scripts/anchor_table.py`); the superseded model numbers are flagged in §8.4.
-> A replacement claim needs to be written from the current campaign data before
-> this repository goes public.
+Frontier models now clear the bar the scripted baselines set. In the official
+20-year campaign all 15 LLM seats complete the horizon while every blind
+scripted anchor dies out, and the strongest seat reaches about 95% of the
+privileged-information ceiling (`oracle_v2`). None reaches it, and the traces
+show characteristic long-horizon failures: plans to convert idle cash into
+squad quality written down and never executed, brittle tool grounding that
+leaks value for seasons, and no lasting dominance once capable models share one
+league. What the benchmark measures is sustained decision quality over hundreds
+of steps, and that is where the models still fall short.
 
 This repository is the **open Solo benchmark**: everything needed to play the game and to run the single-agent (1-vs-15-scripted) evaluation yourself. The official multi-agent **Arena** is operated by us and is not self-run — see [Arena access](#arena-access).
 
@@ -91,7 +90,7 @@ runner/    the LLM loop: provider adapters, prompt-cache, retries, resume, spend
   - **Basic Arena** — official 1-vs-15: 1 tested model + our fixed harness + 15 scripted opponents (16 clubs). Absolute score → Capability Leaderboard. **This is the mode you can self-run here.**
   - **Multi-Agent Arena** — official 16-LLM battle royale: 16 competing agents. Relative ranking → Arena Leaderboard. **Operated by us** (see below).
   - **Open Track** — self-serve 1-vs-15 with the provider's own harness; the provider submits HMAC-signed action logs for server-side replay verification.
-- **Anchors**: random / greedy / heuristic scripted baselines, and an intentionally-privileged **oracle** (information ceiling). Note there are two: `--agent oracle` runs the calibrated `oracle_v2`, while `oracle_v0` is the older, conservative ceiling — they differ by an order of magnitude, so always say which one a quoted number refers to. Current values: [`docs/FM_BENCH_GUIDE.md`](docs/FM_BENCH_GUIDE.md) §5.2. The oracle's secondary role as a **leak alarm** ("an agent approaching oracle score is a red flag") is currently **unspecified** — with `oracle_v2` far above any blind score the test cannot fire, and it needs redefining relative to the best legitimate score. Do not treat a passing alarm as evidence of no leak.
+- **Anchors**: random / greedy / heuristic scripted baselines, and an intentionally-privileged **oracle** (information ceiling). Note there are two: `--agent oracle` runs the calibrated `oracle_v2`, while `oracle_v0` is the older, conservative ceiling — they differ by an order of magnitude, so always say which one a quoted number refers to. Current values: [`docs/FM_BENCH_GUIDE.md`](docs/FM_BENCH_GUIDE.md) §5.2. The oracle is an information-value **ceiling** (how much headroom hidden information leaves), not a live cheat tripwire on the leaderboard. Leak detection is the job of the **truth-isolation test suite** — the observation layer provably never emits a true value (checked by AST and by sweeping every read tool against `data/reference_world_seed1.json`) — backed by trace audit. Because strong legitimate play now reaches ~95% of `oracle_v2`, a high score is not itself evidence of a leak: read the oracle as a ceiling, and the isolation tests (not a score threshold) as the alarm.
 - **World size**: the standard world is 1 division × 16 teams (16 clubs). This is the engine default; the legacy two-tier world remains available via `--world 2x16`.
 
 ## Arena access

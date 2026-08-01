@@ -274,12 +274,15 @@ rather than hidden:**
    conservative ceiling is not a ceiling on this seed set — consistent with it
    being described elsewhere as soft per-seed.
 
-The Oracle is also meant to serve as a **cheat alarm** ("an agent approaching the
-Oracle has most likely found an information leak"). With `oracle_v2` at +50 and
-blind play near +3, that test can no longer fire: the threshold needs to be
-defined relative to the best *legitimate* score, not to the ceiling. Treat the
-alarm as **unspecified** until it is redefined; do not read a passing alarm as
-evidence of no leak.
+The Oracle is an information-value **ceiling**, not a live cheat tripwire. A
+high score is not itself a red flag: strong legitimate play now reaches ~95% of
+`oracle_v2` on the 20-year track, and §8.4 documents a legitimate seat crossing
+`oracle_v0`, so any absolute "approaching the Oracle" threshold would fire on
+clean runs. Leak detection is instead the **truth-isolation test suite** — the
+observation layer provably never emits a true value (AST-checked, and swept
+tool-by-tool against `data/reference_world_seed1.json`) — plus trace audit of
+how a score was earned. Read the Oracle as headroom, and the isolation tests,
+not a score threshold, as the alarm.
 
 **Methodology: difficulty is not designed, it is calibrated.** After each change we rerun all anchors,
 and it only counts if all four criteria (order preservation / discrimination / floor / non-saturation) pass. Scores are only comparable within the same track

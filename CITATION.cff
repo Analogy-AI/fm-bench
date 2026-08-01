@@ -3,11 +3,11 @@ title: "FM-Bench: a football-club management game as a long-horizon LLM agent be
 message: "If you use FM-Bench, please cite it using these metadata."
 type: software
 authors:
-  # TODO(before public release): replace with the individual author list used
-  # on the paper. The paper's author block is deliberately unset at the time
-  # this file was written; an organizational author is a placeholder, not the
-  # intended final credit.
-  - name: "Analogy AI"
+  # Institutional byline, matching the paper (\author{Analogy AI Research};
+  # the individual author list is withheld until release). Replace with the
+  # individual authors here and on the paper together, once that block is
+  # finalized.
+  - name: "Analogy AI Research"
     email: "support@analogyai.org"
 repository-code: "https://github.com/Analogy-AI/fm-bench"
 license: Apache-2.0

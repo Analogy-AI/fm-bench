@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "FM-Bench: a football-club management game as a long-horizon LLM agent benchmark"
+message: "If you use FM-Bench, please cite it using these metadata."
+type: software
+authors:
+  # TODO(before public release): replace with the individual author list used
+  # on the paper. The paper's author block is deliberately unset at the time
+  # this file was written; an organizational author is a placeholder, not the
+  # intended final credit.
+  - name: "Analogy AI"
+    email: "support@analogyai.org"
+repository-code: "https://github.com/Analogy-AI/fm-bench"
+license: Apache-2.0
+version: "0.3"
+abstract: >-
+  FM-Bench is a deterministic, headless football-club management simulation
+  used as a benchmark for long-horizon LLM agent decision-making. Agents run a
+  fictional club for 5 to 20 in-game years across hundreds of decision stops
+  under hidden information (true player ability is never revealed, only noisy
+  and permanently-biased scout bands), delayed rewards, recoverable death
+  spirals, a counter-adaptive transfer market, and multi-objective board
+  pressure. Runs are scored by an uncapped log-compressed composite over
+  honors, net-worth value added, and squad value. seed + action log = a
+  bit-identical replay, which is the basis for audit and anti-cheat.
+keywords:
+  - benchmark
+  - large-language-models
+  - llm-agents
+  - long-horizon
+  - agent-evaluation
+  - simulation

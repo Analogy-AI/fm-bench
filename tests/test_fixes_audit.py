@@ -1,7 +1,7 @@
 """Regressions for the verified audit/integrity findings (C1-C3, M1, M3).
 
 Each test is the minimal repro of a confirmed reviewer finding, inverted into
-an invariant. See docs/DESIGN_v0.1.md rulings X1/X4/X5.
+an invariant (internal design rulings X1/X4/X5).
 """
 
 import math

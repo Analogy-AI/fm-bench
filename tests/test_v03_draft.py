@@ -1,4 +1,4 @@
-"""v0.3 draft battery (DESIGN_v0.3.md change 1 + test plan).
+"""v0.3 draft battery (protocol v0.3, change 1).
 
 All scripted, $0. Covers: legacy no-op, pool shape/affordability invariants,
 validation, determinism/replay-grade hashes, drafter-strategy gate

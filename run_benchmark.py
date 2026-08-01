@@ -94,7 +94,7 @@ def build_overrides(mode: str = "easy", notebook_cap: int | None = None,
     if notebook_cap is not None:
         _deep_merge(ov, {"stops": {"notebook_max_chars": int(notebook_cap)}})
     if draft:
-        # v0.3 equal-endowment draft world (docs/DESIGN_v0.3.md change 1)
+        # v0.3 equal-endowment draft world (protocol v0.3, change 1)
         _deep_merge(ov, {"draft": {"enabled": True}})
     if sealed:
         # v0.3 sealed-bid market (DESIGN change 2)
@@ -369,6 +369,14 @@ def _run_one(agent: str, seed: int, years: int, model: str,
         key = "unused"
         if adapter is None:
             provider = provider_for_model(model)
+            # "openai" is the deliberate catch-all for OpenAI-compatible
+            # endpoints, so an unrecognized id cannot be a hard error -- but a
+            # typo'd id resolves the same silent way, and the failure only
+            # surfaces later as an opaque 404 mid-run. Say so up front.
+            if adapter_name_for_model(model) == "unknown":
+                print(f"[bench] WARNING: model id {model!r} matches no known "
+                      f"provider prefix; routing to '{provider}' as an "
+                      f"OpenAI-compatible id. Check for a typo.")
             key = find_api_key(provider)
             if key is None:
                 raise RuntimeError(
@@ -525,7 +533,7 @@ def main() -> None:
                          "(default 40; official 60)")
     ap.add_argument("--draft", action="store_true",
                     help="v0.3 equal-endowment draft world (pool of 50, "
-                         "uniform club shells; docs/DESIGN_v0.3.md)")
+                         "uniform club shells)")
     ap.add_argument("--sealed", action="store_true",
                     help="v0.3 sealed-bid market (conflict-triggered "
                          "first-price auctions; DESIGN change 2)")

@@ -1,4 +1,4 @@
-"""Equal-endowment pre-season draft (docs/DESIGN_v0.3.md change 1).
+"""Equal-endowment pre-season draft (protocol v0.3, change 1).
 
 Opt-in via params.draft.enabled; the default-off path touches no state and
 consumes no RNG, so legacy worlds stay byte-identical (tier_mix pattern).

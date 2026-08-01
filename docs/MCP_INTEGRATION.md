@@ -26,8 +26,11 @@ export OPENAI_API_KEY=sk-...
 python run_benchmark.py --agent claude --model gpt-5 --seeds 1 --years 5
 ```
 
-See `docs/RUNNING_AGENTS.md` for the provider matrix (Anthropic / OpenAI /
-Gemini adapters, key discovery, prompt caching, crash-safe resume).
+The provider matrix (Anthropic / OpenAI / Gemini adapters, key discovery,
+prompt caching, crash-safe resume) lives in the runner itself:
+`runner/providers.py` for the adapters, `runner/keys.py` for key discovery,
+and `docs/REASONING_TIERS.md` for how reasoning effort is equalized. The
+README quickstart is the shortest path to a first run.
 
 **Level B** is for providers who want their *own* reasoning scaffold (custom
 system prompt, chain-of-thought policy, memory/RAG strategy, multi-agent
@@ -58,7 +61,7 @@ never to truth.
 > - §2 — the verbatim system prompt (`rules.md`),
 > - §3 — a real stop packet dump (opening stop + a transfer-window stop),
 > - §4 — real tool-return payloads (`get_squad`, `get_transfer_market`),
-> - §5 — the full schema of all 24 tools.
+> - §5 — the full schema of all 26 tools.
 
 A provider building a Level-B harness should treat `RULES_EXPORT.md` as the
 interface spec: those packets and schemas are exactly what their model will
@@ -68,14 +71,19 @@ see and call.
 
 ## 3. The tool surface
 
-24 tools in four groups (full schemas in `RULES_EXPORT.md` §5):
+26 tools in five groups (full schemas in `RULES_EXPORT.md` §5):
 
 | Group | Count | Budget | Examples |
 |---|---|---|---|
 | query (read-only) | 11 | 30 / stop | `get_squad`, `get_player`, `get_league_table`, `get_history` |
 | action (mutating) | 10 | 10 / stop for negotiation | `make_transfer_offer`, `respond_to_offer`, `offer_contract`, `set_lineup`, `set_tactics`, `invest` |
 | note (memory) | 2 | — | `append_note`, `rewrite_notes` |
+| draft (opt-in phase) | 2 | — | `get_draft_pool`, `submit_draft` — return `no_draft` unless `params.draft.enabled` |
 | control | 1 | — | `advance` (ends the stop, returns the next packet) |
+
+The two draft tools are always present in the tool list even when the draft is
+off, so the list stays byte-identical and prompt-cacheable across world
+variants; off-phase calls return a `no_draft` error and cost nothing.
 
 The budgets are part of the test: information is not free, and spending
 queries on the decisions that actually matter is a measured skill. A provider's
@@ -89,10 +97,12 @@ default runner.
 Today the concrete extension point is the **`league/` controller interface**,
 the same abstraction that lets a human, a script, a mock, or an LLM occupy any
 of the 16 club seats (World = 1 division × 16 teams, i.e. 16 clubs). A seat is
-described by a `SeatSpec`
-(`league/state.py`) and driven by a controller (`league/controllers.py`):
+described by a `SeatSpec` and driven by a controller —
 `HumanTerminalController`, `LLMController`, `BaselineController`,
-`ScriptController`, `MockLLMController`.
+`ScriptController`, `MockLLMController`. The multi-seat Arena layer that
+defines them is operated by us and is **not** part of this open release; the
+single-seat path it wraps is `engine/game.py` + `engine/obs/` +
+`engine/actions/`, which is fully present here.
 
 A provider integrating their own harness implements the same controller
 contract: given a stop packet, decide, call tools via the engine's
@@ -183,8 +193,9 @@ final state hash or it is rejected.
   boundary; a custom harness gets bands + confidence like everyone else.
 - **Cannot change the opponents.** In the official 1v15 modes the 15 opponent
   clubs are scripted (`market_ai`) so that model A and model B face an identical
-  world — see `docs/MODES_AND_SCALING.md` for why LLM-driven opponents are
-  reserved for the Multi-Agent Arena (16-LLM) mode.
+  world; LLM-driven opponents are reserved for the Multi-Agent Arena (16-LLM)
+  mode, because scripted opponents are what makes two models' scores
+  comparable in the first place.
 - **Cannot alter the scorer or the engine.** Both are pinned and stamped into
   the result; an Open Track submission is only accepted if it replays.
 
@@ -197,9 +208,9 @@ number mean "this model manages a club well," comparably, across providers.
 
 - `docs/RULES_EXPORT.md` — the real prompt, packets, tool schemas, scoring,
   and numeric params (the interface spec).
-- `docs/RUNNING_AGENTS.md` — Level-A quick start, provider matrix, resume.
-- `docs/MODES_AND_SCALING.md` — operating modes, cost/scaling knobs, the
-  scripted-vs-LLM opponent decision.
+- `README.md` — quickstart, evaluation protocol, the mode matrix.
+- `docs/REASONING_TIERS.md` — how reasoning effort is equalized across
+  providers.
 
 ---
 
@@ -235,7 +246,9 @@ python run_benchmark.py --agent claude --model gpt-5 --seeds 1 --years 5
 ```
 
 provider matrix（Anthropic / OpenAI / Gemini adapter、key discovery、prompt
-caching、crash-safe resume）见 `docs/RUNNING_AGENTS.md`。
+caching、crash-safe resume）见 `runner/providers.py`（adapter）、
+`runner/keys.py`（key 发现）与 `docs/REASONING_TIERS.md`（推理档位对齐）；
+最短上手路径见 README quickstart。
 
 **Level B** 面向那些想要*自己的*推理脚手架（自定义 system prompt、
 chain-of-thought 策略、memory/RAG 策略、multi-agent committee 等）而非 FM Bench
@@ -264,7 +277,7 @@ chain-of-thought 策略、memory/RAG 策略、multi-agent committee 等）而非
 > - §2 —— 逐字的 system prompt（`rules.md`），
 > - §3 —— 一次真实的 stop packet dump（opening stop + 一个 transfer-window stop），
 > - §4 —— 真实的 tool-return payload（`get_squad`、`get_transfer_market`），
-> - §5 —— 全部 24 个 tool 的完整 schema。
+> - §5 —— 全部 26 个 tool 的完整 schema。
 
 构建 Level-B harness 的 provider 应把 `RULES_EXPORT.md` 当作 interface spec：
 那些 packet 和 schema 正是他们的 model 将会看到和调用的东西。
@@ -273,14 +286,18 @@ chain-of-thought 策略、memory/RAG 策略、multi-agent committee 等）而非
 
 ## 3. Tool surface
 
-24 个 tool，分四组（完整 schema 见 `RULES_EXPORT.md` §5）：
+26 个 tool，分五组（完整 schema 见 `RULES_EXPORT.md` §5）：
 
 | 组 | 数量 | Budget | 例子 |
 |---|---|---|---|
 | query（read-only） | 11 | 30 / stop | `get_squad`、`get_player`、`get_league_table`、`get_history` |
 | action（mutating） | 10 | negotiation 10 / stop | `make_transfer_offer`、`respond_to_offer`、`offer_contract`、`set_lineup`、`set_tactics`、`invest` |
 | note（memory） | 2 | — | `append_note`、`rewrite_notes` |
+| draft（可选阶段） | 2 | — | `get_draft_pool`、`submit_draft` —— 未开启 `params.draft.enabled` 时返回 `no_draft` |
 | control | 1 | — | `advance`（结束 stop，返回下一个 packet） |
+
+即使未开启 draft，这 2 个 tool 也始终出现在 tool list 中，以保证 list 字节级
+一致、可命中 prompt cache；未在 draft 阶段调用时返回 `no_draft` error，不计成本。
 
 这些 budget 本身就是测试的一部分：信息不是免费的，而把 query 花在真正重要的
 决策上是一项被度量的技能。provider 的 harness 看到与默认 runner 相同的 budget
@@ -293,7 +310,7 @@ chain-of-thought 策略、memory/RAG 策略、multi-agent committee 等）而非
 如今具体的扩展点是 **`league/` controller interface**，同一个抽象让 human、
 script、mock 或 LLM 都能占据 16 个 club seat 中的任意一个
 （World = 1 division × 16 teams，即 16 个 club）。一个 seat 由 `SeatSpec`
-（`league/state.py`）描述，并由一个 controller（`league/controllers.py`）驱动：
+（`SeatSpec`）描述，并由一个 controller 驱动：
 `HumanTerminalController`、`LLMController`、`BaselineController`、
 `ScriptController`、`MockLLMController`。
 
@@ -379,9 +396,9 @@ engine 的确定性（见 `RULES_EXPORT.md` §8）正是让 Open Track 验证成
 - **不能看到隐藏信息。** 真实 ability 永远不会越过 `obs` 边界；自定义 harness
   和其他所有人一样只拿到 band + confidence。
 - **不能改变对手。** 在官方 1v15 模式中，15 个对手 club 是 scripted
-  （`market_ai`），这样 model A 和 model B 面对完全相同的 world——为什么
-  LLM 驱动的对手保留给 Multi-Agent Arena（16-LLM）模式，见
-  `docs/MODES_AND_SCALING.md`。
+  （`market_ai`），这样 model A 和 model B 面对完全相同的 world；LLM 驱动的对手
+  保留给 Multi-Agent Arena（16-LLM）模式——正是 scripted 对手才让两个 model 的
+  分数具有可比性。
 - **不能改动 scorer 或 engine。** 两者都被 pin 住并盖进 result；一份 Open Track
   提交只有在能回放时才被接受。
 
@@ -394,6 +411,6 @@ engine 的确定性（见 `RULES_EXPORT.md` §8）正是让 Open Track 验证成
 
 - `docs/RULES_EXPORT.md` —— 真实的 prompt、packet、tool schema、scoring 以及
   数值 param（interface spec）。
-- `docs/RUNNING_AGENTS.md` —— Level-A quick start、provider matrix、resume。
-- `docs/MODES_AND_SCALING.md` —— operating mode、cost/scaling 旋钮、
+- `README.md` —— quickstart、评测协议、模式矩阵。
+- `docs/REASONING_TIERS.md` —— 跨 provider 的推理档位对齐、
   scripted-vs-LLM 对手的抉择。

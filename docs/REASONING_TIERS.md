@@ -10,8 +10,8 @@ stamps never merge**. Env overrides exist for experiments and are also
 reflected in the stamp.
 
 Verified 2026-07-14 (audit with live pings; three seats flagged for
-re-verification below). Re-check this table against provider docs on
-campaign-launch day alongside `ping_roster.py`.
+re-verification below). Re-check this table against provider docs on campaign-launch day: provider
+defaults move, and a stale row silently changes what "same effort" means.
 
 | seat | tier we run | provider recommendation / default | stamp | override env |
 |---|---|---|---|---|
@@ -62,4 +62,4 @@ Notes
 
 自愈降级会如实改戳(如 `:none-healed`),降级局绝不冒充满血局;
 2026-07-14 之前的旧池(基本未开思考)带旧戳,论文中已标注 legacy,
-与新池永不混。⚠ 三席在发车日随 `ping_roster.py` 一并对官方文档复核。
+与新池永不混。⚠ 三席需在发车日对照 provider 官方文档复核。

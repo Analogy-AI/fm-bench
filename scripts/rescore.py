@@ -62,9 +62,24 @@ def main() -> None:
     args = ap.parse_args()
     sc = load_params().score
 
+    skipped = []
     for path in args.files:
         p = pathlib.Path(path)
-        summary = json.loads(p.read_text())
+        # `rescore.py results/*.json` is the natural invocation, and results/
+        # also holds per-run manifests, arena aggregates and derived viz data.
+        # Skip anything that isn't a scored run summary instead of dying on the
+        # first one (mirrors the same guard in scripts/ladder_report.py).
+        try:
+            summary = json.loads(p.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            skipped.append((p.name, "not valid JSON"))
+            continue
+        if not isinstance(summary, dict) or "per_seed" not in summary:
+            skipped.append((p.name, "not a run summary (no per_seed)"))
+            continue
+        if not summary["per_seed"]:
+            skipped.append((p.name, "run summary with no seeds"))
+            continue
         club = summary.get("club", "mid")
         label = summary.get("model") or summary.get("agent")
         news = []
@@ -89,6 +104,13 @@ def main() -> None:
             out = p.with_suffix(".rescored.json")
             out.write_text(json.dumps(summary, indent=2, sort_keys=True))
             print(f"  wrote {out.name}")
+
+    if skipped:
+        # named, not silent: a file you expected to be re-scored and which was
+        # quietly ignored is the failure mode this guard could introduce.
+        print(f"\nskipped {len(skipped)} file(s) that are not run summaries:")
+        for name, why in skipped:
+            print(f"  {name}: {why}")
 
 
 if __name__ == "__main__":

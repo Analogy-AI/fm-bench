@@ -56,9 +56,10 @@ every tool an agent calls correspond one-to-one, generated from the same schema,
 ```
 
 **Current measured landscape** (5-year track, score_v0.2 incremental scoring, zero = "the club is worth
-the same when you hand it back as when you took over"): the god-mode oracle 4.59 > the disciplined script 2.34 > the two
-tiers of Claude models under test (0.5-1.0, hugging zero) > random flailing −5.3 (see §8.4).
-**Top models can't get high scores, and the low scores are demonstrably low for good reasons** — which is exactly the design goal.
+the same when you hand it back as when you took over"): on public seeds 1-5 the calibrated god-mode oracle
+(`oracle_v2`) sits at +50.1, the disciplined script at +3.2, and random flailing at −6.3 (§5.2).
+⚠ The LLM figures quoted in §8.4 predate the current calibration and the current opponent protocol, and are
+**superseded** — see the note there before citing any model number from this guide.
 
 **Rejected alternatives**: directly using real football data (rejected: models would memorize real players,
 only a procedurally generated brand-new fictional world per seed can rule out knowledge cheating); building two different
@@ -155,7 +156,7 @@ and diluting attention), fixed monthly turns (a transfer window can't fit ten de
 At each stop, the runner **assembles a brand-new conversation on the spot** to send to the model under test:
 
 ```
-[system]  rule book rules.md + 24 tool definitions       ← byte-level frozen, eats prompt cache
+[system]  rule book rules.md + 26 tool definitions       ← byte-level frozen, eats prompt cache
 [user]    this stop's state packet:
           situation summary (standing/cash/board confidence/burn trend)
           + inbox (items requiring a stance)
@@ -181,7 +182,7 @@ Rejected alternative: a rolling long conversation + truncation (a 20-year 400-st
 happens to leave behind" becomes an uncontrollable luck factor; per-stop reassembly + notebook turns memory management into an
 explicit, evaluable skill).
 
-### 4.3 The Tool Panel (24 tools)
+### 4.3 The Tool Panel (26 tools)
 
 | Category | Count | Examples |
 |---|---|---|
@@ -239,21 +240,46 @@ Honors and net worth can accumulate without limit, and log compression keeps sco
 
 ### 5.2 The Ladder: The Meaning of a Score Is Defined by Anchors
 
-| Anchor | Definition | 5-year measured (score_v0.2) | Status |
-|---|---|---|---|
-| random | uniform sampling of legal actions | **−5.30** | measured |
-| idle | pure AFK (eaten by inflation) | **−1.01** (and always sacked) | measured |
-| greedy | buys expensive, no long-term investment (bold but not stupid) | **−0.25** | measured |
-| heuristic | ~500-line disciplined FM script | **+2.34** | measured |
-| top model | official run with locked model id + temperature | 0.5-1.0 (two tiers of Claude, rerun scheduled) | measured |
-| human expert | 3-5 FM veterans proctored, same protocol | target: clearly above heuristic | to be organized (v1) |
-| Oracle | god-mode script (sees true values), information ceiling | **+4.59** | measured |
+Scripted anchors, re-measured on the engine as shipped. Regenerate this table
+at any time with `python scripts/anchor_table.py --seeds 1 2 3 4 5 --years 5`;
+it stamps its own provenance, so a stale copy is detectable.
 
-The Oracle also serves as a **cheat alarm**: any agent approaching the Oracle score has most likely found an information
-leak (this alarm has already fired once in practice, and the related multi-model numbers are under investigation, see §8.4).
-The gap `heuristic → strongest model` measures decision intelligence, and the gap `strongest legal player → Oracle`
-measures the value of information management (measured premium 2.25 points, about equal to the entire heuristic-greedy
-gap) — these two segments are the products this benchmark sells.
+Measured on `engine_commit b5b18de` / `params_hash 06ea9d609104` / `score_v0.2`,
+5-year track, public seeds 1-5 (mean of 5 seeds, one repeat each):
+
+| Anchor | Definition | Mean | Range (min..max) | Outcome |
+|---|---|---:|---|---|
+| `random` | uniform sampling of legal actions | **−6.30** | −14.36 .. −1.01 | 3/5 fired, 2/5 completed |
+| `idle` | pure AFK (never acts, only advances) | **+0.54** | −4.95 .. +3.41 | all fired |
+| `greedy` | buys expensive, no long-term investment | **−3.84** | −7.38 .. −0.29 | 3/5 completed, 2/5 fired |
+| `heuristic` | disciplined deterministic FM script | **+3.20** | +0.17 .. +7.97 | 4/5 fired, 1/5 completed |
+| `oracle_v0` | god-mode script, conservative historical ceiling | **+3.33** | +0.06 .. +7.01 | 3/5 completed, 2/5 fired |
+| `oracle` (`oracle_v2`) | god-mode script, calibrated ceiling | **+50.12** | +43.28 .. +58.02 | all completed |
+| human expert | 3-5 FM veterans proctored, same protocol | — | — | to be organized (v1) |
+
+Note which agent each oracle row is: `--agent oracle` runs **`oracle_v2`**
+(`baselines/oracle_v2.py`); `oracle_v0` (`baselines/oracle.py`) is the older,
+conservative ceiling and is selectable separately. They are an order of
+magnitude apart, so quoting "the oracle" without saying which one is
+meaningless.
+
+**Two properties of this ladder currently fail on this seed set, and are stated
+rather than hidden:**
+
+1. **`idle` (+0.54) outscores `greedy` (−3.84).** A null policy that only calls
+   `advance` beats an active-but-reckless one, so "order preservation" does not
+   hold across the whole ladder. `scripts/anchor_table.py` reports inversions
+   explicitly.
+2. **`oracle_v0` (+3.33) is within noise of `heuristic` (+3.20).** The
+   conservative ceiling is not a ceiling on this seed set — consistent with it
+   being described elsewhere as soft per-seed.
+
+The Oracle is also meant to serve as a **cheat alarm** ("an agent approaching the
+Oracle has most likely found an information leak"). With `oracle_v2` at +50 and
+blind play near +3, that test can no longer fire: the threshold needs to be
+defined relative to the best *legitimate* score, not to the ceiling. Treat the
+alarm as **unspecified** until it is redefined; do not read a passing alarm as
+evidence of no leak.
 
 **Methodology: difficulty is not designed, it is calibrated.** After each change we rerun all anchors,
 and it only counts if all four criteria (order preservation / discrimination / floor / non-saturation) pass. Scores are only comparable within the same track
@@ -374,6 +400,18 @@ These holes were all fixed before any official score was recorded, confirmed by 
 
 ### 8.4 LLM Measurement: Low Scores, and Demonstrably Low for Good Reasons
 
+> ⚠ **SUPERSEDED — do not cite these model numbers.** This section records an
+> early measurement round. It predates the current calibration
+> (`params_hash 06ea9d609104`), the protocol-v0.3 opponent set, and the
+> reasoning-on harness; the scripted anchors quoted in it are also stale
+> (current values in §5.2). Later campaigns on the current engine measure
+> frontier models **far above** the scripted anchors rather than below them, so
+> the section heading no longer describes the evidence. It is kept for the
+> autopsy methodology — how a failure is attributed to capability rather than
+> to rules friction — and the reruns are pending. The seed count is also
+> internally inconsistent below ("same 3 seeds" against 3/5 and "all three
+> runs"), another reason to treat only the method as current.
+
 Same track (5 years) × same 3 seeds, score_v0.2 incremental scoring (zero = handing it back at preserved value):
 
 | Player | Mean score (v0.2) | Outcome |
@@ -479,10 +517,15 @@ counterfactual evidence, every known defect is numbered on record.
 
 ---
 
-*Engine, runner, rule book, and calibration logs are all in the repo: `docs/DESIGN_v0.1.md` (the design
-master document), `docs/DECISIONS.md` (locked resolutions), `docs/CALIBRATION_LOG.md`
-(round-by-round calibration evidence), `rules.md` (the player rule book, human-machine same source),
-`docs/RUNNING_AGENTS.md` (the operating manual for plugging in any model).*
+*Engine, runner, and rule book are in this repo: `rules.md` (the player rule book, human-machine
+same source), `params.yaml` (every tunable constant), `docs/RULES_EXPORT.md` (system prompt, stop
+packet and all 26 tool schemas), `docs/SCORING.md` (the score formula), and `tests/` (the
+determinism, replay, truth-isolation and calibration invariants as executable checks).*
+
+*The internal design records this guide cites in passing — the design master document, the locked
+decision log, and the round-by-round calibration log — are **not** part of this open release. Where
+they carried a load-bearing invariant, that invariant is encoded as a test instead, which is the
+form a reader can actually verify.*
 
 ---
 
@@ -548,9 +591,10 @@ agent 调的每个 tool 一一对应,由同一份 schema 生成,信息严格平�
 ```
 
 **当前实测格局**(5 年赛道,score_v0.2 增量计分,零分 = "把俱乐部还回来时
-和接手时一样值钱"):开天眼的 oracle 4.59 > 守纪律的脚本 2.34 > 被测的
-两档 Claude 模型(0.5-1.0,贴着零)> 乱操作 −5.3(见 §8.4)。
-**顶级模型拿不到高分,而且低分低得有据可查**——这正是设计目标。
+和接手时一样值钱"):在公开 seed 1-5 上,校准后的开天眼 oracle(`oracle_v2`)
+约 +50.1,守纪律的脚本约 +3.2,乱操作约 −6.3(见 §5.2)。
+⚠ §8.4 中引用的 LLM 数字早于当前校准与当前对手协议,已**被取代**;引用本指南中
+任何模型分数前,请先阅读该处说明。
 
 **被拒绝的替代方案**:直接采用真实足球数据(被拒:模型会背真实球员,
 每个 seed 程序化生成全新虚构世界才能杜绝知识作弊);给人和 agent 做两套
@@ -647,7 +691,7 @@ Accept / Reject / 还价,伤病、续约、青训事件逐条处理;右侧标签
 每到一停,runner **现场组装一个全新对话**发给被测模型:
 
 ```
-[system]  规则书 rules.md + 24 个 tool 定义        ← 字节级冻结,吃 prompt cache
+[system]  规则书 rules.md + 26 个 tool 定义        ← 字节级冻结,吃 prompt cache
 [user]    本停状态包:
           战况摘要(排名/现金/董事会信心/烧钱趋势)
           + 收件箱(待表态事项)
@@ -673,7 +717,7 @@ Accept / Reject / 还价,伤病、续约、青训事件逐条处理;右侧标签
 碰巧留下什么"会变成不可控的运气因素;每停重组 + 笔记本把记忆管理变成
 显式的、可评的技能)。
 
-### 4.3 Tool 面板(24 个)
+### 4.3 Tool 面板(26 个)
 
 | 类别 | 数量 | 例子 |
 |---|---|---|
@@ -731,21 +775,39 @@ Accept / Reject / 还价,伤病、续约、青训事件逐条处理;右侧标签
 
 ### 5.2 阶梯:分数的意义由锚点定义
 
-| 锚点 | 定义 | 5 年实测(score_v0.2) | 状态 |
-|---|---|---|---|
-| random | 合法动作均匀采样 | **−5.30** | 已实测 |
-| idle | 纯挂机(被通胀啃食) | **−1.01**(且必被炒) | 已实测 |
-| greedy | 买贵不投长线(莽但不蠢) | **−0.25** | 已实测 |
-| heuristic | ~500 行守纪律的 FM 脚本 | **+2.34** | 已实测 |
-| 顶级模型 | 锁定 model id + 温度的官方 run | 0.5-1.0(两档 Claude,重跑排期中) | 已实测 |
-| 人类高手 | 3-5 名 FM 老手监考,同协议 | 目标:明显高于 heuristic | 待组织(v1) |
-| Oracle | 开天眼脚本(看真值),信息天花板 | **+4.59** | 已实测 |
+脚本锚点,基于当前发布代码重新实测。任何时候都可用
+`python scripts/anchor_table.py --seeds 1 2 3 4 5 --years 5` 重新生成;
+输出自带 provenance 戳,因此过期的副本可被识别。
 
-Oracle 兼任**作弊警报器**:任何 agent 逼近 Oracle 分,大概率是找到了信息
-泄漏(这条警报已经实战触发过一次,相关多模型数字正在排查,见 §8.4)。
-`heuristic → 最强模型` 的差距测决策智力,`最强合法玩家 → Oracle`
-的差距测信息管理的价值(实测溢价 2.25 分,约等于整个 heuristic-greedy
-差距)——这两段就是本 benchmark 出售的商品。
+实测环境:`engine_commit b5b18de` / `params_hash 06ea9d609104` / `score_v0.2`,
+5 年赛道,公开 seed 1-5(5 个 seed 的均值,各 1 次重复):
+
+| 锚点 | 定义 | 均值 | 区间(min..max) | 结局 |
+|---|---|---:|---|---|
+| `random` | 合法动作均匀采样 | **−6.30** | −14.36 .. −1.01 | 3/5 被炒,2/5 打完 |
+| `idle` | 纯挂机(只调用 advance) | **+0.54** | −4.95 .. +3.41 | 全部被炒 |
+| `greedy` | 买贵不投长线 | **−3.84** | −7.38 .. −0.29 | 3/5 打完,2/5 被炒 |
+| `heuristic` | 守纪律的确定性 FM 脚本 | **+3.20** | +0.17 .. +7.97 | 4/5 被炒,1/5 打完 |
+| `oracle_v0` | 开天眼脚本,保守历史天花板 | **+3.33** | +0.06 .. +7.01 | 3/5 打完,2/5 被炒 |
+| `oracle`(`oracle_v2`) | 开天眼脚本,校准后的天花板 | **+50.12** | +43.28 .. +58.02 | 全部打完 |
+| 人类高手 | 3-5 名 FM 老手监考,同协议 | — | — | 待组织(v1) |
+
+注意两个 oracle 是不同的 agent:`--agent oracle` 跑的是 **`oracle_v2`**
+(`baselines/oracle_v2.py`);`oracle_v0`(`baselines/oracle.py`)是更早的保守
+天花板,需单独指定。两者相差一个数量级,因此笼统说"oracle 多少分"没有意义。
+
+**该阶梯目前在此 seed 集上有两条性质不成立,此处如实列出:**
+
+1. **`idle`(+0.54)高于 `greedy`(−3.84)。** 只会调用 `advance` 的空策略
+   打败了积极但莽撞的策略,因此"保序"在整条阶梯上并不成立。
+   `scripts/anchor_table.py` 会显式报告这类倒挂。
+2. **`oracle_v0`(+3.33)与 `heuristic`(+3.20)差距在噪声内。** 在此 seed 集上
+   保守天花板并不构成天花板——与其他处"逐 seed 偏软"的描述一致。
+
+Oracle 还被设计为**作弊警报器**("任何 agent 逼近 Oracle 分,大概率是找到了
+信息泄漏")。但 `oracle_v2` 在 +50、盲打约在 +3,该判据已无法触发:阈值需要
+相对于**最强合法分数**来定义,而不是相对于天花板。在重新定义之前,请将该警报
+视为**未指定**;不要把"警报未响"当作没有泄漏的证据。
 
 **方法论:难度不是设计出来的,是校准出来的。**每次改动后重跑全部锚点,
 四判据(保序 / 区分度 / 地板 / 不饱和)全过才算数。分数只在同一赛道
@@ -868,6 +930,14 @@ LLM,测 A 模型和测 B 模型时面对的世界就不同了,分数直接失去
 
 ### 8.4 LLM 实测:分数低,而且低得有据可查
 
+> ⚠ **已被取代——请勿引用本节的模型分数。** 本节记录的是一轮早期实测,早于当前
+> 校准(`params_hash 06ea9d609104`)、protocol v0.3 对手集与 reasoning-on
+> harness;其中引用的脚本锚点同样过期(当前值见 §5.2)。在当前引擎上的后续
+> campaign 测得前沿模型**远高于**脚本锚点,而非低于,因此本节标题已不再描述现有
+> 证据。保留本节是为了其复盘方法论——如何把失败归因于能力而非规则摩擦——重跑
+> 待排期。下方 seed 数也自相矛盾("同 3 seeds" 与 3/5、"三次 run" 并存),这也是
+> 只应把方法论视为现行内容的原因。
+
 同赛道(5 年)× 同 3 seeds,score_v0.2 增量计分(零 = 保值交还):
 
 | 玩家 | 均分(v0.2) | 结局 |
@@ -974,7 +1044,11 @@ prompt cache 命中 80-95% 已计入。
 
 ---
 
-*引擎、runner、规则书、校准日志均在仓库内:`docs/DESIGN_v0.1.md`(设计
-母文档)、`docs/DECISIONS.md`(锁定决议)、`docs/CALIBRATION_LOG.md`
-(逐轮校准证据)、`rules.md`(玩家规则书,人机同源)、
-`docs/RUNNING_AGENTS.md`(接入任意模型的操作手册)。*
+*引擎、runner、规则书均在本仓库内:`rules.md`(玩家规则书,人机同源)、
+`params.yaml`(全部可调常量)、`docs/RULES_EXPORT.md`(system prompt、stop packet
+与全部 26 个 tool schema)、`docs/SCORING.md`(评分公式)、`tests/`(determinism、
+replay、truth-isolation 与校准不变量的可执行检查)。*
+
+*本指南顺带引用的内部设计记录——设计母文档、锁定决议日志、逐轮校准日志——
+**不**属于本次开源发布。其中承载不变量的部分已改为以测试形式固化,这也是读者
+真正能自行验证的形式。*

@@ -275,8 +275,9 @@ rather than hidden:**
    being described elsewhere as soft per-seed.
 
 The Oracle is an information-value **ceiling**, not a live cheat tripwire. A
-high score is not itself a red flag: strong legitimate play now reaches ~95% of
-`oracle_v2` on the 20-year track, and §8.4 documents a legitimate seat crossing
+high score is not itself a red flag: strong legitimate play now approaches
+`oracle_v2` on the 20-year track (internal measurement — the ladder in §5.2
+above is 5-year, so no 20-year oracle figure is published yet), and §8.4 documents a legitimate seat crossing
 `oracle_v0`, so any absolute "approaching the Oracle" threshold would fire on
 clean runs. Leak detection is instead the **truth-isolation test suite** — the
 observation layer provably never emits a true value (AST-checked, and swept
@@ -329,11 +330,11 @@ discipline, switch tactics by opponent strength), zero LLM calls. They're not sm
 the opponents' brains; it is a "management test on harsh terrain", not chess. If the opponents were adaptive
 LLMs, the world faced when testing model A and testing model B would differ, and the scores would immediately lose comparability —
 the track doesn't need to run faster than you, the track needs to be identical for everyone.
-(Model vs. model competition is another medal, see §9 Multi-Agent Arena.)
+(Model vs. model competition is another medal, see §9 Arena.)
 
 **"Won't weak scripts cap the ceiling too low"**: currently the "not smart but disciplined" environment pins both tiers of Claude
 models below baseline, the bar is far from topped out; when models eventually clear it, opponent strength is parameterized
-(can be fed stronger incrementally), the score has no ceiling, and the Multi-Agent Arena provides an adversarial dimension.
+(can be fed stronger incrementally), the score has no ceiling, and the Arena provides an adversarial dimension.
 
 ### 7.2 AI True-Value Isolation: CI-Enforced, Not a Verbal Promise
 
@@ -453,27 +454,25 @@ conclusion is out, this batch of numbers is treated entirely as provisional, wit
 About 6,300 lines of Python core (plus ~1,900 lines of Web front-end), 104 tests all green, covering:
 determinism (same seed double-run hash equality), full-tool-path replay consistency, AI true-value isolation
 AST scan, no point estimates in observations, economy calibration bands, crash-resume equivalence, golden-hash behavior
-freeze (new features like the Multi-Agent Arena may not change a single byte of Benchmark Mode behavior).
+freeze (new features like the Arena may not change a single byte of Benchmark Mode behavior).
 
 ---
 
 ## 9. Evaluation Protocol
 
-FM Bench has four locked modes:
+FM Bench has three locked modes:
 
-- **Basic Arena** (official 1v15, fixed harness, feeds the Capability Leaderboard): we run it — locked model id/temperature/prompt, **secret seed set**, mean over multiple seeds. A custom harness is forbidden.
-- **Multi-Agent Arena** (official 16-LLM, feeds the Arena Leaderboard): 16 clubs each an LLM, competing head to head. A custom harness is forbidden.
+- **Solo** (official 1v15, fixed harness, feeds the Solo leaderboard): we run it — locked model id/temperature/prompt, **secret seed set**, mean over multiple seeds. A custom harness is forbidden.
+- **Arena** (official, feeds the Arena leaderboard): 16 clubs in one world, each seat a competing agent (a seat may be a scripted anchor for calibration), competing head to head. A custom harness is forbidden.
 - **Open Track** (self-serve 1v15, your own harness — the only mode allowing a custom harness): you run it in your own environment (may plug in a full agent framework); submit an HMAC-signed action log, server-side bit-level replay verification, no leaderboard if it doesn't match. Tests an agent system rather than a bare model.
-- **8v8 Comparison** (TBD).
 
 | Mode | Who runs | Anti-cheat | Purpose |
 |---|---|---|---|
-| **Basic Arena** | we run: lock model id/temperature/prompt, **secret seed set**, mean over multiple seeds; official 1v15, fixed harness | seed secret + full logging | official cross-model comparison → Capability Leaderboard |
-| **Multi-Agent Arena** | official 16-LLM competition, fixed harness | seed secret + full logging | model-vs-model competition → Arena Leaderboard |
+| **Solo** | we run: lock model id/temperature/prompt, **secret seed set**, mean over multiple seeds; official 1v15, fixed harness | seed secret + full logging | official cross-model comparison → Solo leaderboard |
+| **Arena** | official 16-LLM competition, fixed harness | seed secret + full logging | model-vs-model competition → Arena leaderboard |
 | **Open Track** | you in your own environment (may plug in a full agent framework); self-serve 1v15, your own harness | submit HMAC-signed action log, server-side bit-level replay verification, no leaderboard if it doesn't match | testing an agent system rather than a bare model |
-| **8v8 Comparison** | TBD | TBD | TBD |
 
-**Note on official modes**: both official modes (Basic Arena, Multi-Agent Arena) forbid a custom harness — only Open Track allows one.
+**Note on official modes**: both official modes (Solo, Arena) forbid a custom harness — only Open Track allows one.
 The MCP interface (your agent connects directly to the game and manages its own context) is available under Open Track, for holistic evaluation of memory systems / multi-model collaboration.
 
 Script baselines are free to run; LLM-run cost scales with model tier, run length
@@ -490,7 +489,7 @@ and seed/repeat count, with the 80-95% prompt cache hit already factored in.
   cache 80-95%, checkpoint resume, global circuit breaker)
 - Five baselines (including the Oracle information ceiling) + four rounds of evidence-driven calibration
   (round 4 = score_v0.2 incremental scoring + result-file version stamping)
-- Web UI (playable) + single-file demo (shareable); Multi-Agent Arena (16 clubs)
+- Web UI (playable) + single-file demo (shareable); Arena (16 clubs)
 - 104 tests, golden-hash behavior freeze
 
 ### In Progress / To Do
@@ -859,11 +858,11 @@ Oracle 还被设计为**作弊警报器**("任何 agent 逼近 Oracle 分,大概
 对手的脑子;它是"恶劣地形上的经营测试",不是下棋。对手若是会自适应的
 LLM,测 A 模型和测 B 模型时面对的世界就不同了,分数直接失去可比性——
 跑道不需要比你跑得快,跑道需要对每个人一模一样。
-(模型 vs 模型的对抗是另一块奖牌,见 §9 Multi-Agent Arena。)
+(模型 vs 模型的对抗是另一块奖牌,见 §9 Arena。)
 
 **"脚本弱会不会封顶太低"**:目前"不聪明但守纪律"的环境把两档 Claude
 模型都摁在 baseline 之下,门槛远未触顶;将来模型通关了,对手强度是参数
-化的(可逐步喂强),分数无上限,且 Multi-Agent Arena 提供对抗升维。
+化的(可逐步喂强),分数无上限,且 Arena 提供对抗升维。
 
 ### 7.2 AI 真值隔离:CI 强制,不是口头承诺
 
@@ -979,27 +978,25 @@ oracle"的形态——**这正是 §5.2 所说的作弊警报器在触发**,在�
 约 6,300 行 Python 内核(另 ~1,900 行 Web 前端),104 项测试全绿,涵盖:
 确定性(同 seed 双跑 hash 相等)、全 tool 路径重放一致、AI 真值隔离
 AST 扫描、观测无点估计、经济校准区间、崩溃续跑等价、golden-hash 行为
-冻结(Multi-Agent Arena 等新功能不许改变 Benchmark Mode 的任何字节)。
+冻结(Arena 等新功能不许改变 Benchmark Mode 的任何字节)。
 
 ---
 
 ## 9. 评测协议
 
-FM Bench 有四个锁定的 mode:
+FM Bench 有三个锁定的 mode:
 
-- **Basic Arena**(官方 1v15,固定 harness,喂 Capability Leaderboard):我们跑——锁 model id/温度/prompt,**保密 seed 集**,多 seed 取均值。禁止自带 harness。
-- **Multi-Agent Arena**(官方 16-LLM,喂 Arena Leaderboard):16 个俱乐部各一个 LLM,正面对抗。禁止自带 harness。
+- **Solo**(官方 1v15,固定 harness,喂 Solo leaderboard):我们跑——锁 model id/温度/prompt,**保密 seed 集**,多 seed 取均值。禁止自带 harness。
+- **Arena**(官方,喂 Arena leaderboard):一个 world 内 16 家俱乐部,每个 seat 一个参赛 agent(其中可有一个 scripted anchor 用于校准),正面对抗。禁止自带 harness。
 - **Open Track**(自助 1v15,自带 harness——唯一允许自定义 harness 的 mode):你在自己环境跑(可接完整 agent 框架);提交 HMAC 签名动作日志,服务端 bit 级重放验证,对不上不上榜。测 agent 系统而非裸模型。
-- **8v8 Comparison**(TBD)。
 
 | 模式 | 谁跑 | 防作弊 | 用途 |
 |---|---|---|---|
-| **Basic Arena** | 我们跑:锁 model id/温度/prompt,**保密 seed 集**,多 seed 取均值;官方 1v15,固定 harness | seed 保密 + 全程日志 | 官方模型间对比 → Capability Leaderboard |
-| **Multi-Agent Arena** | 官方 16-LLM 对抗,固定 harness | seed 保密 + 全程日志 | 模型 vs 模型对抗 → Arena Leaderboard |
+| **Solo** | 我们跑:锁 model id/温度/prompt,**保密 seed 集**,多 seed 取均值;官方 1v15,固定 harness | seed 保密 + 全程日志 | 官方模型间对比 → Solo leaderboard |
+| **Arena** | 官方 16-LLM 对抗,固定 harness | seed 保密 + 全程日志 | 模型 vs 模型对抗 → Arena leaderboard |
 | **Open Track** | 你在自己环境跑(可接完整 agent 框架);自助 1v15,自带 harness | 提交 HMAC 签名动作日志,服务端 bit 级重放验证,对不上不上榜 | 测 agent 系统而非裸模型 |
-| **8v8 Comparison** | TBD | TBD | TBD |
 
-**官方 mode 说明**:两个官方 mode(Basic Arena、Multi-Agent Arena)都禁止自带 harness——只有 Open Track 允许。
+**官方 mode 说明**:两个官方 mode(Solo、Arena)都禁止自带 harness——只有 Open Track 允许。
 MCP 接入(你的 agent 直连游戏,自管上下文)在 Open Track 下可用,用于记忆系统/多模型协作的整体评测。
 
 脚本 baseline 免费运行;LLM 运行成本随模型档位、局长与 seed/重复数变化,
@@ -1016,7 +1013,7 @@ prompt cache 命中 80-95% 已计入。
   cache 80-95%、断点续跑、全局熔断)
 - 五个 baseline(含 Oracle 信息天花板)+ 四轮证据驱动校准
   (round 4 = score_v0.2 增量计分 + 结果文件版本盖章)
-- Web UI(可玩)+ 单文件 demo(可分享);Multi-Agent Arena(16 个俱乐部)
+- Web UI(可玩)+ 单文件 demo(可分享);Arena(16 个俱乐部)
 - 104 项测试,golden-hash 行为冻结
 
 ### 进行中 / 待做

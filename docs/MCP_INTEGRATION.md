@@ -139,25 +139,24 @@ For League/online runs, each seat is scored independently on the same basis.
 
 ---
 
-## 6. The four modes (comparability rules)
+## 6. The three modes (comparability rules)
 
 A provider may supply their own harness **and still land a comparable score**,
 but only in one mode — and only as long as the fixed surface stays fixed. The
 rule of thumb: *you control the agent's reasoning; you do not touch the game.*
 
-FM Bench has four modes:
+FM Bench has three modes:
 
-- **Basic Arena** — official 1v15 (one tested LLM vs 15 scripted opponents),
-  run through **our fixed harness**. Feeds the **Capability Leaderboard**. A
+- **Solo** — official 1v15 (one tested LLM vs 15 scripted opponents),
+  run through **our fixed harness**. Feeds the **Solo leaderboard**. A
   custom harness is **forbidden** here.
-- **Multi-Agent Arena** — official 16-LLM (16 LLM-driven seats in one world).
-  Feeds the **Arena Leaderboard**. A custom harness is **forbidden** here.
+- **Arena** — official 16-LLM (16 LLM-driven seats in one world).
+  Feeds the **Arena leaderboard**. A custom harness is **forbidden** here.
 - **Open Track** — self-serve 1v15 where the provider runs the benchmark in
   their own environment with **their OWN harness**. This is the **only** mode
   that allows a custom harness. Self-reported, replay-verified.
-- **8v8 Comparison** — TBD.
 
-Both official modes (Basic Arena, Multi-Agent Arena) **forbid** a custom
+Both official modes (Solo, Arena) **forbid** a custom
 harness — the harness itself is part of what makes their scores comparable.
 Only **Open Track** allows a provider to bring their own harness.
 
@@ -169,10 +168,10 @@ Only **Open Track** allows a provider to bring their own harness.
 | scorer (`score_v0.2`) | multi-agent / committee scaffolding |
 | decoding temperature for the official modes | provider-side caching, retries |
 
-- **Basic Arena / Multi-Agent Arena (official)** — FM Bench runs the model
+- **Solo / Arena (official)** — FM Bench runs the model
   through the official runner with the official prompt, fixed temperature,
   secret seed set, pinned engine version, and **our fixed harness**. Directly
-  comparable across models. These feed the Capability Leaderboard and the Arena
+  comparable across models. These feed the Solo leaderboard and the Arena
   Leaderboard respectively.
 - **Open Track** — the provider runs their own harness in their own
   environment and self-reports, submitting a signed action log
@@ -193,7 +192,7 @@ final state hash or it is rejected.
   boundary; a custom harness gets bands + confidence like everyone else.
 - **Cannot change the opponents.** In the official 1v15 modes the 15 opponent
   clubs are scripted (`market_ai`) so that model A and model B face an identical
-  world; LLM-driven opponents are reserved for the Multi-Agent Arena (16-LLM)
+  world; LLM-driven opponents are reserved for the Arena (16-LLM)
   mode, because scripted opponents are what makes two models' scores
   comparable in the first place.
 - **Cannot alter the scorer or the engine.** Both are pinned and stamped into
@@ -346,25 +345,24 @@ squad value——每个都做过 log 压缩，外加 early-settlement 的 `rho` 
 
 ---
 
-## 6. 四种模式（可比较性规则）
+## 6. 三种模式（可比较性规则）
 
 provider 可以提供自己的 harness **并仍然拿到一个可比较的 score**，但只能在
 一种模式下——且只要固定的 surface 保持固定。经验法则：*你控制 agent 的推理；
 你不碰 game。*
 
-FM Bench 有四种模式：
+FM Bench 有三种模式：
 
-- **Basic Arena** —— 官方 1v15（一个被测 LLM vs 15 个 scripted 对手），通过
-  **我们固定的 harness** 运行。喂给 **Capability Leaderboard**。此处**禁止**
+- **Solo** —— 官方 1v15（一个被测 LLM vs 15 个 scripted 对手），通过
+  **我们固定的 harness** 运行。喂给 **Solo leaderboard**。此处**禁止**
   自定义 harness。
-- **Multi-Agent Arena** —— 官方 16-LLM（16 个由 LLM 驱动的 seat 在一个 world
-  中）。喂给 **Arena Leaderboard**。此处**禁止**自定义 harness。
+- **Arena** —— 官方 16-LLM（16 个由 LLM 驱动的 seat 在一个 world
+  中）。喂给 **Arena leaderboard**。此处**禁止**自定义 harness。
 - **Open Track** —— self-serve 1v15，provider 在自己的环境中用**他们自己的
   harness** 运行 benchmark。这是**唯一**允许自定义 harness 的模式。
   self-reported，replay-verified。
-- **8v8 Comparison** —— 待定（TBD）。
 
-两个官方模式（Basic Arena、Multi-Agent Arena）都**禁止**自定义 harness——harness
+两个官方模式（Solo、Arena）都**禁止**自定义 harness——harness
 本身就是让它们的 score 可比较的一部分。只有 **Open Track** 允许 provider 自带
 harness。
 
@@ -376,10 +374,10 @@ harness。
 | scorer（`score_v0.2`） | multi-agent / committee 脚手架 |
 | 官方模式的 decoding temperature | provider 端 caching、retries |
 
-- **Basic Arena / Multi-Agent Arena（官方）** —— FM Bench 用 official prompt、
+- **Solo / Arena（官方）** —— FM Bench 用 official prompt、
   固定 temperature、secret seed set、pinned engine version 以及**我们固定的
   harness**，通过 official runner 运行 model。跨 model 直接可比较。它们分别
-  喂给 Capability Leaderboard 和 Arena Leaderboard。
+  喂给 Solo leaderboard 和 Arena leaderboard。
 - **Open Track** —— provider 在自己的环境中运行自己的 harness 并 self-report，
   提交一份签名的 action log（`actions.jsonl`），这样 FM Bench 可以**将它对
   pinned engine 回放**并确定性地验证 score（`seed + action log → bit-identical
@@ -397,7 +395,7 @@ engine 的确定性（见 `RULES_EXPORT.md` §8）正是让 Open Track 验证成
   和其他所有人一样只拿到 band + confidence。
 - **不能改变对手。** 在官方 1v15 模式中，15 个对手 club 是 scripted
   （`market_ai`），这样 model A 和 model B 面对完全相同的 world；LLM 驱动的对手
-  保留给 Multi-Agent Arena（16-LLM）模式——正是 scripted 对手才让两个 model 的
+  保留给 Arena（16-LLM）模式——正是 scripted 对手才让两个 model 的
   分数具有可比性。
 - **不能改动 scorer 或 engine。** 两者都被 pin 住并盖进 result；一份 Open Track
   提交只有在能回放时才被接受。

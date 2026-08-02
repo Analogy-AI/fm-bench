@@ -8,7 +8,7 @@ Humans and agents play **the same game through the same two doors**: the web cli
 
 Frontier models now clear the bar the scripted baselines set. In the official
 20-year campaign all 15 LLM seats complete the horizon while every blind
-scripted anchor dies out, and the strongest seat reaches about 95% of the
+scripted anchor dies out, and the strongest seat approaches the
 privileged-information ceiling (`oracle_v2`). None reaches it, and the traces
 show characteristic long-horizon failures: plans to convert idle cash into
 squad quality written down and never executed, brittle tool grounding that
@@ -87,15 +87,15 @@ runner/    the LLM loop: provider adapters, prompt-cache, retries, resume, spend
 - **Scoring**: three log-compressed, weighted channels — honors, net-worth value-added, squad value — combined into an uncapped composite, with an early-settlement factor that discounts a run you did not finish. Full detail in [`docs/SCORING.md`](docs/SCORING.md); the agent-facing rulebook is [`rules.md`](rules.md).
 - **Tiers**: `default` (cheap: few seeds, spend cap) and `official` (multi-seed × repeats, secret seed sets, locked model id / temperature / prompt).
 - **Modes**:
-  - **Basic Arena** — official 1-vs-15: 1 tested model + our fixed harness + 15 scripted opponents (16 clubs). Absolute score → Capability Leaderboard. **This is the mode you can self-run here.**
-  - **Multi-Agent Arena** — official 16-LLM battle royale: 16 competing agents. Relative ranking → Arena Leaderboard. **Operated by us** (see below).
+  - **Solo** — official 1-vs-15: 1 tested model + our fixed harness + 15 scripted opponents (16 clubs). Absolute score → Solo leaderboard. **This is the mode you can self-run here.**
+  - **Arena** — official battle royale: **16 seats in one world**, each a competing agent. A seat may be filled by a scripted anchor for calibration — the launch board ran 15 LLMs + 1 anchor. Relative ranking → Arena leaderboard. **Operated by us** (see below).
   - **Open Track** — self-serve 1-vs-15 with the provider's own harness; the provider submits HMAC-signed action logs for server-side replay verification.
-- **Anchors**: random / greedy / heuristic scripted baselines, and an intentionally-privileged **oracle** (information ceiling). Note there are two: `--agent oracle` runs the calibrated `oracle_v2`, while `oracle_v0` is the older, conservative ceiling — they differ by an order of magnitude, so always say which one a quoted number refers to. Current values: [`docs/FM_BENCH_GUIDE.md`](docs/FM_BENCH_GUIDE.md) §5.2. The oracle is an information-value **ceiling** (how much headroom hidden information leaves), not a live cheat tripwire on the leaderboard. Leak detection is the job of the **truth-isolation test suite** — the observation layer provably never emits a true value (checked by AST and by sweeping every read tool against `data/reference_world_seed1.json`) — backed by trace audit. Because strong legitimate play now reaches ~95% of `oracle_v2`, a high score is not itself evidence of a leak: read the oracle as a ceiling, and the isolation tests (not a score threshold) as the alarm.
+- **Anchors**: random / greedy / heuristic scripted baselines, and an intentionally-privileged **oracle** (information ceiling). Note there are two: `--agent oracle` runs the calibrated `oracle_v2`, while `oracle_v0` is the older, conservative ceiling — they differ by an order of magnitude, so always say which one a quoted number refers to. Current values: [`docs/FM_BENCH_GUIDE.md`](docs/FM_BENCH_GUIDE.md) §5.2. The oracle is an information-value **ceiling** (how much headroom hidden information leaves), not a live cheat tripwire on the leaderboard. Leak detection is the job of the **truth-isolation test suite** — the observation layer provably never emits a true value (checked by AST and by sweeping every read tool against `data/reference_world_seed1.json`) — backed by trace audit. Because strong legitimate play now approaches `oracle_v2` on the 20-year track — an internal measurement; the published ladder in §5.2 is 5-year, so no 20-year oracle figure is quoted here — a high score is not itself evidence of a leak: read the oracle as a ceiling, and the isolation tests (not a score threshold) as the alarm.
 - **World size**: the standard world is 1 division × 16 teams (16 clubs). This is the engine default; the legacy two-tier world remains available via `--world 2x16`.
 
 ## Arena access
 
-The **Solo benchmark in this repo is fully self-runnable** — scripted baselines are free; LLM runs need only your own provider API key. The official **Multi-Agent Arena** (16 models competing live on one world) is operated by Analogy AI on withheld worlds, so official Arena results stay comparable and verifiable. To put a model on the leaderboard or arrange an official/Arena evaluation, contact **support@analogyai.org**.
+The **Solo benchmark in this repo is fully self-runnable** — scripted baselines are free; LLM runs need only your own provider API key. The official **Arena** (16 seats competing live on one world) is operated by Analogy AI on withheld worlds, so official Arena results stay comparable and verifiable. To put a model on the leaderboard or arrange an official/Arena evaluation, contact **support@analogyai.org**.
 
 ## Documentation
 

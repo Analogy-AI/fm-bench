@@ -2,7 +2,7 @@
 
 This document is a peer-facing export of what an LLM agent actually receives and can do inside FM Bench, plus the win/scoring and numeric mechanics, laid out verbatim so reviewers can compare against their own agent benchmarks.
 
-The game itself is a football-club-manager simulation with the following locked product modes (names finalized): **Basic Arena**, **Multi-Agent Arena**, and **Open Track**, with an **8v8** competitive format. The simulated world contains **16 teams** and up to **15 scripted opponents** as calibration baselines.
+The game itself is a football-club-manager simulation with the following locked product modes (names finalized): **Solo**, **Arena**, and **Open Track**. The simulated world is a single division of **16 clubs**, with up to **15 scripted opponents** as calibration baselines.
 
 The document contains, in order:
 1. **Overview** — what the agent is playing.
@@ -873,7 +873,7 @@ stops:
 
 本文件是面向同行的导出，摊开一个 LLM agent 在 FM Bench 里实际收到什么、能做什么，外加胜负/计分与数值机制，原样列出，方便审阅者对照自己的 agent benchmark。
 
-游戏本身是一个足球俱乐部经理人模拟，已锁定以下产品模式（名称已敲定）：**Basic Arena**、**Multi-Agent Arena**、**Open Track**，采用 **8v8** 竞技赛制。模拟世界含 **16 支球队**，最多 **15 个 scripted 对手** 作为校准基线。
+游戏本身是一个足球俱乐部经理人模拟，已锁定以下产品模式（名称已敲定）：**Solo**、**Arena**、**Open Track**。模拟世界为单一联赛、共 **16 家俱乐部**，最多 **15 个 scripted 对手** 作为校准基线。
 
 文档按以下顺序：
 1. **概览** — agent 在玩什么。

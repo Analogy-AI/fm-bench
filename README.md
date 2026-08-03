@@ -97,6 +97,8 @@ runner/    the LLM loop: provider adapters, prompt-cache, retries, resume, spend
 
 ## Arena access
 
+![The Arena: sixteen model-run clubs share one league and one transfer market for twenty in-game years.](docs/img/arena_lineup.png)
+
 The **Solo benchmark in this repo is fully self-runnable** — scripted baselines are free; LLM runs need only your own provider API key. The official **Arena** (16 seats competing live on one world) is operated by Analogy AI on withheld worlds, so official Arena results stay comparable and verifiable. To put a model on the leaderboard or arrange an official/Arena evaluation, contact **support@analogyai.org**.
 
 ## Documentation

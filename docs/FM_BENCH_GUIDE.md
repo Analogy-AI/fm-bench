@@ -35,7 +35,7 @@ and dealing with a board that can fire you at any moment. At the end you get a c
 - **The interaction shape fits naturally**. A manager game is turn-based + structured decision-making, which is exactly the shape of LLM
   tool-calling. Unlike an action game, you don't have to wrestle with vision and reflexes; everything measured is decision-making.
 - **Long-horizon planning is a gap in existing benchmarks**. The vast majority of agent evaluations end within a few dozen steps;
-  here one 5-year run is about 90 decision stops, and 20 years is about 400-450. Youth investment pays off five years later; a
+  here one 5-year run is about 90 decision stops, and 20 years is about 341-416. Youth investment pays off five years later; a
   high-wage signing blows up three years later. **Credit assignment spanning hundreds of steps
   is exactly the shortcoming current LLMs are most criticized for**, and it is the core test item of this benchmark.
 - **The score has real meaning**. "Can this model run a club well for ten years" tells you far more about whether an
@@ -71,7 +71,7 @@ games for humans and agents (rejected: scores would then be incomparable, and hu
 
 ### 2.1 World Structure
 
-- **1 division × 16 teams (16 clubs)**. About 800 players, all procedurally generated
+- **1 division × 16 teams (16 clubs)**. About 470 players live at any time (16×25 senior squads plus youth academies), ~2,000 distinct over a 20-year run, all procedurally generated
   (name, nationality, position, ability, potential, injury proneness), a brand-new world per seed.
 - **Game year = 360 days** (12 months × 30 days), 30 league rounds per division per season.
   Two transfer windows, summer and winter. The engine ticks by "day": matches, injuries, training growth, buying and selling by
@@ -146,7 +146,7 @@ can go on the same leaderboard as model scores.
 
 The engine simulates by day, fast-forwarding all the way, and **stops only when something requires a player stance**: a transfer offer, a key-player serious injury,
 a contract expiry, a board warning, a monthly-report heartbeat, a season node, a bankruptcy warning. About 20 stops per season
-(12 fixed nodes + ~8 event stops), a full 5 years is about 85-90 stops, 20 years about 400-450 stops.
+(13 fixed nodes + ~6 event stops), a full 5 years is about 85-95 stops, 20 years about 341-416 stops.
 
 Rejected alternatives: fixed weekly turns (50 weeks a season, most weeks have nothing to do, purely burning tokens
 and diluting attention), fixed monthly turns (a transfer window can't fit ten deals in one month, and the off-season idles).
@@ -572,7 +572,7 @@ form a reader can actually verify.*
 - **交互形态天然契合**。经理人游戏是回合制 + 结构化决策,恰好就是 LLM
   tool-calling 的形状。不需要像动作游戏那样折腾视觉和反应,测的全是决策。
 - **长线规划是现有 benchmark 的空白**。绝大多数 agent 评测在几十步内结束;
-  这里一局 5 年约 90 个决策停、20 年约 400-450 个,青训投入五年后才回报、
+  这里一局 5 年约 90 个决策停、20 年约 341-416 个,青训投入五年后才回报、
   一次高薪签约三年后才爆雷。**跨越数百步的信用分配(credit assignment)
   正是当前 LLM 最被诟病的短板**,也是这个 benchmark 的核心测项。
 - **分数有真实含义**。"这个模型能不能把一家俱乐部经营好十年"比一个抽象的
@@ -608,7 +608,7 @@ agent 调的每个 tool 一一对应,由同一份 schema 生成,信息严格平�
 
 ### 2.1 世界结构
 
-- **1 级联赛 × 16 队(16 个俱乐部)**。约 800 名球员,全部程序化生成
+- **1 级联赛 × 16 队(16 个俱乐部)**。任意时刻约 470 名球员(16×25 一线阵容 + 青训),20 年累计约 2,000 名,全部程序化生成
   (姓名、国籍、位置、能力、潜力、伤病体质),每个 seed 一个全新世界。
 - **游戏年 = 360 天**(12 个月 × 30 天),每级联赛 30 轮周赛。
   夏冬两个转会窗。引擎按"天"tick:比赛、伤病、训练成长、AI 俱乐部的
@@ -683,7 +683,7 @@ Accept / Reject / 还价,伤病、续约、青训事件逐条处理;右侧标签
 
 引擎按天模拟,一路快进,**遇到需要玩家表态的事才停**:转会报价、主力重伤、
 合同到期、董事会警告、月报心跳、赛季节点、破产警告。每季约 20 停
-(12 个固定节点 + ~8 个事件停),5 年打满约 85-90 停,20 年约 400-450 停。
+(13 个固定节点 + ~6 个事件停),5 年打满约 85-95 停,20 年约 341-416 停。
 
 被拒绝的替代方案:固定周回合(一季 50 周,大部分周没事可做,纯烧 token
 且稀释注意力)、固定月回合(转会窗一个月十笔生意塞不下,淡季又空转)。
